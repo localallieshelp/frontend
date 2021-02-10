@@ -1,6 +1,6 @@
-# A Gatsby template: gatsby-starter-i18n-bulma
+# Save Small Businesses Hack 2021
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/cb8de327-5514-42c9-8eda-d93c4df41768/deploy-status)](https://app.netlify.com/sites/gatsby-starter-i18n-bulma/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d7f25446-66fd-49ed-9593-fd82da45067c/deploy-status)](https://app.netlify.com/sites/savesmb/deploys)
 
 You can view the starter at this link: https://gatsby-starter-i18n-bulma.netlify.com
 
