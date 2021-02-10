@@ -1,5 +1,5 @@
 ---
-id: '27'
+id: "27"
 title: "Performance artworks page introduction - performance 04 - english"
 image: /img/Persimmon.jpg
 heading: The beauty of Persimmon
@@ -23,7 +23,7 @@ info:
   artworkTitle: "Un caco tra le stelle"
   year: "2019"
   technique: "colore acrilico su tela"
-  dimensions: "70x50 cm"  
+  dimensions: "70x50 cm"
 intro:
   blurbs:
     - image: /img/Persimmon.jpg
@@ -33,7 +33,7 @@ intro:
       text: >
         Imagine climbing up a persimmon tree, what would you see once at the top?
 slider:
-  display: 'false'
+  display: "false"
   array: []
 testimonials:
   - author: ""

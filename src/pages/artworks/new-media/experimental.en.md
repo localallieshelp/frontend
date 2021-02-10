@@ -1,5 +1,5 @@
 ---
-id: '28'
+id: "28"
 title: "Experimental artworks page introdcution - english"
 image: /img/Persimmon.jpg
 heading: The beauty of Persimmon
@@ -20,7 +20,7 @@ intro:
       text: >
         Have you ever thought of creating a persimmon forest?
 slider:
-  display: 'false'
+  display: "false"
   array: []
 testimonials:
   - author: ""

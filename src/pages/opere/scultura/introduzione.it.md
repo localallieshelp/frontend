@@ -1,5 +1,5 @@
 ---
-id: '10'
+id: "10"
 title: "Pagina di opere di scultura introduzione - italiano"
 image: /img/Persimmon.jpg
 heading: La bellezza del caco
@@ -20,7 +20,7 @@ intro:
       text: >
         Per quanti alberi abbia mai visto, niente eguaglia il legno di caco...
 slider:
-  display: 'false'
+  display: "false"
   array: []
 ---
 

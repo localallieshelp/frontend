@@ -1,5 +1,5 @@
 ---
-id: '11'
+id: "11"
 title: "Performance artworks page introduction - english"
 image: /img/Persimmon.jpg
 heading: The beauty of Persimmon
@@ -20,7 +20,7 @@ intro:
       text: >
         Imagine climbing up a persimmon tree, what would you see once at the top?
 slider:
-  display: 'false'
+  display: "false"
   array: []
 testimonials:
   - author: ""

@@ -1,5 +1,5 @@
 ---
-id: '20'
+id: "20"
 title: "Pagina opere di pittura meno recenti - italiano"
 image: /img/Persimmon.jpg
 heading: La bellezza del caco
@@ -20,7 +20,7 @@ intro:
       text: >
         Molti Kaki maturi su un albero. Un bellissimo soggetto per la pittura.
 slider:
-  display: 'false'
+  display: "false"
   array: []
 testimonials:
   - author: ""

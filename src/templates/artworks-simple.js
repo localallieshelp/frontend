@@ -1,12 +1,12 @@
 import React from "react"
 import * as PropTypes from "prop-types"
-import TagList from '../components/TagList'
-import { graphql } from 'gatsby'
+import TagList from "../components/TagList"
+import { graphql } from "gatsby"
 import Layout from "../components/Layout"
-import SEO from '../components/SEO/SEO'
+import SEO from "../components/SEO/SEO"
 import Content, { HTMLContent } from "../components/Content"
-import Lightbox from '../components/Lightbox'
-import InfoCard from '../components/InfoCard'
+import Lightbox from "../components/Lightbox"
+import InfoCard from "../components/InfoCard"
 
 const ArtworkSimpleTemplate = ({
   title,
@@ -17,33 +17,31 @@ const ArtworkSimpleTemplate = ({
   images,
   info,
   tags,
-  langKey
+  langKey,
 }) => {
   const PageContent = contentComponent || Content
   return (
     <div className="content">
-     <h1 className="title animated bounceInLeft">{title}</h1>
+      <h1 className="title animated bounceInLeft">{title}</h1>
       <div className="hero">
         <Lightbox lightbox={lightbox} images={images} />
+      </div>
+      <div className="section">
+        <h2 className="has-text-weight-semibold subtitle">{heading}</h2>
+      </div>
+      <div className="columns">
+        <div className="column is-4">
+          <section className="section">
+            <InfoCard info={info} />
+            <TagList tags={tags} langKey={langKey} />
+          </section>
         </div>
-        <div className="section">
-          <h2 className="has-text-weight-semibold subtitle">
-          {heading}
-          </h2>
+        <div className="column is-6">
+          <PageContent className="section" content={content} />
         </div>
-        <div className="columns">
-         <div className="column is-4">
-           <section className="section">
-             <InfoCard info={info}/>
-              <TagList tags={tags} langKey={langKey}/>
-           </section>
-         </div>
-         <div className="column is-6">
-            <PageContent className="section" content={content} />
-         </div>
-       </div>
+      </div>
     </div>
-    )
+  )
 }
 
 ArtworkSimpleTemplate.propTypes = {
@@ -59,31 +57,32 @@ ArtworkSimpleTemplate.propTypes = {
   //images: PropTypes.arrayOf(PropTypes.object),
   lightbox: PropTypes.object,
   tags: PropTypes.array,
-  langKey: PropTypes.string
+  langKey: PropTypes.string,
 }
 
 class ArtworksSimplePage extends React.Component {
-
-render() {
-  const data = this.props.data;
-  const { frontmatter } = data.markdownRemark;
-  //const { display } = frontmatter.slider;
-  //const { array } = frontmatter.slider;
-  const images = frontmatter.lightbox.images;
-  const lightbox = frontmatter.lightbox;
-  const jsonData = data.allArticlesJson.edges[0].node.articles;
-  const { masonry } = frontmatter;
-  const image = frontmatter.image.childImageSharp.fluid.src;
-  const langKey = frontmatter.lang;
-  const tags = frontmatter.tags;
+  render() {
+    const data = this.props.data
+    const { frontmatter } = data.markdownRemark
+    //const { display } = frontmatter.slider;
+    //const { array } = frontmatter.slider;
+    const images = frontmatter.lightbox.images
+    const lightbox = frontmatter.lightbox
+    const jsonData = data.allArticlesJson.edges[0].node.articles
+    const { masonry } = frontmatter
+    const image = frontmatter.image.childImageSharp.fluid.src
+    const langKey = frontmatter.lang
+    const tags = frontmatter.tags
     return (
-      <Layout className="container" data={data} jsonData={jsonData} location={this.props.location}>
-        <SEO
-          frontmatter={frontmatter}
-          postImage={image}
-        />
+      <Layout
+        className="container"
+        data={data}
+        jsonData={jsonData}
+        location={this.props.location}
+      >
+        <SEO frontmatter={frontmatter} postImage={image} />
         <div>
-            <ArtworkSimpleTemplate
+          <ArtworkSimpleTemplate
             contentComponent={HTMLContent}
             heading={frontmatter.heading}
             title={frontmatter.title}
@@ -95,7 +94,7 @@ render() {
             info={frontmatter.info}
             tags={tags}
             langKey={langKey}
-            />
+          />
         </div>
       </Layout>
     )
@@ -113,86 +112,86 @@ ArtworksSimplePage.propTypes = {
 export default ArtworksSimplePage
 
 export const pageQuery = graphql`
-query ArtworksSimpleQuery($id: String!) {
-  site {
-    siteMetadata {
-      languages {
-        defaultLangKey
-        langs
+  query ArtworksSimpleQuery($id: String!) {
+    site {
+      siteMetadata {
+        languages {
+          defaultLangKey
+          langs
+        }
       }
     }
-  }
-  allArticlesJson(filter:{title:{eq:"home"}}){
- edges{
-   node{
-     articles {
-       en
-       it
-     }
-   }
- }
-}
-   markdownRemark(id: { eq: $id }) {
-     html
-     frontmatter {
-       id
-       title
-       tags
-       lang
-       image {
-         childImageSharp {
-           fluid(maxWidth: 1200, quality: 86) {
-             ...GatsbyImageSharpFluid
-             src
-           }
-         }
-       }
-       heading
-       description
-      info{
+    allArticlesJson(filter: { title: { eq: "home" } }) {
+      edges {
+        node {
+          articles {
+            en
+            it
+          }
+        }
+      }
+    }
+    markdownRemark(id: { eq: $id }) {
+      html
+      frontmatter {
+        id
         title
-        artworkTitle
-        year
-        technique
-        dimensions
-      }
-      masonry{
-        photos{
-          src
-          srcSet
-          sizes
-          width
-          height
-          link
-          title
-          alt
-        }
-      }
-      slider{
-        display
-        array{
-          original
-          thumbnail
-          originalAlt
-          originalTitle
-          description
-        }
-      }
-      lightbox {
-        display
-        images{
-          image {
-            childImageSharp {
-              fluid(maxWidth: 1200, quality: 85) {
-                ...GatsbyImageSharpFluid
-                src
-              }
+        tags
+        lang
+        image {
+          childImageSharp {
+            fluid(maxWidth: 1200, quality: 86) {
+              ...GatsbyImageSharpFluid
+              src
             }
           }
-          alt
+        }
+        heading
+        description
+        info {
+          title
+          artworkTitle
+          year
+          technique
+          dimensions
+        }
+        masonry {
+          photos {
+            src
+            srcSet
+            sizes
+            width
+            height
+            link
+            title
+            alt
+          }
+        }
+        slider {
+          display
+          array {
+            original
+            thumbnail
+            originalAlt
+            originalTitle
+            description
+          }
+        }
+        lightbox {
+          display
+          images {
+            image {
+              childImageSharp {
+                fluid(maxWidth: 1200, quality: 85) {
+                  ...GatsbyImageSharpFluid
+                  src
+                }
+              }
+            }
+            alt
+          }
         }
       }
     }
   }
-}
 `

@@ -1,5 +1,5 @@
 ---
-id: '23'
+id: "23"
 title: "Artworks Introduction page - Other Materials Sculpture"
 image: /img/Persimmon.jpg
 heading: The beauty of Persimmon

@@ -1,5 +1,5 @@
 ---
-id: '19'
+id: "19"
 title: "Pagina opere di pittura recenti - italiano"
 image: /img/Persimmon.jpg
 heading: La bellezza del caco
@@ -20,7 +20,7 @@ intro:
       text: >
         Molti Kaki maturi su un albero. Un bellissimo soggetto per la pittura.
 slider:
-  display: 'false'
+  display: "false"
   array: []
 testimonials:
   - author: "sconosciuto"
@@ -33,4 +33,4 @@ Di seguito le Opere pittoriche in questa collezione:
 
 [Un caco tra le stelle][19392250]
 
-  [19392250]: /it/opere/pittura/nuova/arte-astratta-caco-tra-le-stelle/ "Un caco tra le stelle"
+[19392250]: /it/opere/pittura/nuova/arte-astratta-caco-tra-le-stelle/ "Un caco tra le stelle"

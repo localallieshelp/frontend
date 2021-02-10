@@ -1,21 +1,21 @@
-const path = require('path')
-const { createFilePath } = require('gatsby-source-filesystem')
-const { fmImagesToRelative } = require('gatsby-remark-relative-images')
+const path = require("path")
+const { createFilePath } = require("gatsby-source-filesystem")
+const { fmImagesToRelative } = require("gatsby-remark-relative-images")
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
   return graphql(`
     {
-      site{
-        siteMetadata{
-          languages{
+      site {
+        siteMetadata {
+          languages {
             langs
           }
         }
       }
-      markdownRemark{
-        frontmatter{
+      markdownRemark {
+        frontmatter {
           heading
         }
       }
@@ -29,7 +29,7 @@ exports.createPages = ({ actions, graphql }) => {
             fields {
               slug
               langKey
-              tagSlugs{
+              tagSlugs {
                 tag
                 link
               }
@@ -48,16 +48,16 @@ exports.createPages = ({ actions, graphql }) => {
         }
       }
     }
-  `).then(result => {
+  `).then((result) => {
     if (result.errors) {
-      result.errors.forEach(e => console.error(e.toString()))
+      result.errors.forEach((e) => console.error(e.toString()))
       return Promise.reject(result.errors)
     }
 
     const posts = result.data.allMarkdownRemark.edges
 
-    posts.forEach(edge =>{
-      const id = edge.node.id;
+    posts.forEach((edge) => {
+      const id = edge.node.id
       createPage({
         path: edge.node.fields.slug,
         component: path.resolve(
@@ -69,7 +69,6 @@ exports.createPages = ({ actions, graphql }) => {
         },
       })
     })
-
   })
 }
 
@@ -89,10 +88,10 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
 exports.onCreateWebpackConfig = ({ getConfig, stage }) => {
   const config = getConfig()
-  if (stage.startsWith('develop') && config.resolve) {
+  if (stage.startsWith("develop") && config.resolve) {
     config.resolve.alias = {
       ...config.resolve.alias,
-      'react-dom': '@hot-loader/react-dom'
+      "react-dom": "@hot-loader/react-dom",
     }
   }
 }

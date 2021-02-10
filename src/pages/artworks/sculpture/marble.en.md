@@ -1,5 +1,5 @@
 ---
-id: '06'
+id: "06"
 title: "Artworks Introduction page - Marble Sculpture"
 image: /img/Persimmon.jpg
 heading: The beauty of Persimmon

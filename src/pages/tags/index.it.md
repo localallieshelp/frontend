@@ -1,5 +1,5 @@
 ---
-id: '14'
+id: "14"
 title: "Tags in italiano"
 description: "Pagina di tutti i post con tags in italiano"
 templateKey: allTags

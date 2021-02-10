@@ -1,5 +1,5 @@
 ---
-id: '11'
+id: "11"
 title: "Pagina di introduzione alle opere di performance - italiano"
 image: /img/Persimmon.jpg
 heading: La bellezza del caco
@@ -20,7 +20,7 @@ intro:
       text: >
         Immagina di arrampicarti su di un albero di caco, che cosa vedresti una volta in cima?
 slider:
-  display: 'false'
+  display: "false"
   array: []
 testimonials:
   - author: ""

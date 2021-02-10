@@ -1,5 +1,5 @@
 ---
-id: '21'
+id: "21"
 title: "Artworks Introduction page - Bronze Sculpture"
 image: /img/Persimmon.jpg
 heading: The beauty of Persimmon

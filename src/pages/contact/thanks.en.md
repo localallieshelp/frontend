@@ -1,5 +1,5 @@
 ---
-id: '13'
+id: "13"
 title: "Thank you page"
 description: "Thank you page"
 templateKey: message

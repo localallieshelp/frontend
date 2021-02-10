@@ -1,5 +1,5 @@
 ---
-id: '01'
+id: "01"
 title: "Pagina home italiano"
 description: "qualche contenuto"
 templateKey: home
@@ -10,11 +10,29 @@ date: "05-03-2019"
 image: /img/PersimmonHD.jpg
 heading: "Il kako è il frutto dell'artista..."
 slider:
-  display: 'slide'
+  display: "slide"
   array:
-    - { original: 'https://picsum.photos/id/1015/6000/4000.jpg', thumbnail: 'https://picsum.photos/id/1015/6000/4000.jpg', originalAlt: "Un fiordo selvaggio nel lontano Nord.", originalTitle: "Un fiordo selvaggio.", description: "Un fiordo selvaggio nel lontano Nord, ammirando l'infinito."}
-    - { original: 'https://picsum.photos/id/1019/5472/3648.jpg', thumbnail: 'https://picsum.photos/id/1019/5472/3648.jpg', originalAlt: 'Un bel tramonto sul mare.', originalTitle: 'Un bel tramonto sul mare.', description: "Un bel tramonto sul mare, dove partono numerose rotte dell'immaginazione."}
-    - { original: 'https://picsum.photos/id/1022/6000/3376.jpg', thumbnail: 'https://picsum.photos/id/1022/6000/3376.jpg', originalAlt: 'Un aurora boreale.', originalTitle: 'Un aurora boreale.', description: 'Un aurora boreale dalle sfumature verdastre.'}
+    - {
+        original: "https://picsum.photos/id/1015/6000/4000.jpg",
+        thumbnail: "https://picsum.photos/id/1015/6000/4000.jpg",
+        originalAlt: "Un fiordo selvaggio nel lontano Nord.",
+        originalTitle: "Un fiordo selvaggio.",
+        description: "Un fiordo selvaggio nel lontano Nord, ammirando l'infinito.",
+      }
+    - {
+        original: "https://picsum.photos/id/1019/5472/3648.jpg",
+        thumbnail: "https://picsum.photos/id/1019/5472/3648.jpg",
+        originalAlt: "Un bel tramonto sul mare.",
+        originalTitle: "Un bel tramonto sul mare.",
+        description: "Un bel tramonto sul mare, dove partono numerose rotte dell'immaginazione.",
+      }
+    - {
+        original: "https://picsum.photos/id/1022/6000/3376.jpg",
+        thumbnail: "https://picsum.photos/id/1022/6000/3376.jpg",
+        originalAlt: "Un aurora boreale.",
+        originalTitle: "Un aurora boreale.",
+        description: "Un aurora boreale dalle sfumature verdastre.",
+      }
 mainpitch:
   heading: "Opere con realtà aumentata"
   subheading: "Arte Interattiva"
@@ -42,6 +60,7 @@ slug: /it/
 ---
 
 # Kaki pagina home
+
 <br>
 
 Iis iis domesticarum. Legam aliquip cernantur, ea et nisi aute export. Id illum

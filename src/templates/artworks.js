@@ -1,13 +1,13 @@
 import React from "react"
 import * as PropTypes from "prop-types"
-import TagList from '../components/TagList'
-import { graphql } from 'gatsby'
+import TagList from "../components/TagList"
+import { graphql } from "gatsby"
 import Layout from "../components/Layout"
-import SEO from '../components/SEO/SEO'
+import SEO from "../components/SEO/SEO"
 import Content, { HTMLContent } from "../components/Content"
-import Slider from '../components/Slider'
-import Testimonials from '../components/Testimonials'
-import Features from '../components/Features'
+import Slider from "../components/Slider"
+import Testimonials from "../components/Testimonials"
+import Features from "../components/Features"
 
 const ArtworkTemplate = ({
   title,
@@ -20,33 +20,29 @@ const ArtworkTemplate = ({
   array,
   testimonials,
   tags,
-  langKey
+  langKey,
 }) => {
   const PageContent = contentComponent || Content
   return (
-      <div className="container content">
-       <h1 className="title animated bounceInLeft">{title}</h1>
-        <div className="hero">
-          <Slider array={array} display={display}/>
-            <div className="section">
-              <h2 className="has-text-weight-semibold subtitle">
-              {heading}
-              </h2>
-              <div className="container content">
-                {description}
-               </div>
-             </div>
-             <Features gridItems={intro.blurbs} />
-          </div>
-             <div className="container content">
-               <Testimonials testimonials={testimonials} />
-             </div>
-             <section className="section">
-               <PageContent className="container content" content={content} />
-                <TagList tags={tags} langKey={langKey}/>
-             </section>
+    <div className="container content">
+      <h1 className="title animated bounceInLeft">{title}</h1>
+      <div className="hero">
+        <Slider array={array} display={display} />
+        <div className="section">
+          <h2 className="has-text-weight-semibold subtitle">{heading}</h2>
+          <div className="container content">{description}</div>
+        </div>
+        <Features gridItems={intro.blurbs} />
       </div>
-    )
+      <div className="container content">
+        <Testimonials testimonials={testimonials} />
+      </div>
+      <section className="section">
+        <PageContent className="container content" content={content} />
+        <TagList tags={tags} langKey={langKey} />
+      </section>
+    </div>
+  )
 }
 
 ArtworkTemplate.propTypes = {
@@ -60,29 +56,30 @@ ArtworkTemplate.propTypes = {
   }),
   array: PropTypes.array,
   tags: PropTypes.array,
-  langKey: PropTypes.string
+  langKey: PropTypes.string,
 }
 
 class ArtworksPage extends React.Component {
-
-render() {
-  const data = this.props.data;
-  const { frontmatter } = data.markdownRemark;
-  const { display } = frontmatter.slider;
-  const { array } = frontmatter.slider;
-  const description = frontmatter.headingDesc;
-  const jsonData = data.allArticlesJson.edges[0].node.articles;
-  const image = frontmatter.image.childImageSharp.fluid.src;
-  const langKey = frontmatter.lang;
-  const tags = frontmatter.tags;
+  render() {
+    const data = this.props.data
+    const { frontmatter } = data.markdownRemark
+    const { display } = frontmatter.slider
+    const { array } = frontmatter.slider
+    const description = frontmatter.headingDesc
+    const jsonData = data.allArticlesJson.edges[0].node.articles
+    const image = frontmatter.image.childImageSharp.fluid.src
+    const langKey = frontmatter.lang
+    const tags = frontmatter.tags
     return (
-      <Layout className="container" data={data} jsonData={jsonData} location={this.props.location}>
-        <SEO
-          frontmatter={frontmatter}
-          postImage={image}
-        />
+      <Layout
+        className="container"
+        data={data}
+        jsonData={jsonData}
+        location={this.props.location}
+      >
+        <SEO frontmatter={frontmatter} postImage={image} />
         <div>
-            <ArtworkTemplate
+          <ArtworkTemplate
             contentComponent={HTMLContent}
             heading={frontmatter.heading}
             title={frontmatter.title}
@@ -94,7 +91,7 @@ render() {
             testimonials={frontmatter.testimonials}
             tags={tags}
             langKey={langKey}
-            />
+          />
         </div>
       </Layout>
     )
@@ -112,73 +109,73 @@ ArtworksPage.propTypes = {
 export default ArtworksPage
 
 export const pageQuery = graphql`
-query ArtworksQuery($id: String!) {
-  site {
-    siteMetadata {
-      languages {
-        defaultLangKey
-        langs
+  query ArtworksQuery($id: String!) {
+    site {
+      siteMetadata {
+        languages {
+          defaultLangKey
+          langs
+        }
       }
     }
-  }
-  allArticlesJson(filter:{title:{eq:"home"}}){
- edges{
-   node{
-     articles {
-       en
-       it
-     }
-   }
- }
-}
-   markdownRemark(id: { eq: $id }) {
-     html
-     frontmatter {
-       id
-       title
-       description
-       tags
-       lang
-       image {
-         childImageSharp {
-           fluid(maxWidth: 2048, quality: 100) {
-             ...GatsbyImageSharpFluid
-             src
-           }
-         }
-       }
-       heading
-       headingDesc
-       description
-       testimonials{
-         author
-         quote
-       }
-       intro {
-         blurbs {
-           image {
-             childImageSharp {
-               fluid(maxWidth: 240, quality: 64) {
-                 ...GatsbyImageSharpFluid
-               }
-             }
-           }
-          heading
-          link
-          text
-         }
+    allArticlesJson(filter: { title: { eq: "home" } }) {
+      edges {
+        node {
+          articles {
+            en
+            it
+          }
+        }
       }
-      slider{
-        display
-        array{
-          original
-          thumbnail
-          originalAlt
-          originalTitle
-          description
+    }
+    markdownRemark(id: { eq: $id }) {
+      html
+      frontmatter {
+        id
+        title
+        description
+        tags
+        lang
+        image {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+              src
+            }
+          }
+        }
+        heading
+        headingDesc
+        description
+        testimonials {
+          author
+          quote
+        }
+        intro {
+          blurbs {
+            image {
+              childImageSharp {
+                fluid(maxWidth: 240, quality: 64) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            heading
+            link
+            text
+          }
+        }
+        slider {
+          display
+          array {
+            original
+            thumbnail
+            originalAlt
+            originalTitle
+            description
+          }
         }
       }
     }
   }
-}
 `

@@ -1,5 +1,5 @@
 ---
-id: '18'
+id: "18"
 title: "Pagina introduttiva sulle opere artistiche pittoriche"
 image: /img/Persimmon.jpg
 heading: La bellezza del caco

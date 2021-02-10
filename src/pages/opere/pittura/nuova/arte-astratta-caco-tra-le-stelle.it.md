@@ -1,5 +1,5 @@
 ---
-id: '17'
+id: "17"
 title: "Arte astratta | Un caco tra le stelle"
 image: /img/Persimmon.jpg
 heading: "La bellezza della Natura nell'Arte"
@@ -23,7 +23,7 @@ info:
   artworkTitle: "Un caco tra le stelle"
   year: "2019"
   technique: "colore acrilico su tela"
-  dimensions: "70x50 cm"  
+  dimensions: "70x50 cm"
 ---
 
 Est sunt occaecat a quamquam ad sunt excepteur. Deserunt concursionibus est

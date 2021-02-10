@@ -1,5 +1,5 @@
 ---
-id: '26'
+id: "26"
 title: "Pagina sulla performance 03 - italiano"
 image: /img/Persimmon.jpg
 heading: La bellezza del caco
@@ -23,7 +23,7 @@ info:
   artworkTitle: "Un caco tra le stelle"
   year: "2019"
   technique: "colore acrilico su tela"
-  dimensions: "70x50 cm"  
+  dimensions: "70x50 cm"
 intro:
   blurbs:
     - image: /img/Persimmon.jpg
@@ -33,7 +33,7 @@ intro:
       text: >
         Immagina di arrampicarti su di un albero di caco, che cosa vedresti una volta in cima?
 slider:
-  display: 'false'
+  display: "false"
   array: []
 testimonials:
   - author: ""

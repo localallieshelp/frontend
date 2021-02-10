@@ -1,5 +1,5 @@
 ---
-id: '02'
+id: "02"
 templateKey: blog-index
 title: Blog index page.
 date: 2019-03-24

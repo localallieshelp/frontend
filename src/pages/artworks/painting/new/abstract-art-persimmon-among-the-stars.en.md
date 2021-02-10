@@ -1,5 +1,5 @@
 ---
-id: '17'
+id: "17"
 title: "Abstract Art | A Persimmon among the stars"
 image: /img/Persimmon.jpg
 heading: "The Beauty of the Nature"
@@ -23,7 +23,7 @@ info:
   artworkTitle: "A Persimmon among the stars"
   year: "2019"
   technique: "acrylic color on canvas"
-  dimensions: "70x50 cm"  
+  dimensions: "70x50 cm"
 ---
 
 Est sunt occaecat a quamquam ad sunt excepteur. Deserunt concursionibus est

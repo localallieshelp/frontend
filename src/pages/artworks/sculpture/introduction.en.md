@@ -1,5 +1,5 @@
 ---
-id: '10'
+id: "10"
 title: "Sculpture artworks introduction page - english"
 image: /img/Persimmon.jpg
 heading: The beauty of Persimmon
@@ -20,7 +20,7 @@ intro:
       text: >
         No matter how many trees I've ever seen, nothing matches persimmon wood ...
 slider:
-  display: 'false'
+  display: "false"
   array: []
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: '15'
+id: "15"
 templateKey: blog-post
 title: Il mondo di Kaki
 date: 2019-05-03

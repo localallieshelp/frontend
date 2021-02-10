@@ -1,5 +1,5 @@
 ---
-id: '06'
+id: "06"
 title: "Pagina introduttiva sulle opere di scultura in marmo"
 image: /img/Persimmon.jpg
 heading: La bellezza del caco

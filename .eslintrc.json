@@ -1,8 +1,13 @@
 {
   "env": {
-    "browser": true
+    "browser": true,
+    "es6": true
   },
   "globals": {
     "graphql": false
+  },
+  "plugins": ["react"],
+  "parserOptions": {
+    "sourceType": "module"
   }
 }

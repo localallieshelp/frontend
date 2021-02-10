@@ -1,5 +1,5 @@
 ---
-id: '21'
+id: "21"
 title: "Pagina introduttiva sulle opere di scultura in bronzo"
 image: /img/Persimmon.jpg
 heading: La bellezza del caco

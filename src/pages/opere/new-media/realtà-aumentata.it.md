@@ -1,5 +1,5 @@
 ---
-id: '12'
+id: "12"
 title: "Pagina di opere di realtà aumentata - italiano"
 image: /img/Persimmon.jpg
 heading: La bellezza del caco
@@ -20,7 +20,7 @@ intro:
       text: >
         Hai mai pensato di creare un bosco di cachi?
 slider:
-  display: 'false'
+  display: "false"
   array: []
 testimonials:
   - author: ""

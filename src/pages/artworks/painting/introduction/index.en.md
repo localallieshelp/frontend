@@ -1,5 +1,5 @@
 ---
-id: '18'
+id: "18"
 title: "Artworks Painting Introduction page"
 image: /img/Persimmon.jpg
 heading: The beauty of Persimmon
@@ -35,6 +35,7 @@ intro:
       text: >
         If only I could eat one of those fruits ...
 ---
+
 ## Artworks Painting introduction
 
 Probant et summis offendit se de ubi consectetur, laborum est cillum, si e
