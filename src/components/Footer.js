@@ -23,7 +23,7 @@ const Footer = class extends React.Component {
         <div className="content has-text-centered">
           <img
             src={logo}
-            alt="Kaldi"
+            alt="Save Small Businesses"
             style={{ width: "14em", height: "5em" }}
           />
         </div>
@@ -59,7 +59,7 @@ const Footer = class extends React.Component {
                           "/"
                         }
                       >
-                        <FormattedMessage id="artworks" />
+                        <FormattedMessage id="businesses" />
                       </Link>
                     </li>
                     <li>
@@ -132,4 +132,5 @@ const Footer = class extends React.Component {
   }
 }
 
+Footer.displayName = "Footer"
 export default Footer

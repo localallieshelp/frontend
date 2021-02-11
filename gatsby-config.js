@@ -2,12 +2,12 @@ const languages = require("./src/data/languages")
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby with Bulma and i18n`,
+    title: `SaveSMB`,
     description: `
   This is a blog theme. The description will be showed in SEO results on pages
   without their own descriptions.
 `,
-    siteUrl: "https://gatsby-starter-i18n-bulma.netlify.app",
+    siteUrl: "https://savesmb.netlify.app",
     image: "img.jpg",
     author: {
       name: "Your Name",
@@ -131,8 +131,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `KAKI`,
-        short_name: `Kaki`,
+        name: `SaveSMB`,
+        short_name: `SaveSMB`,
         start_url: `/`,
         background_color: `#fff`,
         theme_color: `#D64000`,

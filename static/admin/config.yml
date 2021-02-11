@@ -3,11 +3,42 @@ backend:
   branch: master
   accept_roles: owner
 
+local_backend: true
+
 media_folder: static/img
 public_folder: /img
 publish_mode: editorial_workflow # Enable drafts
 
 collections:
+  - label: "Businesses"
+    extension: en.md
+    format: frontmatter
+    name: "businesses"
+    folder: "src/pages/businesses"
+    create: true
+    filter: { field: "lang", value: "en" }
+    fields:
+      - { label: "Id", name: id, widget: number }
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "business",
+        }
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - {
+          label: "Language",
+          name: "lang",
+          widget: "select",
+          options: ["en", "cn", "it"],
+        }
+      - { label: "Path", name: "path", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Address", name: "address", widget: "markdown" }
+      - { label: "Homepage Link", name: "homepage-link", widget: "string" }
+
   - label: "Blog in English"
     extension: en.md
     format: frontmatter
@@ -42,6 +73,7 @@ collections:
         }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Tags", name: "tags", widget: "list" }
+
   - label: "Blog in Italiano"
     extension: it.md
     format: frontmatter
@@ -76,6 +108,7 @@ collections:
         }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Tags", name: "tags", widget: "list" }
+
   - label: "Articles tree"
     extension: json
     format: json

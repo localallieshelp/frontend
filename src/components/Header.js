@@ -4,11 +4,9 @@ import logo from "../img/logo.svg"
 import {
   FaHome,
   FaQuestion,
-  FaImage,
   FaPenAlt,
   FaAmericanSignLanguageInterpreting,
 } from "react-icons/fa"
-import SelectLanguage from "./SelectLanguage"
 import { FormattedMessage } from "react-intl"
 import menuTree from "../data/menuTree"
 import RootMenu from "../components/RootMenu"
@@ -72,7 +70,11 @@ const Header = class extends React.Component {
           <div className="container">
             <div className="navbar-brand">
               <Link to="/" className="navbar-item" title="Logo">
-                <img src={logo} alt="Kaldi" style={{ width: "88px" }} />
+                <img
+                  src={logo}
+                  alt="Save Small Businesses"
+                  style={{ width: "88px" }}
+                />
               </Link>
               {/* Hamburger menu */}
               <div className="navbar-burger burger" data-target="navMenu">
@@ -110,20 +112,6 @@ const Header = class extends React.Component {
                   <FaQuestion className="menu-names" />{" "}
                   <FormattedMessage id="about" />
                 </Link>
-                <Link
-                  className="navbar-item"
-                  to={"/" + props.langKey + "/" + menuTree.blog[sel] + "/"}
-                >
-                  <FaPenAlt className="menu-names" />{" "}
-                  <FormattedMessage id="blog" />
-                </Link>
-                <Link
-                  className="navbar-item"
-                  to={"/" + props.langKey + "/" + menuTree.contact[sel] + "/"}
-                >
-                  <FaAmericanSignLanguageInterpreting className="menu-names" />{" "}
-                  <FormattedMessage id="contact" />
-                </Link>
               </div>
               <div className="navbar-end">
                 <div className="navbar-item  has-text-centered">
@@ -138,4 +126,5 @@ const Header = class extends React.Component {
   }
 }
 
+Header.displayName = "Header"
 export default Header
