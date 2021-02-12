@@ -19,29 +19,6 @@ $pinterest-color: #FF0A12
 $vimeo-color: #47FF33
 $linkedin-color: #57F9FF
 
-#navMenu
-  background-color: $kaki-red-invert
-
-.navbar .navbar-menu
-  box-shadow:none !important
-
-.nested.dropdown
-  &:hover > .dropdown-menu
-    display: block
-
-  .dropdown-menu
-    top: -15px
-    margin-left: 100%
-
-  .dropdown-trigger
-
-    button
-      padding: 0px 0px
-      border: 0px
-      font-size: 14px
-      font-weight: 400
-      height: 2em
-
 .is-vertical-center
   display: flex
   align-items: center
@@ -167,3 +144,125 @@ footer.footer
     padding: 5%
 
 @import "~bulma"
+
+
+/* Custom SASS */
+
+/* Navbar */
+
+.navbar .container 
+  max-width: 95%;
+  margin: 0 auto;
+
+.navbar 
+  height: 6rem;
+
+#navMenu
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 80% 20%;
+
+  a.navbar-item
+    padding: 0.5rem 1.75rem;
+
+
+/* Home */
+
+.padded-width-image
+  width: 95%;
+  margin: 0 auto;
+  height: 500px
+  background-size: cover
+  background-position: bottom
+  display: flex
+  justify-content: center
+  align-items: center
+
+.padded-width-container
+  width: 95%;
+  margin: 0 auto;
+
+.grid-section
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 4rem;
+
+section.initiative
+  padding: 3rem 5rem;
+
+  .initiative-items 
+    text-align: center;
+
+    img
+      width: 100%;
+      height: 300px;
+
+    h3 
+      margin: 5px 0px
+      text-align: left;
+
+    p
+      text-align: left;
+
+/* Footer */
+
+footer.footer
+  padding: 3rem 2rem;
+  position: relative;
+
+  .grid-section.inner-footer
+    grid-template-columns: 20% 75%;
+
+    .grid-section
+      grid-template-columns: 65% 35%;
+      column-gap: 0px;
+
+      .menu.grid-section
+        grid-template-columns: auto;
+        padding: 0px 6rem;
+
+        a.navbar-item
+          justify-content: center;
+  
+  .level
+    right: 6rem;
+    position: absolute;
+    bottom: 1rem;
+
+  section.copyright
+    padding: 20px;
+    text-align: center;
+
+
+/* About Page */
+
+.about 
+  padding: 0px !important;
+
+  .padded-width-container
+    width: 100%;
+
+  .story
+    .grid-section
+      grid-template-columns: 45% 50%;
+
+      img
+        width: 100%;
+        height: 400px;
+
+  .team
+  padding: 3rem 5rem;
+
+  .team-items 
+    text-align: center;
+
+    img
+      width: 100%;
+      height: 300px;
+
+    h3 
+      margin: 5px 0px
+      text-align: left;
+
+    p
+      text-align: left;

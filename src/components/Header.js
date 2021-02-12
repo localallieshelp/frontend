@@ -84,33 +84,18 @@ const Header = class extends React.Component {
               </div>
             </div>
             <div id="navMenu" className="navbar-menu">
-              <div className="navbar-start has-text-centered">
+              <div className="navbar-end has-text-centered">
                 <Link className="navbar-item" to={"/" + props.langKey}>
-                  <FaHome className="menu-names" />{" "}
-                  <FormattedMessage id="home" />
+                  <FormattedMessage id="Home" />
                 </Link>
-                <BrowserView viewClassName="navbar-item has-dropdown is-hoverable">
-                  <RootMenu
-                    langKey={props.langKey}
-                    base={
-                      "/" + props.langKey + "/" + menuTree.artworks[sel] + "/"
-                    }
-                  />
-                </BrowserView>
-                <MobileView viewClassName="navbar-item has-dropdown is-hoverable">
-                  <RootMenuMobile
-                    langKey={props.langKey}
-                    base={
-                      "/" + props.langKey + "/" + menuTree.artworks[sel] + "/"
-                    }
-                  />
-                </MobileView>
+                <Link className="navbar-item" to={"/" + props.langKey}>
+                  <FormattedMessage id="Discover businesses" />
+                </Link>
                 <Link
                   className="navbar-item"
                   to={"/" + props.langKey + "/" + menuTree.about[sel] + "/"}
                 >
-                  <FaQuestion className="menu-names" />{" "}
-                  <FormattedMessage id="about" />
+                  <FormattedMessage id="Our Story" />
                 </Link>
               </div>
               <div className="navbar-end">

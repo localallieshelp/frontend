@@ -1,17 +1,17 @@
 import React from "react"
 import * as PropTypes from "prop-types"
-import TagList from "../components/TagList"
-import { graphql } from "gatsby"
+import TagList from '../components/TagList'
+import { graphql } from 'gatsby'
 import Layout from "../components/Layout"
-import SEO from "../components/SEO/SEO"
+import SEO from '../components/SEO/SEO'
 import Content, { HTMLContent } from "../components/Content"
-import IconMenu from "../components/IconMenu"
-import iconLinks from "../data/artworksMenu"
-import select from "../components/utils"
-import Slider from "../components/Slider"
-import Banner from "../components/Banner"
-import Testimonials from "../components/Testimonials"
-import CardSlide from "../components/CardSlide"
+import IconMenu from '../components/IconMenu'
+import iconLinks from '../data/artworksMenu'
+import select from '../components/utils'
+import Slider from '../components/Slider'
+import Banner from '../components/Banner'
+import Testimonials from '../components/Testimonials'
+import CardSlide from '../components/CardSlide'
 
 const HomePageTemplate = ({
   imageCardSL,
@@ -30,41 +30,40 @@ const HomePageTemplate = ({
   thirdLink,
   fourthLink,
   tags,
-  langKey,
+  langKey
 }) => {
   const PageContent = contentComponent || Content
 
   return (
-    <div>
+    <div className="home">
       <div
-        className="full-width-image margin-top-0"
+        className="padded-width-image margin-top-0"
         style={{
-          backgroundImage: `url(${
-            !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-          })`,
+          backgroundImage: `url(${!!image.childImageSharp ? image.childImageSharp.fluid.src : image
+            })`,
           backgroundPosition: `top left`,
           backgroundAttachment: `fixed`,
         }}
       >
         <div
           style={{
-            display: "flex",
-            height: "150px",
-            lineHeight: "1",
-            justifyContent: "space-around",
-            alignItems: "left",
-            flexDirection: "column",
+            display: 'flex',
+            height: '150px',
+            lineHeight: '1',
+            justifyContent: 'space-around',
+            alignItems: 'left',
+            flexDirection: 'column',
           }}
         >
           <h1
             className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen is-centered animated bounceInLeft"
             style={{
               boxShadow:
-                "rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px",
-              backgroundColor: "rgb(255, 68, 0)",
-              color: "white",
-              lineHeight: "1",
-              padding: "0.25em",
+                'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
+              backgroundColor: 'rgb(255, 68, 0)',
+              color: 'white',
+              lineHeight: '1',
+              padding: '0.25em',
             }}
           >
             {title}
@@ -73,40 +72,48 @@ const HomePageTemplate = ({
             className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen animated bounceInRight"
             style={{
               boxShadow:
-                "rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px",
-              backgroundColor: "rgb(255, 68, 0)",
-              color: "white",
-              lineHeight: "1",
-              padding: "0.25em",
+                'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
+              backgroundColor: 'rgb(255, 68, 0)',
+              color: 'white',
+              lineHeight: '1',
+              padding: '0.25em',
             }}
           >
             {heading}
           </h3>
         </div>
       </div>
-      <Slider array={array} display={display} />
-      <Banner main={main.image1} mainpitch={mainpitch} />
-      <div className="container section">
-        <IconMenu
-          firstLink={firstLink}
-          secondLink={secondLink}
-          thirdLink={thirdLink}
-          fourthLink={fourthLink}
-        />
+      <div className="padded-width-container">
+        <section class="section initiative">
+          <h3>Our Initiative</h3>
+          <div className="grid-section">
+            <div className="initiative-items">
+              <img></img>
+              <h3>Heading</h3>
+              <p>Copy text goes here maybe some graphics
+              ...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+              <button class="button">Button</button>
+            </div>
+            <div className="initiative-items">
+              <img></img>
+              <h3>Heading</h3>
+              <p>Copy text goes here maybe some graphics
+              ...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+              <button class="button">Button</button>
+            </div>
+            <div className="initiative-items">
+              <img></img>
+              <h3>Heading</h3>
+              <p>Copy text goes here maybe some graphics
+              ...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+              <button class="button">Button</button>
+            </div>
+          </div>
+        </section>
       </div>
-      <div className="section">
-        <Testimonials testimonials={testimonials} />
-      </div>
-      <CardSlide
-        imageInfo={imageCardSL}
-        name={imageCardSL.name}
-        description={imageCardSL.description}
-        website={imageCardSL.website}
-      />
-      <section className="section">
-        <PageContent className="container content" content={content} />
-        <TagList tags={tags} langKey={langKey} />
-      </section>
     </div>
   )
 }
@@ -117,34 +124,33 @@ HomePageTemplate.propTypes = {
   content: PropTypes.string,
   contentComponent: PropTypes.func,
   tags: PropTypes.array,
-  langKey: PropTypes.string,
+  langKey: PropTypes.string
 }
 
 class HomePage extends React.Component {
+
   render() {
-    let data
-    let dataMarkdown = []
+    let data;
+    let dataMarkdown = [];
     if (this.props.data !== null) {
       dataMarkdown = this.props.data.markdownRemark
-      data = this.props.data
+      data = this.props.data;
     }
-    const jsonData = data.allArticlesJson.edges[0].node.articles
+    const jsonData = data.allArticlesJson.edges[0].node.articles;
     const langKey = dataMarkdown.frontmatter.lang
-    const { frontmatter } = data.markdownRemark
-    const { display } = frontmatter.slider
-    const { array } = frontmatter.slider
-    const sel = select(langKey)
-    const image = frontmatter.image.childImageSharp.fluid.src
-    const tags = frontmatter.tags
+    const { frontmatter } = data.markdownRemark;
+    const { display } = frontmatter.slider;
+    const { array } = frontmatter.slider;
+    const sel = select(langKey);
+    const image = frontmatter.image.childImageSharp.fluid.src;
+    const tags = frontmatter.tags;
 
     return (
-      <Layout
-        className="content"
-        data={this.props.data}
-        jsonData={jsonData}
-        location={this.props.location}
-      >
-        <SEO frontmatter={frontmatter} postImage={image} />
+      <Layout className="content" data={this.props.data} jsonData={jsonData} location={this.props.location}>
+        <SEO
+          frontmatter={frontmatter}
+          postImage={image}
+        />
         <div>
           <HomePageTemplate
             imageCardSL={dataMarkdown.frontmatter.imageCardSL}
@@ -158,10 +164,6 @@ class HomePage extends React.Component {
             contentComponent={HTMLContent}
             title={dataMarkdown.frontmatter.title}
             content={dataMarkdown.html}
-            firstLink={iconLinks.painting[sel]}
-            secondLink={iconLinks.sculpture[sel]}
-            thirdLink={iconLinks.performance[sel]}
-            fourthLink={iconLinks.interactivity[sel]}
             tags={tags}
             langKey={langKey}
           />
@@ -188,17 +190,17 @@ export const pageQuery = graphql`
         }
       }
     }
-    allArticlesJson(filter: { title: { eq: "home" } }) {
-      edges {
-        node {
-          articles {
-            en
-            it
-          }
-        }
-      }
-    }
-    markdownRemark(id: { eq: $id }) {
+    allArticlesJson(filter:{title:{eq:"home"}}){
+   edges{
+     node{
+       articles {
+         en
+         it
+       }
+     }
+   }
+ }
+    markdownRemark(id: {eq: $id}) {
       html
       frontmatter {
         id
@@ -222,9 +224,9 @@ export const pageQuery = graphql`
           description
           link
         }
-        slider {
+        slider{
           display
-          array {
+          array{
             original
             thumbnail
             originalAlt
@@ -232,7 +234,7 @@ export const pageQuery = graphql`
             description
           }
         }
-        imageCardSL {
+        imageCardSL{
           alt
           image {
             childImageSharp {
@@ -247,15 +249,15 @@ export const pageQuery = graphql`
         }
         main {
           image1 {
-            alt
-            image {
-              childImageSharp {
-                fluid(maxWidth: 500, quality: 90) {
-                  ...GatsbyImageSharpFluid
+              alt
+              image {
+                childImageSharp {
+                  fluid(maxWidth: 500, quality: 90) {
+                    ...GatsbyImageSharpFluid
+                  }
                 }
               }
-            }
-          }
+           }
         }
         testimonials {
           author

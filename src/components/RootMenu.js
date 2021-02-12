@@ -31,7 +31,6 @@ const RootMenu = (props) => {
         className="navbar-link"
         to={"/" + props.langKey + "/" + menuTree.artworks[sel] + "/"}
       >
-        <FaImage className="menu-names" />
         <FormattedMessage id="artworks" />
       </Link>
       <div className="navbar-dropdown">

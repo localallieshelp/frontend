@@ -15,8 +15,47 @@ const AboutPageTemplate = ({
 }) => {
   const PageContent = contentComponent || Content
   return (
-    <div className="container content">
-      <h1 className="title animated bounceInLeft">{title}</h1>
+    <div className="content about">
+      <div className="padded-width-container">
+        <section class="section story">
+          <div className="grid-section">
+            <div>
+              <img />
+            </div>
+            <div>
+              <h3>Our Story</h3>
+              <p>Copy text goes here maybe some graphics
+              ...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div className="padded-width-container">
+        <section class="section team">
+          <h3>Our Team</h3>
+          <div className="grid-section">
+            <div className="team-items">
+              <img></img>
+              <h3>Name</h3>
+              <p>Title:
+            </p>
+            </div>
+            <div className="team-items">
+              <img></img>
+              <h3>Name</h3>
+              <p>Title:
+            </p>
+            </div>
+            <div className="team-items">
+              <img></img>
+              <h3>Name</h3>
+              <p>Title:
+            </p>
+            </div>
+          </div>
+        </section>
+      </div>
       <section className="section">
         <PageContent className="container content" content={content} />
         <TagList tags={tags} langKey={langKey} />

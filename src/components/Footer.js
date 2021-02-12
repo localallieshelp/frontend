@@ -20,92 +20,33 @@ const Footer = class extends React.Component {
     const sel = select(props.langKey)
     return (
       <footer className="footer has-background-black has-text-white-ter">
-        <div className="content has-text-centered">
-          <img
-            src={logo}
-            alt="Save Small Businesses"
-            style={{ width: "14em", height: "5em" }}
-          />
-        </div>
-        <div className="content has-text-centered has-background-black has-text-white-ter">
-          <div className="container has-background-black has-text-white-ter">
-            <div className="columns">
-              <div className="column is-4">
-                <section className="menu">
-                  <ul className="menu-list">
-                    <li>
-                      <Link to={"/" + props.langKey} className="navbar-item">
-                        <FormattedMessage id="home" />
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        className="navbar-item"
-                        to={
-                          "/" + props.langKey + "/" + menuTree.about[sel] + "/"
-                        }
-                      >
-                        <FormattedMessage id="about" />
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        className="navbar-item"
-                        to={
-                          "/" +
-                          props.langKey +
-                          "/" +
-                          menuTree.artworks[sel] +
-                          "/"
-                        }
-                      >
-                        <FormattedMessage id="businesses" />
-                      </Link>
-                    </li>
-                    <li>
-                      <a
-                        className="navbar-item"
-                        href="/admin/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Admin
-                      </a>
-                    </li>
-                  </ul>
-                </section>
-              </div>
-              <div className="column is-4">
-                <section>
-                  <ul className="menu-list">
-                    <li>
-                      <Link
-                        className="navbar-item"
-                        to={
-                          "/" + props.langKey + "/" + menuTree.blog[sel] + "/"
-                        }
-                      >
-                        <FormattedMessage id="blog" />
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        className="navbar-item"
-                        to={
-                          "/" +
-                          props.langKey +
-                          "/" +
-                          menuTree.contact[sel] +
-                          "/"
-                        }
-                      >
-                        <FormattedMessage id="contact" />
-                      </Link>
-                    </li>
-                  </ul>
-                </section>
-              </div>
-              <div className="column is-4 social">
+        <div className="grid-section inner-footer">
+          <div className="content">
+            <img
+              src={logo}
+              alt="Save Small Businesses"
+              style={{ width: "14em", height: "5em" }}
+            />
+          </div>
+          <div className="content has-background-black has-text-white-ter">
+            <div className="container has-background-black has-text-white-ter grid-section">
+              <section className="menu grid-section">
+                <Link
+                  className="navbar-item"
+                  to={
+                    "/" + props.langKey + "/" + menuTree.about[sel] + "/"
+                  }
+                >
+                  <FormattedMessage id="about" />
+                </Link>
+                <Link to={"/" + props.langKey} className="navbar-item">
+                  <FormattedMessage id="Contact" />
+                </Link>
+                <Link to={"/" + props.langKey} className="navbar-item">
+                  <FormattedMessage id="Get Involved" />
+                </Link>
+              </section>
+              <div className="social">
                 <a title="facebook" href="https://facebook.com">
                   <FaFacebook className="facebook-icon" size="2em" />
                 </a>
@@ -115,18 +56,15 @@ const Footer = class extends React.Component {
                 <a title="instagram" href="https://instagram.com">
                   <FaInstagram className="instagram-icon" size="2em" />
                 </a>
-                <a title="vimeo" href="https://vimeo.com">
-                  <FaVimeo className="vimeo-icon" size="2em" />
-                </a>
                 <a title="linkedin" href="https://linkedin.com">
                   <FaLinkedin className="linkedin-icon" size="2em" />
                 </a>
               </div>
             </div>
           </div>
-          <Copyright />
         </div>
         <ScrollToTop />
+        <Copyright />
       </footer>
     )
   }
