@@ -33,9 +33,7 @@ const Footer = class extends React.Component {
               <section className="menu grid-section">
                 <Link
                   className="navbar-item"
-                  to={
-                    "/" + props.langKey + "/" + menuTree.about[sel] + "/"
-                  }
+                  to={"/" + props.langKey + "/" + menuTree.about[sel] + "/"}
                 >
                   <FormattedMessage id="about" />
                 </Link>

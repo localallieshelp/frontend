@@ -24,8 +24,9 @@ const AboutPageTemplate = ({
             </div>
             <div>
               <h3>Our Story</h3>
-              <p>Copy text goes here maybe some graphics
-              ...Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              <p>
+                Copy text goes here maybe some graphics ...Lorem ipsum dolor sit
+                amet, consectetur adipiscing elit.
               </p>
             </div>
           </div>
@@ -38,20 +39,17 @@ const AboutPageTemplate = ({
             <div className="team-items">
               <img></img>
               <h3>Name</h3>
-              <p>Title:
-            </p>
+              <p>Title:</p>
             </div>
             <div className="team-items">
               <img></img>
               <h3>Name</h3>
-              <p>Title:
-            </p>
+              <p>Title:</p>
             </div>
             <div className="team-items">
               <img></img>
               <h3>Name</h3>
-              <p>Title:
-            </p>
+              <p>Title:</p>
             </div>
           </div>
         </section>
