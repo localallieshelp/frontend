@@ -12,6 +12,7 @@ import Slider from "../components/Slider"
 import Banner from "../components/Banner"
 import Testimonials from "../components/Testimonials"
 import CardSlide from "../components/CardSlide"
+import HomeImg from "../../static/img/home-square.png"
 
 const HomePageTemplate = ({
   imageCardSL,
@@ -89,7 +90,7 @@ const HomePageTemplate = ({
           <h3>Our Initiative</h3>
           <div className="grid-section">
             <div className="initiative-items">
-              <img></img>
+              <img src={HomeImg}></img>
               <h3>Heading</h3>
               <p>
                 Copy text goes here maybe some graphics ...Lorem ipsum dolor sit
@@ -98,7 +99,7 @@ const HomePageTemplate = ({
               <button class="button">Button</button>
             </div>
             <div className="initiative-items">
-              <img></img>
+              <img src={HomeImg}></img>
               <h3>Heading</h3>
               <p>
                 Copy text goes here maybe some graphics ...Lorem ipsum dolor sit
@@ -107,7 +108,7 @@ const HomePageTemplate = ({
               <button class="button">Button</button>
             </div>
             <div className="initiative-items">
-              <img></img>
+              <img src={HomeImg}></img>
               <h3>Heading</h3>
               <p>
                 Copy text goes here maybe some graphics ...Lorem ipsum dolor sit

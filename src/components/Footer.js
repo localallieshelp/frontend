@@ -19,7 +19,7 @@ const Footer = class extends React.Component {
     const props = this.props
     const sel = select(props.langKey)
     return (
-      <footer className="footer has-background-black has-text-white-ter">
+      <footer className="footer has-text-white-ter">
         <div className="grid-section inner-footer">
           <div className="content">
             <img

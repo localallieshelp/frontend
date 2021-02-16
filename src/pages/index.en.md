@@ -1,14 +1,14 @@
 ---
 id: "01"
-title: "English home page"
-description: "some content"
+title: "Save A Local Business"
+description: "Copy text goes here...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac tincidunt lacus. Mauris aliquet urna nec ipsum tincidunt, vitae scelerisque urna mollis. Suspendisse a sollicitudin lectus. In ullamcorper enim odio, eu pulvinar est sagittis id."
 templateKey: home
 tags:
   - web
 lang: en
 date: "05-03-2019"
-image: /img/PersimmonHD.jpg
-heading: "The persimmon is the artist fruit..."
+image: /img/home-header.png
+heading: "Copy text goes here...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac tincidunt lacus. Mauris aliquet urna nec ipsum tincidunt, vitae scelerisque urna mollis. Suspendisse a sollicitudin lectus. In ullamcorper enim odio, eu pulvinar est sagittis id."
 slider:
   display: "slide"
   array:

@@ -7,6 +7,9 @@
 $kaki-red: #D64000
 $kaki-red-invert: #fff
 
+$light-green: #D1EFC9
+$green: #397A4C
+
 $primary: $kaki-red
 $primary-invert: $kaki-red-invert
 $body-color: #333
@@ -165,6 +168,10 @@ footer.footer
   a.navbar-item
     padding: 0.5rem 1.75rem
 
+    &:hover
+      color: $green
+    
+
 
 /* Home */
 
@@ -204,11 +211,16 @@ section.initiative
     p
       text-align: left
 
+    button
+      border-color: $green
+      color: $green
+
 /* Footer */
 
 footer.footer
   padding: 3rem 2rem
   position: relative
+  background-color: $light-green !important
 
   .grid-section.inner-footer
     grid-template-columns: 20% 75%
