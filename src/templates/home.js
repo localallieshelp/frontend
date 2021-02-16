@@ -30,6 +30,7 @@ const HomePageTemplate = ({
           })`,
           backgroundPosition: `top left`,
           backgroundAttachment: `fixed`,
+          backgroundSize: `contain`
         }}
       >
         <div
@@ -56,7 +57,7 @@ const HomePageTemplate = ({
             {title}
           </h1>
           <h3
-            className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen animated bounceInRight"
+            className="is-size-5-mobile is-size-5-tablet is-size-4-widescreen animated bounceInLeft"
             style={{
               boxShadow:
                 "rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px",
@@ -68,6 +69,7 @@ const HomePageTemplate = ({
           >
             {heading}
           </h3>
+          <button class="button animated bounceInLeft">Button</button>
         </div>
       </div>
       <div className="padded-width-container">

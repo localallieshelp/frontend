@@ -160,6 +160,10 @@ footer.footer
 .navbar
   height: 6rem
 
+  .navbar-brand
+    img
+      max-height: 3.5rem
+
 #navMenu
   display: grid
   grid-auto-flow: column
@@ -175,6 +179,17 @@ footer.footer
 
 /* Home */
 
+.home
+  button
+    border-color: $green
+    color: $green
+
+    &:hover
+      background-color: $green
+      color: white
+    
+
+
 .padded-width-image
   width: 95%
   margin: 0 auto
@@ -184,6 +199,37 @@ footer.footer
   display: flex
   justify-content: center
   align-items: center
+
+.home .padded-width-image
+  justify-content: left
+
+  div
+    width: 50%
+    padding: 0px 3rem
+
+  h1
+    background-color: transparent !important
+    box-shadow: none !important
+    color: black !important
+    margin: 0px
+    padding: 0px !important
+    margin-top: 8rem
+
+  h3
+    background-color: transparent !important
+    box-shadow: none !important
+    color: black !important
+    font-size: 18px !important
+    font-weight: normal !important
+    animation-delay: 0.5s
+    margin: 1.5rem 0px
+    padding: 0px !important
+  
+  button
+    width: 100px
+    animation-delay: 1s
+
+
 
 .padded-width-container
   width: 95%
@@ -211,10 +257,6 @@ section.initiative
     p
       text-align: left
 
-    button
-      border-color: $green
-      color: $green
-
 /* Footer */
 
 footer.footer
@@ -222,24 +264,41 @@ footer.footer
   position: relative
   background-color: $light-green !important
 
-  .grid-section.inner-footer
-    grid-template-columns: 20% 75%
+  .inner-footer
 
+    .footer-logo
+      margin-bottom: 0px
+
+    .menu
+      display: flex
+      justify-content: center
+      padding: 0px 6rem
+
+      a.navbar-item
+        &:hover 
+          background: transparent
+          color: $green
     .grid-section
-      grid-template-columns: 65% 35%
       column-gap: 0px
 
-      .menu.grid-section
-        grid-template-columns: auto
-        padding: 0px 6rem
+      .copyright
+        text-align: left
+        padding: 0px
 
-        a.navbar-item
-          justify-content: center
+      .social
+        text-align: right
+        padding: 0px
 
   .level
     right: 6rem
     position: absolute
-    bottom: 1rem
+    top: 1rem
+
+    .button
+      background: transparent
+      border: 2px solid $green
+      color: $green
+      padding: 1rem 0.8rem
 
   section.copyright
     padding: 20px
