@@ -18,12 +18,15 @@ export const BlogPostTemplate = ({
   title,
   helmet,
   langKey,
+  frontmatter,
 }) => {
   const PostContent = contentComponent || Content
   const iconStyles = { fill: "black" }
+  const fe = frontmatter
 
   return (
     <section className="section business-info">
+      {console.log(fe)}
       {helmet || ""}
       <div className="container content grid-section">
         <div className="columns general-info">
@@ -37,7 +40,7 @@ export const BlogPostTemplate = ({
                 size="1em"
                 style={iconStyles}
               />
-              Restaurant, Vietnamese
+              {fe.business_type}
             </p>
             <img src="/img/business-page-image.png" />
             <div className="tabs">
@@ -226,6 +229,7 @@ const BlogPost = ({ data, location }) => {
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
         langKey={langKey}
+        frontmatter={post.frontmatter}
       />
     </Layout>
   )
@@ -283,6 +287,7 @@ export const pageQuery = graphql`
         story
         business_type
         services_offered
+        address
         phone
         tags
         homepage_link
