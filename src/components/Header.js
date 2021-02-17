@@ -83,13 +83,13 @@ const Header = class extends React.Component {
                 </Link>
                 <Link
                   className="navbar-item"
-                  to={"/" + props.langKey + "/" + menuTree.blog[sel] + "/"}
+                  to={"/" + props.langKey + "/" + menuTree.business[sel]}
                 >
                   <FormattedMessage id="discover_businesses" />
                 </Link>
                 <Link
                   className="navbar-item"
-                  to={"/" + props.langKey + "/" + menuTree.about[sel] + "/"}
+                  to={"/" + props.langKey + "/" + menuTree.story[sel]}
                 >
                   <FormattedMessage id="our_story" />
                 </Link>

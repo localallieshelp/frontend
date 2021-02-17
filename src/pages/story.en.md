@@ -36,6 +36,6 @@ team:
       alt: "John Wie"
       image: /img/team-image.png
 date: "02-16-2021"
-path: /en/about/
-slug: /en/about/
+path: /en/story/
+slug: /en/story/
 ---

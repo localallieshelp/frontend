@@ -10,9 +10,11 @@ module.exports = {
       other {posts}
     } tagged with`,
   view: "View",
+  view_local_business_hub: "View Local Business Hub",
   home: "Home",
   our_story: "Our Story",
   discover_businesses: "Discover Businesses",
+  get_involved: "Get Involved",
   "blog-message": "Small Business Hub",
   "keep-reading": "Keep reading →",
   "find-out-more": "Find out more...",

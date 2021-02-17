@@ -3,12 +3,7 @@ import { Link } from "gatsby"
 import select from "../components/utils"
 import { FormattedMessage } from "react-intl"
 import menuTree from "../data/menuTree"
-import {
-  FaFacebook,
-  FaTwitter,
-  FaInstagram,
-  FaLinkedin,
-} from "react-icons/fa"
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa"
 import Copyright from "../components/Copyright"
 import ScrollToTop from "../components/ScrollToTop"
 import logo from "../img/logo.svg"
@@ -38,15 +33,21 @@ const Footer = class extends React.Component {
               <section className="menu has-text-centered">
                 <Link
                   className="navbar-item"
-                  to={"/" + props.langKey + "/" + menuTree.about[sel] + "/"}
+                  to={"/" + props.langKey + "/" + menuTree.story[sel] + "/"}
                 >
-                  <FormattedMessage id="about" />
+                  <FormattedMessage id="our_story" />
                 </Link>
-                <Link to={"/" + props.langKey + "/" + menuTree.contact[sel] + "/"} className="navbar-item">
+                <Link
+                  to={"/" + props.langKey + "/" + menuTree.contact[sel] + "/"}
+                  className="navbar-item"
+                >
                   <FormattedMessage id="contact" />
                 </Link>
-                <Link to={"/" + props.langKey + "/" + menuTree.blog[sel] + "/"} className="navbar-item">
-                  <FormattedMessage id="Get Involved" />
+                <Link
+                  to={"/" + props.langKey + "/" + menuTree.business[sel] + "/"}
+                  className="navbar-item"
+                >
+                  <FormattedMessage id="get_involved" />
                 </Link>
               </section>
             </div>

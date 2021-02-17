@@ -22,7 +22,7 @@ main:
   image1:
     alt: "Initiative One"
     image: /img/initiative-1.png
-  link: /blog
+  link: /cn/business/
 main2:
   subtitle: "Donation Programs"
   description: "Each small business will get access to our donation programs, which include but are not limited to gift vouchers and donate-a-meal opportunities - 100% of these funds raised will go back to the business."
@@ -30,7 +30,7 @@ main2:
   image1:
     alt: "Initiative Two"
     image: /img/initiative-2.png
-  link: /blog
+  link: /cn/business/
 main3:
   subtitle: "Specialized Consultation"
   description: "Our team will work with each partner to build a plan that includes digital and social media marketing help and, if needed, translation services (languages currently supported include Mandarin and Cantonese) - all provided free-of-service."
@@ -38,7 +38,7 @@ main3:
   image1:
     alt: "Initiative Three"
     image: /img/initiative-3.png
-  link: /contact
+  link: /cn/contact
 
 path: /cn/
 slug: /cn/

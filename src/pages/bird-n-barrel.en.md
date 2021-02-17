@@ -1,7 +1,9 @@
 ---
 id: "08"
-templateKey: blog-post
+templateKey: business-post
 lang: en
+path: /en/business/bird-n-barrel/
+slug: /en/business/bird-n-barrel/
 title: Bird-n-Barrel
 primary_image: /img/bird-n-barrel.jpg
 date: 2021-02-16T20:43:21.976Z

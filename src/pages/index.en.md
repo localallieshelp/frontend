@@ -1,7 +1,7 @@
 ---
 id: "01"
 title: "LocAllies"
-description: "Small businesses across the United States need our help. Nearly a quarter of US small merchants are closed and overall revenue is still down for many due to the COVID-19 pandemic.* 
+description: "Small businesses across the United States need our help. Nearly a quarter of US small merchants are closed and overall revenue is still down for many due to the COVID-19 pandemic.*
 Become a Local Ally and help your local small business today!"
 templateKey: home
 tags:
@@ -10,7 +10,7 @@ lang: en
 date: "02-15-2021"
 image: /img/home-header.png
 mainheading: "Providing Sustainable Help for Our Local Small Businesses"
-heading: "Small businesses across the United States need our help. Nearly a quarter of US small merchants are closed and overall revenue is still down for many due to the COVID-19 pandemic.* 
+heading: "Small businesses across the United States need our help. Nearly a quarter of US small merchants are closed and overall revenue is still down for many due to the COVID-19 pandemic.*
 Become a Local Ally and help your local small business today! "
 buttontext: "View Local Business Hub"
 main:
@@ -21,7 +21,7 @@ main:
   image1:
     alt: "Initiative One"
     image: /img/initiative-1.png
-  link: /blog
+  link: /en/business
 main2:
   subtitle: "Donation Programs"
   description: "Each small business will get access to our donation programs, which include but are not limited to gift vouchers and donate-a-meal opportunities - 100% of these funds raised will go back to the business."
@@ -29,7 +29,7 @@ main2:
   image1:
     alt: "Initiative Two"
     image: /img/initiative-2.png
-  link: /blog
+  link: /en/business
 main3:
   subtitle: "Specialized Consultation"
   description: "Our team will work with each partner to build a plan that includes digital and social media marketing help and, if needed, translation services (languages currently supported include Mandarin and Cantonese) - all provided free-of-service."
@@ -37,8 +37,8 @@ main3:
   image1:
     alt: "Initiative Three"
     image: /img/initiative-3.png
-  link: /contact
-    
+  link: /en/contact
+
 path: /en/
 slug: /en/
 ---

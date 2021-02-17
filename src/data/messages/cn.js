@@ -10,10 +10,12 @@ module.exports = {
       other {posts}
     } taggato  con`,
   view: "风光",
+  view_local_business_hub: "查看本地业务中心",
   home: "家",
   our_story: "我们的故事",
   discover_businesses: "发现企业",
-  "blog-message": "Ultime Notizie",
+  get_involved: "参与其中",
+  "blog-message": "小型企业中心",
   "keep-reading": "Continua a leggere →",
   followus: "Segui: ",
   "info-sheet": "Scheda informativa",

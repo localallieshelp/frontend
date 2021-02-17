@@ -8,7 +8,7 @@ import Layout from "../components/Layout"
 import Content, { HTMLContent } from "../components/Content"
 import { FaUtensils } from "react-icons/fa"
 
-export const BlogPostTemplate = ({
+export const BusinessPostTemplate = ({
   data,
   location,
   content,
@@ -26,7 +26,6 @@ export const BlogPostTemplate = ({
 
   return (
     <section className="section business-info">
-      {console.log(fe)}
       {helmet || ""}
       <div className="container content grid-section">
         <div className="columns general-info">
@@ -188,7 +187,7 @@ export const BlogPostTemplate = ({
   )
 }
 
-BlogPostTemplate.propTypes = {
+BusinessPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
@@ -199,7 +198,7 @@ BlogPostTemplate.propTypes = {
   langKey: PropTypes.string,
 }
 
-const BlogPost = ({ data, location }) => {
+const BusinessPost = ({ data, location }) => {
   const { markdownRemark: post } = data
   const jsonData = data.allArticlesJson.edges[0].node.articles
   const langKey = post.frontmatter.lang
@@ -213,7 +212,7 @@ const BlogPost = ({ data, location }) => {
       location={location}
     >
       <SEO frontmatter={post.frontmatter} postImage={image} isBlogPost />
-      <BlogPostTemplate
+      <BusinessPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
@@ -235,7 +234,7 @@ const BlogPost = ({ data, location }) => {
   )
 }
 
-BlogPost.propTypes = {
+BusinessPost.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
@@ -244,10 +243,10 @@ BlogPost.propTypes = {
   }).isRequired,
 }
 
-export default BlogPost
+export default BusinessPost
 
 export const pageQuery = graphql`
-  query BlogPostByID($id: String!) {
+  query BusinessPostByID($id: String!) {
     site {
       siteMetadata {
         title

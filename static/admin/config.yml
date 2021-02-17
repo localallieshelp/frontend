@@ -14,7 +14,7 @@ collections:
     extension: en.md
     format: frontmatter
     name: "english_posts"
-    folder: "src/pages/blog"
+    folder: "src/pages/business"
     create: true
     slug: "{{title}}"
     filter: { field: "lang", value: "en" }
@@ -91,7 +91,7 @@ collections:
     extension: cn.md
     format: frontmatter
     name: "chinese_businesses"
-    folder: "src/pages/businesses"
+    folder: "src/pages/business"
     create: true
     slug: "{{title}}"
     filter: { field: "lang", value: "cn" }

@@ -1,11 +1,13 @@
 import React from "react"
 import * as PropTypes from "prop-types"
 import TagList from "../components/TagList"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
+import { FormattedMessage } from "react-intl"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO/SEO"
 import Content, { HTMLContent } from "../components/Content"
 import select from "../components/utils"
+import menuTree from "../data/menuTree"
 
 const HomePageTemplate = ({
   title,
@@ -21,6 +23,7 @@ const HomePageTemplate = ({
   langKey,
 }) => {
   const PageContent = contentComponent || Content
+  const sel = select(langKey)
 
   return (
     <div className="home">
@@ -78,11 +81,14 @@ const HomePageTemplate = ({
               https://www.weforum.org/agenda/2020/10/mapped-uneven-recovery-us-america-small-businesses-closure{" "}
             </span>
           </h3>
-          <a href="/blog">
-            <button className="button animated bounceInLeft">
-              {buttontext}
-            </button>
-          </a>
+          <div className=" animated bounceInLeft">
+            <Link
+              className="button"
+              to={"/" + langKey + "/" + menuTree.business[sel]}
+            >
+              <FormattedMessage id="view_local_business_hub" />
+            </Link>
+          </div>
         </div>
       </div>
       <div className="padded-width-container">

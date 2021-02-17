@@ -6,7 +6,7 @@ import SEO from "../components/SEO/SEO"
 import { FormattedMessage } from "react-intl"
 import { graphql } from "gatsby"
 
-export default class BlogIndexPage extends React.Component {
+export default class BusinessIndexPage extends React.Component {
   render() {
     const data = this.props.data
     const location = this.props.location
@@ -83,14 +83,14 @@ export default class BlogIndexPage extends React.Component {
   }
 }
 
-BlogIndexPage.propTypes = {
+BusinessIndexPage.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
   }).isRequired,
 }
 
 export const pageQuery = graphql`
-  query BlogIndex($id: String!) {
+  query BusinessIndex($id: String!) {
     site {
       siteMetadata {
         title
