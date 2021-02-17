@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import { Link, graphql, StaticQuery } from "gatsby"
 import { FormattedMessage } from "react-intl"
 import { FaUtensils, FaCheck, FaTimes } from "react-icons/fa"
+import { _ } from "lodash"
 
 const switchData = (data, langKey) => {
   var posts
@@ -68,7 +69,7 @@ class BlogRoll extends React.Component {
                           size="1em"
                           style={iconStyles}
                         />
-                        Restaurant, Vietnamese
+                        {post.frontmatter.business_type}
                       </p>
                     </div>
                     <div>
@@ -76,7 +77,7 @@ class BlogRoll extends React.Component {
                     </div>
                   </div>
                   <div>
-                    <p className="excerpt">{post.description}</p>
+                    <p className="excerpt">{post.frontmatter.description}</p>
                   </div>
                   <div className="grid-section action">
                     <div className="modes">
@@ -203,6 +204,7 @@ export default (langKey) => (
                 story
                 business_type
                 services_offered
+                address
                 phone
                 tags
                 homepage_link

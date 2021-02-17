@@ -20,10 +20,13 @@ const AboutPageTemplate = ({
   return (
     <div className="content about">
       <div className="padded-width-container">
-        <section class="section story">
+        <section className="section story">
           <div className="grid-section">
             <div>
-              <img src={image.childImageSharp.fluid.src} className="animated fadeInLeft"/>
+              <img
+                src={image.childImageSharp.fluid.src}
+                className="animated fadeInLeft"
+              />
             </div>
             <div>
               <h3 className="animated fadeIn">{title}</h3>
@@ -57,7 +60,7 @@ const AboutPageTemplate = ({
         </section>
       </div>
       <div className="padded-width-container">
-        <section class="section team">
+        <section className="section team">
           <h3>Our Team</h3>
           <div className="grid-section">
             <div className="team-items">
