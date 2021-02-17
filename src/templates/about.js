@@ -23,11 +23,11 @@ const AboutPageTemplate = ({
         <section class="section story">
           <div className="grid-section">
             <div>
-              <img src={image.childImageSharp.fluid.src} />
+              <img src={image.childImageSharp.fluid.src} className="animated fadeInLeft"/>
             </div>
             <div>
-              <h3>{title}</h3>
-              <p>
+              <h3 className="animated fadeIn">{title}</h3>
+              <p className="animated slideInUp">
                 {copy}
                 <br />
                 <br />
