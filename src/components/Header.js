@@ -8,7 +8,6 @@ import select from "../components/utils"
 import SelectLanguage from "../components/SelectLanguage"
 
 const Header = class extends React.Component {
-
   componentDidMount() {
     const $navbarBurgers = Array.prototype.slice.call(
       document.querySelectorAll(".navbar-burger"),
@@ -63,11 +62,7 @@ const Header = class extends React.Component {
         >
           <div className="container">
             <div className="navbar-brand">
-              <Link
-                to="/"
-                className="navbar-item"
-                title="Logo"
-              >
+              <Link to="/" className="navbar-item" title="Logo">
                 <img
                   src={logo}
                   alt="Save Small Businesses"
@@ -84,19 +79,19 @@ const Header = class extends React.Component {
             <div id="navMenu" className="navbar-menu">
               <div className="navbar-end has-text-centered">
                 <Link className="navbar-item" to={"/" + props.langKey}>
-                  <FormattedMessage id="Home" />
+                  <FormattedMessage id="home" />
                 </Link>
                 <Link
                   className="navbar-item"
                   to={"/" + props.langKey + "/" + menuTree.blog[sel] + "/"}
                 >
-                  <FormattedMessage id="Discover Businesses" />
+                  <FormattedMessage id="discover_businesses" />
                 </Link>
                 <Link
                   className="navbar-item"
                   to={"/" + props.langKey + "/" + menuTree.about[sel] + "/"}
                 >
-                  <FormattedMessage id="Our Story" />
+                  <FormattedMessage id="our_story" />
                 </Link>
               </div>
               <div className="navbar-end">

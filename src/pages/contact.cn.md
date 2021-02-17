@@ -1,11 +1,11 @@
 ---
 id: "04"
-title: "Pagina di contatto"
-description: "Pagina per contattarmi"
+title: "Contact page"
+description: "Page to send an e-mail"
 templateKey: contacts
 tags:
   - web
-lang: it
+lang: cn
 image: /img/PersimmonHD.jpg
 date: "08-03-2019"
 address: "Piazza Unità d'Italia, 34121 Trieste TS"
@@ -16,15 +16,15 @@ instagram: "@kaki"
 locations:
   lat: 45.6500779
   lng: 13.7677618
-  message: "Kaki è qui!"
+  message: "Kaki is here!"
 imageCardSL:
   alt: "immagine"
   image: /img/128x128.png
   name: John Kaki
-  description: Sono un artista visivo, seguimi in questa avventura...!
+  description: I am a visual artist, follow me in this adventure...!
   website: www.kaki.com
-path: /it/contatto
-slug: /it/contatto
+path: /cn/contact
+slug: /cn/contact
 ---
 
-In questa pagina di contatto potete inviare un messaggio e-mail.
+In this page you can send an e-mail.

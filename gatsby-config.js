@@ -2,7 +2,7 @@ const languages = require("./src/data/languages")
 
 module.exports = {
   siteMetadata: {
-    title: `SaveSMB`,
+    title: `LocAllies`,
     description: `
   This is a blog theme. The description will be showed in SEO results on pages
   without their own descriptions.
@@ -10,14 +10,14 @@ module.exports = {
     siteUrl: "https://savesmb.netlify.app",
     image: "img.jpg",
     author: {
-      name: "Your Name",
+      name: "LocAllies",
       minibio: `
         This bio is shown at the bottom of each blog post. It supports
         <strong>custom HTML</strong> if you’re into that sort of thing.
       `,
     },
     organization: {
-      name: "Example, Inc.",
+      name: "LocAllies",
       url: "https://example.com",
       logo: "img/logo.svg",
     },
@@ -31,8 +31,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     {
       resolve: "gatsby-plugin-sass",
-      options: {
-      },
+      options: {},
     },
     {
       resolve: "gatsby-plugin-i18n",

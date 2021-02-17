@@ -10,7 +10,7 @@ const switchData = (data, langKey) => {
   switch (langKey) {
     case "en":
       return (posts = data.en)
-    case "it":
+    case "cn":
       return (posts = data.it)
     default:
       return " "
@@ -179,6 +179,48 @@ export default (langKey) => (
             frontmatter: {
               templateKey: { eq: "blog-post" }
               lang: { regex: "/(en|any)/" }
+            }
+          }
+        ) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+                templateKey
+                date
+                description
+                lang
+                primary_image {
+                  childImageSharp {
+                    fluid(maxWidth: 2048, quality: 100) {
+                      ...GatsbyImageSharpFluid
+                      src
+                    }
+                  }
+                }
+                story
+                business_type
+                services_offered
+                address
+                phone
+                tags
+                homepage_link
+                instagram_link
+                facebook_link
+                twitter_link
+              }
+            }
+          }
+        }
+        cn: allMarkdownRemark(
+          sort: { order: DESC, fields: [frontmatter___date] }
+          filter: {
+            frontmatter: {
+              templateKey: { eq: "blog-post" }
+              lang: { regex: "/(cn|any)/" }
             }
           }
         ) {

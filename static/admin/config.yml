@@ -10,7 +10,7 @@ public_folder: /img
 publish_mode: editorial_workflow # Enable drafts
 
 collections:
-  - label: "Businesses (English)"
+  - label: "Businesses EN"
     extension: en.md
     format: frontmatter
     name: "english_posts"
@@ -22,7 +22,7 @@ collections:
       - label: "id"
         name: "id"
         widget: "hidden"
-        default: "01"
+        default: "999"
 
       - {
           label: "Template Key",
@@ -87,7 +87,7 @@ collections:
           config:
             multiple: true
 
-  - label: "Businesses (Chinese)"
+  - label: "Businesses CN"
     extension: cn.md
     format: frontmatter
     name: "chinese_businesses"
@@ -96,6 +96,11 @@ collections:
     slug: "{{title}}"
     filter: { field: "lang", value: "cn" }
     fields:
+      - label: "id"
+        name: "id"
+        widget: "hidden"
+        default: "888"
+
       - {
           label: "Template Key",
           name: "templateKey",
@@ -108,7 +113,7 @@ collections:
 
       #
       - { label: "Description", name: "description", widget: "text" }
-      - { label: "Language", name: "lang", widget: "hidden", default: "en" }
+      - { label: "Language", name: "lang", widget: "hidden", default: "cn" }
 
       # Business Story
       - { label: "Story", name: "story", widget: "text" }
@@ -182,4 +187,4 @@ collections:
         fields:
           - { label: "id", name: id, widget: number }
           - { label: "en", name: en, widget: "string" }
-          - { label: "it", name: it, widget: "string" }
+          - { label: "cn", name: cn, widget: "string" }

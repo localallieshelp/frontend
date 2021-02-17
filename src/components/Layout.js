@@ -10,20 +10,20 @@ import { FaThList } from "react-icons/fa"
 
 if (!Intl.RelativeTimeFormat) {
   require("@formatjs/intl-relativetimeformat/polyfill")
-  require("@formatjs/intl-relativetimeformat/dist/locale-data/en") // Add locale data for de
-  require("@formatjs/intl-relativetimeformat/dist/locale-data/it")
+  require("@formatjs/intl-relativetimeformat/dist/locale-data/en")
+  // TODO require("@formatjs/intl-relativetimeformat/dist/locale-data/cn")
 }
 
 const getIdJsonUrl = (id, langKey, jsonData) => {
   if (id !== "undefined") {
     let res
     switch (langKey) {
-      //we get the name of the page according the id
+      // We get the name of the page according the id.
       case "en":
         res = jsonData[id].en
         break
-      case "it":
-        res = jsonData[id].it
+      case "cn":
+        res = jsonData[id].cn
         break
       default:
         return " "
@@ -55,7 +55,7 @@ const setLangsMenu = (langsMenu, id, basePath, jsonData) => {
     langsMenu[0].link =
       `/en/${basePath}` + getIdJsonUrl(id, "en", jsonData) + "/"
     langsMenu[1].link =
-      `/it/${basePath}` + getIdJsonUrl(id, "it", jsonData) + "/"
+      `/cn/${basePath}` + getIdJsonUrl(id, "cn", jsonData) + "/"
   } else {
     console.log("missed id in the setLangsMenu() function!")
   }

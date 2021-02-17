@@ -1,7 +1,8 @@
 import React from "react"
 import Icon from "react-icon-base"
 
-const It = (props) => {
+const Cn = (props) => {
+  // Todo draw the CN flag / use lang selector
   return (
     <Icon viewBox="0 0 640 480" {...props}>
       <g fillRule="evenodd" strokeWidth="1pt">
@@ -13,4 +14,4 @@ const It = (props) => {
   )
 }
 
-export default It
+export default Cn
