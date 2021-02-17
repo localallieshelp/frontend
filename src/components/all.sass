@@ -439,3 +439,166 @@ footer.footer
 
     p
       text-align: left
+
+
+/* Blog */
+
+.blog
+  button
+    border-color: $green
+    color: $green
+
+    &:hover
+      background-color: $green
+      color: white
+  .grid-section
+    width: 80%
+    margin: 0 auto
+    padding: 2rem 0rem
+    grid-template-columns: 20% 77%
+    column-gap: 2rem
+
+    @media screen and (max-width: 1150px)
+      width: 90%
+    
+    @media screen and (max-width: 1000px)
+      width: 95%
+      column-gap: 1rem
+
+    @media screen and (max-width: 600px)
+      grid-auto-flow: row
+      grid-template-columns: 100%
+
+.blog .padded-width-image
+  justify-content: left
+  background-size: 100%
+  height: 300px
+
+  @media screen and (max-width: 789px)
+    background-size: 150%
+
+  div
+    width: 100%
+    padding: 0px 3rem
+    text-align: center
+
+  h1
+    background-color: transparent !important
+    box-shadow: none !important
+    color: black !important
+    margin: 0px
+    padding: 0px !important
+
+    @media screen and (max-width: 789px)
+      font-size: 18px
+  
+
+  h3
+    background-color: transparent !important
+    box-shadow: none !important
+    color: black !important
+    font-size: 16px !important
+    font-weight: normal !important
+    animation-delay: 0.5s
+    margin: 1.5rem 0px
+    padding: 0px !important
+
+    @media screen and (min-width: 789px)
+      font-size: 18px !important
+
+.blogroll 
+  article 
+    border: 1px solid black
+    border-radius: 0px
+    background: transparent
+    box-shadow: none
+
+    img
+      width: 100%
+
+    &.grid-section
+      padding: 1rem
+      grid-template-columns: 30% 66%
+      width: 100%
+
+      @media screen and (max-width: 500px)
+        grid-auto-flow: row
+        grid-template-columns: 100%
+
+    .business-content
+
+      .title
+        padding: 0px
+        margin: 0px
+        width: 100%
+        grid-template-columns: 63% 34%
+        column-gap: 1rem
+        margin-bottom: 0.5rem
+
+        @media screen and (max-width: 890px)
+          grid-template-columns: 100%
+          grid-auto-flow: row
+
+        a
+          font-size: 18px !important
+          color: black !important
+          text-decoration: none
+          display: block
+      
+      .action
+        padding: 0px
+        margin: 0px
+        width: 100%
+        grid-template-columns: 63% 34%
+        column-gap: 1rem
+        margin-top: 1rem
+
+        @media screen and (max-width: 890px)
+          grid-template-columns: 100%
+          grid-auto-flow: row
+
+      p
+        margin: 0px
+
+      .type
+        font-size: 16px
+        font-weight: normal
+        padding: 0.5rem 0rem
+      
+      .location
+        font-size: 17px
+        font-weight: normal
+        text-align: right
+
+        @media screen and (max-width: 890px)
+          text-align: left
+      
+      .modes
+        display: flex
+        align-items: center 
+
+        div
+          padding-right: 1rem
+          display: flex
+          align-items: center 
+
+      .view
+        text-align: right
+
+        @media screen and (max-width: 890px)
+          text-align: left
+          margin-top: 1rem
+
+      .button
+        border-color: $green
+        color: $green
+
+        &:hover
+          background-color: $green
+          color: white
+  
+  .row
+    margin-bottom: 1rem
+
+  
+
