@@ -77,7 +77,6 @@ export const pageQuery = graphql`
       html
       frontmatter {
         id
-        date
         title
         description
         tags

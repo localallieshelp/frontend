@@ -8,14 +8,11 @@ const switchData = (data, langKey) => {
   switch (langKey) {
     case "en":
       return (posts = data.en)
-      break
     case "it":
       return (posts = data.it)
-      break
     default:
       return " "
   }
-  return posts
 }
 
 class BlogRoll extends React.Component {
@@ -38,10 +35,10 @@ class BlogRoll extends React.Component {
     const { edges: posts } = switchData(data, langKey)
 
     return (
-      <div className="columns is-multiline">
+      <div className="rows is-multiline">
         {posts &&
           posts.map(({ node: post }) => (
-            <div className="is-parent column is-6" key={post.id}>
+            <div className="is-parent row is-full" key={post.id}>
               <article className="tile is-child box notification">
                 <p>
                   <Link
@@ -78,6 +75,7 @@ BlogRoll.propTypes = {
     }),
   }),
 }
+BlogRoll.displayName = "BlogRoll"
 
 export default (langKey) => (
   <StaticQuery

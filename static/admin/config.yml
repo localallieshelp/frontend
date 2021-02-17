@@ -10,36 +10,7 @@ public_folder: /img
 publish_mode: editorial_workflow # Enable drafts
 
 collections:
-  - label: "Businesses"
-    extension: en.md
-    format: frontmatter
-    name: "businesses"
-    folder: "src/pages/businesses"
-    create: true
-    filter: { field: "lang", value: "en" }
-    fields:
-      - { label: "Id", name: id, widget: number }
-      - {
-          label: "Template Key",
-          name: "templateKey",
-          widget: "hidden",
-          default: "business",
-        }
-      - { label: "Name", name: "name", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - {
-          label: "Language",
-          name: "lang",
-          widget: "select",
-          options: ["en", "cn", "it"],
-        }
-      - { label: "Path", name: "path", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Tags", name: "tags", widget: "list" }
-      - { label: "Address", name: "address", widget: "markdown" }
-      - { label: "Homepage Link", name: "homepage-link", widget: "string" }
-
-  - label: "Blog in English"
+  - label: "Businesses (English)"
     extension: en.md
     format: frontmatter
     name: "english_posts"
@@ -55,24 +26,60 @@ collections:
           widget: "hidden",
           default: "blog-post",
         }
-      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Business Name", name: "title", widget: "string" }
+      - { label: "Primary Image", name: "primary_image", widget: "file" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
+
+      #
       - { label: "Description", name: "description", widget: "text" }
       - {
           label: "Language",
           name: "lang",
           widget: "select",
-          options: ["en", "it"],
+          options: ["en", "cn", "it"],
         }
       - { label: "Path", name: "path", widget: "string" }
       - {
           label: "Intro Paragraph",
           name: "intro_paragraph",
-          widget: "markdown",
+          widget: "text",
           required: false,
         }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Tags", name: "tags", widget: "list" }
+
+      # Full business description
+      - {
+          label: "About the business",
+          name: "about_the_business",
+          widget: "text",
+        }
+
+      # Restaurant, Bookstore, etc
+      - {
+          label: "Business Type",
+          name: "business_type",
+          widget: "list",
+          default: ["restaurant"],
+        }
+
+      # ignore for now
+      - { label: "Tags", name: "tags", widget: "hidden", required: false }
+
+      # Delivery, Takeout, Donations
+      - { label: "Services Offered", name: "services_offered", widget: "list" }
+
+      - { label: "Address", name: "address", widget: "string" }
+      - {
+          label: "Homepage Link",
+          name: "homepage-link",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Social Link",
+          name: "social-link",
+          widget: "string",
+          required: false,
+        }
 
   - label: "Blog in Italiano"
     extension: it.md

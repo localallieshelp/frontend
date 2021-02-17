@@ -1,13 +1,13 @@
 ---
 id: "03"
-title: "About me"
-description: "Something about me"
+title: "Our story"
+description: ""
 templateKey: about
 lang: en
 image: /img/PersimmonHD.jpg
 date: "05-03-2019"
-path: /en/about/
-slug: /en/about/
+path: /en/ourstory/
+slug: /en/ourstory/
 ---
 
-Hello! ciao! Something about me!
+Local Allies was created to help independent small businesses be equipped with the tools to thrive in a quickly-changing digital and difficult landscape. Throughout the COVID-19 pandemic, we witnessed volunteers from across the nation create donation campaigns and provide assistance in any way they could from creating social media groups made to uplift small merchants to those regularly buying takeout meals from local mom-and-pop restaurants.
