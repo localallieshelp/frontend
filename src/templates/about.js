@@ -5,13 +5,16 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO/SEO"
 import Content, { HTMLContent } from "../components/Content"
+import TeamImg from "../../static/img/team-image.png"
 
 const AboutPageTemplate = ({
   title,
+  copy,
   content,
   contentComponent,
   tags,
   langKey,
+  image
 }) => {
   const PageContent = contentComponent || Content
   return (
@@ -20,13 +23,12 @@ const AboutPageTemplate = ({
         <section class="section story">
           <div className="grid-section">
             <div>
-              <img />
+              <img src={image.childImageSharp.fluid.src}/>
             </div>
             <div>
-              <h3>Our Story</h3>
+              <h3>{title}</h3>
               <p>
-                Copy text goes here maybe some graphics ...Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit.
+                {copy}
               </p>
             </div>
           </div>
@@ -37,17 +39,22 @@ const AboutPageTemplate = ({
           <h3>Our Team</h3>
           <div className="grid-section">
             <div className="team-items">
-              <img></img>
+              <img src={TeamImg}></img>
               <h3>Name</h3>
               <p>Title:</p>
             </div>
             <div className="team-items">
-              <img></img>
+              <img src={TeamImg}></img>
               <h3>Name</h3>
               <p>Title:</p>
             </div>
             <div className="team-items">
-              <img></img>
+              <img src={TeamImg}></img>
+              <h3>Name</h3>
+              <p>Title:</p>
+            </div>
+            <div className="team-items">
+              <img src={TeamImg}></img>
               <h3>Name</h3>
               <p>Title:</p>
             </div>
@@ -64,6 +71,7 @@ const AboutPageTemplate = ({
 
 AboutPageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
+  copy: PropTypes.string,
   content: PropTypes.string,
   contentComponent: PropTypes.func,
   tags: PropTypes.array,
@@ -93,6 +101,8 @@ class AboutPage extends React.Component {
           <AboutPageTemplate
             contentComponent={HTMLContent}
             title={dataMarkdown.frontmatter.title}
+            copy={dataMarkdown.frontmatter.copy}
+            image={dataMarkdown.frontmatter.image}
             content={dataMarkdown.html}
             tags={tags}
             langKey={langKey}
@@ -135,6 +145,7 @@ export const pageQuery = graphql`
         id
         title
         description
+        copy
         tags
         lang
         image {

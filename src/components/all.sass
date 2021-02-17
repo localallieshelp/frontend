@@ -394,25 +394,44 @@ footer.footer
   padding: 0px !important
 
   .padded-width-container
-    width: 100%
+    width: 95%
 
   .story
     .grid-section
-      grid-template-columns: 45% 50%
+      grid-template-columns: 45% 45%
+
+      @media screen and (max-width: 460px)
+        grid-template-columns: 100%
+        grid-auto-flow: row
 
       img
         width: 100%
-        height: 400px
+
+    @media screen and (max-width: 460px)
+      padding: 0rem 1.5rem
 
   .team
-    padding: 3rem 5rem
+    padding: 3rem 0rem
+
+    @media screen and (max-width: 789px)
+      padding: 3rem 1.5rem
+
+    .grid-section
+      grid-template-columns: 1fr 1fr 1fr
+      grid-auto-flow: unset
+      row-gap: 2rem
+
+      @media screen and (max-width: 789px)
+        grid-template-columns: 1fr 1fr 
+
+      @media screen and (max-width: 460px)
+        grid-template-columns: 1fr 
 
   .team-items
     text-align: center
 
     img
       width: 100%
-      height: 300px
 
     h3
       margin: 5px 0px

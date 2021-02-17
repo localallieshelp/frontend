@@ -1,13 +1,13 @@
 ---
 id: "03"
-title: "About me"
-description: "Something about me"
+title: "Our Story"
+description: "About LocAllies"
+copy: "Copy text goes here maybe some graphics ...Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 templateKey: about
 lang: en
-image: /img/PersimmonHD.jpg
-date: "05-03-2019"
+image: /img/story-image.png
+date: "02-16-2021"
 path: /en/about/
 slug: /en/about/
 ---
 
-Hello! ciao! Something about me!
