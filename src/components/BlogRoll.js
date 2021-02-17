@@ -41,6 +41,13 @@ class BlogRoll extends React.Component {
             <div className="is-parent row is-full" key={post.id}>
               <article className="tile is-child box notification">
                 <p>
+                  <img
+                    src={
+                      post.frontmatter.primary_image.childImageSharp.fluid.src
+                    }
+                  />
+                </p>
+                <p>
                   <Link
                     className="title has-text-primary is-size-4"
                     to={post.fields.slug}
@@ -77,6 +84,7 @@ BlogRoll.propTypes = {
 }
 BlogRoll.displayName = "BlogRoll"
 
+// eslint-disable-next-line react/display-name
 export default (langKey) => (
   <StaticQuery
     query={graphql`
@@ -110,32 +118,25 @@ export default (langKey) => (
                 title
                 templateKey
                 date
+                description
                 lang
-              }
-            }
-          }
-        }
-        it: allMarkdownRemark(
-          sort: { order: DESC, fields: [frontmatter___date] }
-          filter: {
-            frontmatter: {
-              templateKey: { eq: "blog-post" }
-              lang: { regex: "/(it|any)/" }
-            }
-          }
-        ) {
-          edges {
-            node {
-              excerpt(pruneLength: 400)
-              id
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-                templateKey
-                date
-                lang
+                primary_image {
+                  childImageSharp {
+                    fluid(maxWidth: 2048, quality: 100) {
+                      ...GatsbyImageSharpFluid
+                      src
+                    }
+                  }
+                }
+                story
+                business_type
+                services_offered
+                phone
+                tags
+                homepage_link
+                instagram_link
+                facebook_link
+                twitter_link
               }
             }
           }

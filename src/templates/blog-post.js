@@ -54,7 +54,7 @@ const BlogPost = ({ data, location }) => {
   const { markdownRemark: post } = data
   const jsonData = data.allArticlesJson.edges[0].node.articles
   const langKey = post.frontmatter.lang
-  const image = post.frontmatter.image.childImageSharp.fluid.src
+  const image = post.frontmatter.primary_image.childImageSharp.fluid.src
 
   return (
     <Layout
@@ -123,7 +123,7 @@ export const pageQuery = graphql`
       frontmatter {
         id
         title
-        image {
+        primary_image {
           childImageSharp {
             fluid(maxWidth: 1380) {
               src
@@ -134,6 +134,15 @@ export const pageQuery = graphql`
         date
         tags
         lang
+        story
+        business_type
+        services_offered
+        phone
+        tags
+        homepage_link
+        instagram_link
+        facebook_link
+        twitter_link
       }
     }
   }

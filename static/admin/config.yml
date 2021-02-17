@@ -16,7 +16,7 @@ collections:
     name: "english_posts"
     folder: "src/pages/blog"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "en/blog/{{slug}}"
     filter: { field: "lang", value: "en" }
     fields:
       - { label: "Id", name: id, widget: number }
@@ -27,31 +27,15 @@ collections:
           default: "blog-post",
         }
       - { label: "Business Name", name: "title", widget: "string" }
-      - { label: "Primary Image", name: "primary_image", widget: "file" }
+      - { label: "Primary Image", name: "primary_image", widget: "image" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
 
       #
       - { label: "Description", name: "description", widget: "text" }
-      - {
-          label: "Language",
-          name: "lang",
-          widget: "select",
-          options: ["en", "cn", "it"],
-        }
-      - { label: "Path", name: "path", widget: "string" }
-      - {
-          label: "Intro Paragraph",
-          name: "intro_paragraph",
-          widget: "text",
-          required: false,
-        }
+      - { label: "Language", name: "lang", widget: "hidden", default: "en" }
 
-      # Full business description
-      - {
-          label: "About the business",
-          name: "about_the_business",
-          widget: "text",
-        }
+      # Business Story
+      - { label: "Story", name: "story", widget: "text" }
 
       # Restaurant, Bookstore, etc
       - {
@@ -65,21 +49,39 @@ collections:
       - { label: "Tags", name: "tags", widget: "hidden", required: false }
 
       # Delivery, Takeout, Donations
-      - { label: "Services Offered", name: "services_offered", widget: "list" }
+      - {
+          label: "Services Offered",
+          name: "services_offered",
+          widget: "list",
+          default: ["delivery", "takout", "donations"],
+        }
 
-      - { label: "Address", name: "address", widget: "string" }
-      - {
-          label: "Homepage Link",
-          name: "homepage-link",
-          widget: "string",
-          required: false,
-        }
-      - {
-          label: "Social Link",
-          name: "social-link",
-          widget: "string",
-          required: false,
-        }
+      - { label: "Address", name: "address", widget: "text" }
+      - { label: "Phone", name: "phone", widget: "string" }
+
+      - label: "Homepage Link (optional)"
+        name: "homepage_link"
+        widget: "string"
+        required: false
+      - label: "Instagram Link (optional)"
+        name: "instagram_link"
+        widget: "string"
+        required: false
+      - label: "Facebook Link (optional)"
+        name: "facebook_link"
+        widget: "string"
+        required: false
+      - label: "Twitter Link (optional)"
+        name: "twitter_link"
+        widget: "string"
+        required: false
+      - label: "More images (optional)"
+        name: "more_images"
+        widget: "image"
+        required: false
+        media_library:
+          config:
+            multiple: true
 
   - label: "Blog in Italiano"
     extension: it.md
