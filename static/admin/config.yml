@@ -16,8 +16,85 @@ collections:
     name: "english_posts"
     folder: "src/pages/blog"
     create: true
-    slug: "{{slug}}"
+    slug: "{{title}}"
     filter: { field: "lang", value: "en" }
+    fields:
+      - label: "id"
+        name: "id"
+        widget: "hidden"
+        default: "01"
+
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "blog-post",
+        }
+      - { label: "Business Name", name: "title", widget: "string" }
+      - { label: "Primary Image", name: "primary_image", widget: "image" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+
+      #
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Language", name: "lang", widget: "hidden", default: "en" }
+
+      # Business Story
+      - { label: "Story", name: "story", widget: "text" }
+
+      # Restaurant, Bookstore, etc
+      - {
+          label: "Business Type",
+          name: "business_type",
+          widget: "list",
+          default: ["restaurant"],
+        }
+
+      # ignore for now
+      - { label: "Tags", name: "tags", widget: "hidden", required: false }
+
+      # Delivery, Takeout, Donations
+      - {
+          label: "Services Offered",
+          name: "services_offered",
+          widget: "list",
+          default: ["delivery", "takout", "donations"],
+        }
+
+      - { label: "Address", name: "address", widget: "text" }
+      - { label: "Phone", name: "phone", widget: "string" }
+
+      - label: "Homepage"
+        name: "homepage_link"
+        widget: "string"
+        required: false
+      - label: "Instagram"
+        name: "instagram_link"
+        widget: "string"
+        required: false
+      - label: "Facebook"
+        name: "facebook_link"
+        widget: "string"
+        required: false
+      - label: "Twitter"
+        name: "twitter_link"
+        widget: "string"
+        required: false
+      - label: "More images"
+        name: "more_images"
+        widget: "image"
+        required: false
+        media_library:
+          config:
+            multiple: true
+
+  - label: "Businesses (Chinese)"
+    extension: cn.md
+    format: frontmatter
+    name: "chinese_businesses"
+    folder: "src/pages/businesses"
+    create: true
+    slug: "{{title}}"
+    filter: { field: "lang", value: "cn" }
     fields:
       - {
           label: "Template Key",
@@ -58,64 +135,29 @@ collections:
       - { label: "Address", name: "address", widget: "text" }
       - { label: "Phone", name: "phone", widget: "string" }
 
-      - label: "Homepage Link (optional)"
+      - label: "Homepage"
         name: "homepage_link"
         widget: "string"
         required: false
-      - label: "Instagram Link (optional)"
+      - label: "Instagram"
         name: "instagram_link"
         widget: "string"
         required: false
-      - label: "Facebook Link (optional)"
+      - label: "Facebook"
         name: "facebook_link"
         widget: "string"
         required: false
-      - label: "Twitter Link (optional)"
+      - label: "Twitter"
         name: "twitter_link"
         widget: "string"
         required: false
-      - label: "More images (optional)"
+      - label: "More images"
         name: "more_images"
         widget: "image"
         required: false
         media_library:
           config:
             multiple: true
-
-  - label: "Blog in Italiano"
-    extension: it.md
-    format: frontmatter
-    name: "Italiano_posts"
-    folder: "src/pages/blog"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    filter: { field: "lang", value: "it" }
-    fields:
-      - { label: "Id", name: id, widget: number }
-      - {
-          label: "Template Key",
-          name: "templateKey",
-          widget: "hidden",
-          default: "blog-post",
-        }
-      - { label: "Titolo", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Descrizione", name: "description", widget: "text" }
-      - {
-          label: "Linguaggio",
-          name: "lang",
-          widget: "select",
-          options: ["en", "it"],
-        }
-      - { label: "Percorso", name: "path", widget: "string" }
-      - {
-          label: "Paragrafo introduttivo",
-          name: "intro_paragraph",
-          widget: "markdown",
-          required: false,
-        }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Tags", name: "tags", widget: "list" }
 
   - label: "Articles tree"
     extension: json

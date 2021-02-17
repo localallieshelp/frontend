@@ -2,7 +2,6 @@
 id: "07"
 templateKey: blog-post
 lang: en
-slug: /en/blog/sau-con-tho
 title: Sau Con Tho
 primary_image: /img/sau-con-tho.jpg
 date: 2021-02-16T20:43:21.976Z

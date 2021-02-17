@@ -157,7 +157,6 @@ BlogRoll.propTypes = {
     }),
   }),
 }
-BlogRoll.displayName = "BlogRoll"
 
 // eslint-disable-next-line react/display-name
 export default (langKey) => (

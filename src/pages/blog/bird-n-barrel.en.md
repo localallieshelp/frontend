@@ -2,7 +2,6 @@
 id: "08"
 templateKey: blog-post
 lang: en
-slug: /en/blog/bird-n-barrel
 title: Bird-n-Barrel
 primary_image: /img/bird-n-barrel.jpg
 date: 2021-02-16T20:43:21.976Z

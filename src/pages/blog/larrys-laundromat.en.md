@@ -1,4 +1,5 @@
 ---
+id: "05"
 templateKey: blog-post
 title: Larry's Laundromat
 primary_image: /img/Caco.jpg
