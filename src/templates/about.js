@@ -14,7 +14,7 @@ const AboutPageTemplate = ({
   contentComponent,
   tags,
   langKey,
-  image
+  image,
 }) => {
   const PageContent = contentComponent || Content
   return (
@@ -23,12 +23,34 @@ const AboutPageTemplate = ({
         <section class="section story">
           <div className="grid-section">
             <div>
-              <img src={image.childImageSharp.fluid.src}/>
+              <img src={image.childImageSharp.fluid.src} />
             </div>
             <div>
               <h3>{title}</h3>
               <p>
                 {copy}
+                <br />
+                <br />
+                Inspired by these acts of compassion, we set out to create the
+                volunteer-led Local Allies program to set up a sustainable next
+                step for small businesses in need. This includes a specialized
+                website that provides a free hub to input their small business
+                information; create donation programs where all funds go back to
+                the business; and a helpful staff of experienced volunteers of
+                marketers, translators, and web developers to provide
+                complimentary consultation and suggestions on other ways to
+                help.*
+                <br />
+                <br />
+                Special thanks to Send Chinatown Love and the Little Tokyo
+                Service Center for their inspiration and assistance!
+                <br />
+                <br />
+                *Please note, in order to best help those business owners most
+                in need, only small, non-franchised businesses of less than 50
+                employees with little to no digital/social media presence may
+                participate. If you do not qualify, we will still be glad to
+                help direct you to other services for additional assistance.
               </p>
             </div>
           </div>
