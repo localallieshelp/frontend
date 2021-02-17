@@ -6,6 +6,7 @@ import Helmet from "react-helmet"
 import { getCurrentLangKey, getLangs, getUrlForLang } from "ptz-i18n"
 import { IntlProvider } from "react-intl"
 import "./all.sass"
+import { FaThList } from "react-icons/fa"
 
 if (!Intl.RelativeTimeFormat) {
   require("@formatjs/intl-relativetimeformat/polyfill")
@@ -66,6 +67,7 @@ const setLangsMenu = (langsMenu, id, basePath, jsonData) => {
 class TemplateWrapper extends Component {
   constructor(props) {
     super(props)
+
     this.children = this.props.children
     const data = this.props.data
     this.description = data.markdownRemark.frontmatter.description
@@ -94,6 +96,7 @@ class TemplateWrapper extends Component {
     // with the appropriate language code
     this.i18nMessages = require(`../data/messages/${this.langKey}`)
   }
+
   render() {
     return (
       <IntlProvider

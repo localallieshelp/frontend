@@ -5,14 +5,16 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO/SEO"
 import Content, { HTMLContent } from "../components/Content"
-import IconMenu from "../components/IconMenu"
 import select from "../components/utils"
 
 const HomePageTemplate = ({
-  image,
-  heading,
-  main,
   title,
+  heading,
+  buttontext,
+  image,
+  main,
+  maintwo,
+  mainthree,
   content,
   contentComponent,
   tags,
@@ -67,7 +69,8 @@ const HomePageTemplate = ({
             }}
           >
             {heading}
-            <br/><br/>
+            <br />
+            <br />
             <span>
               {" "}
               *World Economic Forum - Mapping the uneven recovery of America’s
@@ -75,9 +78,9 @@ const HomePageTemplate = ({
               https://www.weforum.org/agenda/2020/10/mapped-uneven-recovery-us-america-small-businesses-closure{" "}
             </span>
           </h3>
-          <button class="button animated bounceInLeft">
-            View Local Business Hub
-          </button>
+          <a href="/blog">
+            <button class="button animated bounceInLeft">{buttontext}</button>
+          </a>
         </div>
       </div>
       <div className="padded-width-container">
@@ -86,36 +89,27 @@ const HomePageTemplate = ({
           <div className="grid-section">
             <div className="initiative-items">
               <img src={main.image1.image.childImageSharp.fluid.src}></img>
-              <h3>Small Business Hub</h3>
-              <p>
-                We work with each small merchant on a direct one-to-one basis to
-                make sure they are getting the specific help they need starting
-                with their own specialized page on our small business hub that
-                includes relevant information tailored to your needs.
-              </p>
-              <button class="button">Learn More</button>
+              <h3>{main.subtitle}</h3>
+              <p>{main.description}</p>
+              <a href={main.link}>
+                <button class="button">{main.buttontext}</button>
+              </a>
             </div>
             <div className="initiative-items">
-              <img src="/img/initiative-2.png"></img>
-              <h3>Donation Programs</h3>
-              <p>
-                Each small business will get access to our donation programs,
-                which include but are not limited to gift vouchers and
-                donate-a-meal opportunities - 100% of these funds raised will go
-                back to the business.
-              </p>
-              <button class="button">Donate</button>
+              <img src={maintwo.image1.image.childImageSharp.fluid.src}></img>
+              <h3>{maintwo.subtitle}</h3>
+              <p>{maintwo.description}</p>
+              <a href={maintwo.link}>
+                <button class="button">{maintwo.buttontext}</button>
+              </a>
             </div>
             <div className="initiative-items">
-              <img src="/img/initiative-3.png"></img>
-              <h3>Specialized Consultation</h3>
-              <p>
-                Our team will work with each partner to build a plan that
-                includes digital and social media marketing help and, if needed,
-                translation services (languages currently supported include
-                Mandarin and Cantonese) - all provided free-of-service.
-              </p>
-              <button class="button">Learn More</button>
+              <img src={mainthree.image1.image.childImageSharp.fluid.src}></img>
+              <h3>{mainthree.subtitle}</h3>
+              <p>{mainthree.description}</p>
+              <a href={mainthree.link}>
+                <button class="button">{mainthree.buttontext}</button>
+              </a>
             </div>
           </div>
         </section>
@@ -158,11 +152,14 @@ class HomePage extends React.Component {
         <SEO frontmatter={frontmatter} postImage={image} />
         <div>
           <HomePageTemplate
-            image={dataMarkdown.frontmatter.image}
+            title={dataMarkdown.frontmatter.mainheading}
             heading={dataMarkdown.frontmatter.heading}
+            buttontext={dataMarkdown.frontmatter.buttontext}
+            image={dataMarkdown.frontmatter.image}
             main={dataMarkdown.frontmatter.main}
+            maintwo={dataMarkdown.frontmatter.main2}
+            mainthree={dataMarkdown.frontmatter.main3}
             contentComponent={HTMLContent}
-            title={dataMarkdown.frontmatter.title}
             content={dataMarkdown.html}
             tags={tags}
             langKey={langKey}
@@ -216,9 +213,14 @@ export const pageQuery = graphql`
             }
           }
         }
+        mainheading
         heading
+        buttontext
         main {
           title
+          subtitle
+          description
+          buttontext
           image1 {
             alt
             image {
@@ -228,8 +230,40 @@ export const pageQuery = graphql`
                 }
               }
             }
-            link
           }
+          link
+        }
+        main2 {
+          subtitle
+          description
+          buttontext
+          image1 {
+            alt
+            image {
+              childImageSharp {
+                fluid(maxWidth: 500, quality: 90) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+          link
+        }
+        main3 {
+          subtitle
+          description
+          buttontext
+          image1 {
+            alt
+            image {
+              childImageSharp {
+                fluid(maxWidth: 500, quality: 90) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+          link
         }
       }
       fields {

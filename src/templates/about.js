@@ -1,15 +1,20 @@
 import React from "react"
 import * as PropTypes from "prop-types"
 import TagList from "../components/TagList"
+import menuTree from "../data/menuTree"
+import select from "../components/utils"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO/SEO"
 import Content, { HTMLContent } from "../components/Content"
-import TeamImg from "../../static/img/team-image.png"
 
 const AboutPageTemplate = ({
   title,
   copy,
+  copytwo,
+  copythree,
+  copyfour,
+  team,
   content,
   contentComponent,
   tags,
@@ -17,13 +22,18 @@ const AboutPageTemplate = ({
   image,
 }) => {
   const PageContent = contentComponent || Content
+  const sel = select(langKey)
+
   return (
     <div className="content about">
       <div className="padded-width-container">
-        <section class="section story">
+        <section className="section story">
           <div className="grid-section">
             <div>
-              <img src={image.childImageSharp.fluid.src} className="animated fadeInLeft"/>
+              <img
+                src={image.childImageSharp.fluid.src}
+                className="animated fadeInLeft"
+              />
             </div>
             <div>
               <h3 className="animated fadeIn">{title}</h3>
@@ -31,54 +41,56 @@ const AboutPageTemplate = ({
                 {copy}
                 <br />
                 <br />
-                Inspired by these acts of compassion, we set out to create the
-                volunteer-led Local Allies program to set up a sustainable next
-                step for small businesses in need. This includes a specialized
-                website that provides a free hub to input their small business
-                information; create donation programs where all funds go back to
-                the business; and a helpful staff of experienced volunteers of
-                marketers, translators, and web developers to provide
-                complimentary consultation and suggestions on other ways to
-                help.*
+                {copytwo}
                 <br />
                 <br />
-                Special thanks to Send Chinatown Love and the Little Tokyo
-                Service Center for their inspiration and assistance!
+                {copythree}
                 <br />
                 <br />
-                *Please note, in order to best help those business owners most
-                in need, only small, non-franchised businesses of less than 50
-                employees with little to no digital/social media presence may
-                participate. If you do not qualify, we will still be glad to
-                help direct you to other services for additional assistance.
+                {copyfour}
+                <br />
+                <br />
+                Have Questions? Want to Get Involved?
+                <a href={"/" + langKey + "/" + menuTree.contact[sel] + "/"}>
+                  Click here{" "}
+                </a>
+                .
               </p>
             </div>
           </div>
         </section>
       </div>
       <div className="padded-width-container">
-        <section class="section team">
-          <h3>Our Team</h3>
+        <section className="section team">
+          <h3>{team.title}</h3>
           <div className="grid-section">
             <div className="team-items">
-              <img src={TeamImg}></img>
-              <h3>Name</h3>
-              <p>Title:</p>
+              <img
+                src={team.member1.image1.image.childImageSharp.fluid.src}
+              ></img>
+              <h3>{team.member1.name}</h3>
+              <p>{team.member1.title}</p>
             </div>
             <div className="team-items">
-              <img src={TeamImg}></img>
-              <h3>Name</h3>
-              <p>Title:</p>
+              <img
+                src={team.member2.image1.image.childImageSharp.fluid.src}
+              ></img>
+              <h3>{team.member2.name}</h3>
+              <p>{team.member2.title}</p>
             </div>
             <div className="team-items">
-              <img src={TeamImg}></img>
-              <h3>Name</h3>
-              <p>Title:</p>
+              <img
+                src={team.member3.image1.image.childImageSharp.fluid.src}
+              ></img>
+              <h3>{team.member3.name}</h3>
+              <p>{team.member3.title}</p>
             </div>
             <div className="team-items">
-              <img src={TeamImg}></img>
-              <h3>Name</h3>
-              <p>Title:</p>
+              <img
+                src={team.member4.image1.image.childImageSharp.fluid.src}
+              ></img>
+              <h3>{team.member4.name}</h3>
+              <p>{team.member4.title}</p>
             </div>
           </div>
         </section>
@@ -124,7 +136,11 @@ class AboutPage extends React.Component {
             contentComponent={HTMLContent}
             title={dataMarkdown.frontmatter.title}
             copy={dataMarkdown.frontmatter.copy}
+            copytwo={dataMarkdown.frontmatter.copy2}
+            copythree={dataMarkdown.frontmatter.copy3}
+            copyfour={dataMarkdown.frontmatter.copy4}
             image={dataMarkdown.frontmatter.image}
+            team={dataMarkdown.frontmatter.team}
             content={dataMarkdown.html}
             tags={tags}
             langKey={langKey}
@@ -168,6 +184,9 @@ export const pageQuery = graphql`
         title
         description
         copy
+        copy2
+        copy3
+        copy4
         tags
         lang
         image {
@@ -175,6 +194,65 @@ export const pageQuery = graphql`
             fluid(maxWidth: 2048, quality: 100) {
               ...GatsbyImageSharpFluid
               src
+            }
+          }
+        }
+        team {
+          title
+          member1 {
+            name
+            title
+            image1 {
+              alt
+              image {
+                childImageSharp {
+                  fluid(maxWidth: 500, quality: 90) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+          }
+          member2 {
+            name
+            title
+            image1 {
+              alt
+              image {
+                childImageSharp {
+                  fluid(maxWidth: 500, quality: 90) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+          }
+          member3 {
+            name
+            title
+            image1 {
+              alt
+              image {
+                childImageSharp {
+                  fluid(maxWidth: 500, quality: 90) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+          }
+          member4 {
+            name
+            title
+            image1 {
+              alt
+              image {
+                childImageSharp {
+                  fluid(maxWidth: 500, quality: 90) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
             }
           }
         }

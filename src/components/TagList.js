@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
-import { kebabCase } from "lodash"
+import kebabCase from "lodash/kebabCase"
 import { FaTag } from "react-icons/fa"
 
 const TagList = ({ tags, langKey }) => {
