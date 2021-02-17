@@ -253,14 +253,18 @@ footer.footer
   background-size: 100%
 
   @media screen and (max-width: 789px)
-    background-size: 150%
+    background-size: cover
+    background-position: right top !important
 
   div
     width: 50%
     padding: 0px 3rem
 
+    @media screen and (max-width: 1100px)
+      width: 70%
+
     @media screen and (max-width: 789px)
-      width: 75%
+      width: 90%
 
   h1
     background-color: transparent !important
@@ -271,7 +275,7 @@ footer.footer
     font-size: 40px !important
 
     @media screen and (max-width: 789px)
-      font-size: 18px
+      font-size: 30px !important
 
     @media screen and (min-width: 789px)
       margin-top: 5rem
@@ -281,7 +285,7 @@ footer.footer
     background-color: transparent !important
     box-shadow: none !important
     color: black !important
-    font-size: 16px !important
+    font-size: 15px !important
     font-weight: normal !important
     animation-delay: 0.5s
     margin: 1.5rem 0px
@@ -289,6 +293,9 @@ footer.footer
 
     span
       font-size: 14px
+
+      @media screen and (max-width: 789px)
+        font-size: 12px
 
     @media screen and (min-width: 789px)
       font-size: 18px !important
@@ -309,6 +316,9 @@ footer.footer
 section.initiative
   padding: 3rem 5rem
 
+  @media screen and (max-width: 789px)
+    padding: 3rem 3rem
+
   @media screen and (max-width: 400px)
     padding: 3rem 1rem
 
@@ -328,8 +338,13 @@ section.initiative
   .grid-section
     grid-template-columns: 1fr 1fr 1fr
 
+    @media screen and (max-width: 900px)
+      grid-template-columns: 1fr 1fr
+      grid-auto-flow: unset
+
     @media screen and (max-width: 789px)
       grid-auto-flow: row
+      grid-template-columns: 100%
 
 /* Footer */
 
@@ -379,7 +394,7 @@ footer.footer
     position: absolute
     top: 1rem
 
-    @media screen and (max-width: 400px)
+    @media screen and (max-width: 789px)
       right: 1rem
       top: 0.5rem
 
@@ -406,7 +421,7 @@ footer.footer
     .grid-section
       grid-template-columns: 45% 45%
 
-      @media screen and (max-width: 460px)
+      @media screen and (max-width: 600px)
         grid-template-columns: 100%
         grid-auto-flow: row
 
