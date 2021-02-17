@@ -40,9 +40,9 @@ export const BlogPostTemplate = ({
               Restaurant, Vietnamese
             </p>
             <img src="/img/business-page-image.png" />
-            <div class="tabs">
+            <div className="tabs">
               <ul>
-                <li class="is-active">
+                <li className="is-active">
                   <a>Story</a>
                 </li>
                 <li>
