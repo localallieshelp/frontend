@@ -2,6 +2,10 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link, graphql, StaticQuery } from "gatsby"
 import { FormattedMessage } from "react-intl"
+import {
+  FaUtensils,
+  FaCheck
+} from "react-icons/fa"
 
 const switchData = (data, langKey) => {
   var posts
@@ -14,6 +18,7 @@ const switchData = (data, langKey) => {
       return " "
   }
 }
+
 
 class BlogRoll extends React.Component {
   constructor(props) {
@@ -33,40 +38,54 @@ class BlogRoll extends React.Component {
     const { data } = this.props
     const langKey = this.state.url.slice(1, 3)
     const { edges: posts } = switchData(data, langKey)
+    const iconStyles = { fill:"black"};
+    const ciconStyles = { fill:"green"};
 
     return (
-      <div className="rows is-multiline">
+      <div className="rows is-multiline blogroll">
         {posts &&
           posts.map(({ node: post }) => (
             <div className="is-parent row is-full" key={post.id}>
-              <article className="tile is-child box notification">
-                <p>
-                  <img
-                    src={
-                      post.frontmatter.primary_image.childImageSharp.fluid.src
-                    }
-                  />
-                </p>
-                <p>
-                  <Link
-                    className="title has-text-primary is-size-4"
-                    to={post.fields.slug}
-                  >
-                    {post.frontmatter.title}
-                  </Link>
-                  <span> &bull; </span>
-                  <span className="subtitle is-size-5 is-block">
-                    {post.frontmatter.date}
-                  </span>
-                </p>
-                <p>
-                  {post.excerpt}
-                  <br />
-                  <br />
-                  <Link className="button" to={post.fields.slug}>
-                    <FormattedMessage id="keep-reading" />
-                  </Link>
-                </p>
+              <article className="tile is-child box notification grid-section">
+                <div>
+                  <img src={post.frontmatter.primary_image} />
+                </div>
+                <div className="business-content">
+                  <div className="grid-section title">
+                    <div>
+                      <p>
+                        <Link
+                          className="has-text-primary is-size-4"
+                          to={post.fields.slug}
+                        >
+                          {post.frontmatter.title}
+                        </Link>
+                      </p>
+                      <p className="type">
+                        <FaUtensils className="utensils-icon" size="1em" style={iconStyles}/>
+                        Restaurant, Vietnamese
+                      </p>
+                    </div>
+                    <div>
+                      <p className="location">12345 Main St. Neighborhood</p>
+                    </div>
+                  </div>
+                  <div>
+                    <p className="excerpt">{post.excerpt}</p>
+                  </div>
+                  <div className="grid-section action">
+                    <div className="modes">
+                      <div><FaCheck className="check-icon" size="1em" style={ciconStyles}/>Delivery</div>
+                      <div><FaCheck className="check-icon" size="1em" style={ciconStyles}/>Takeout</div>
+                      <div><FaCheck className="check-icon" size="1em" style={ciconStyles}/>Donations</div>
+                    </div>
+                    <div className="view">
+                      <Link className="button" to={post.fields.slug}>
+                        <FormattedMessage id="keep-reading" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               </article>
             </div>
           ))}
