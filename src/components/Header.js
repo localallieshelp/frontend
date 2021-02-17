@@ -4,17 +4,16 @@ import logo from "../img/logo.svg"
 import {
   FaHome,
   FaQuestion,
-  FaImage,
   FaPenAlt,
   FaAmericanSignLanguageInterpreting,
 } from "react-icons/fa"
-import SelectLanguage from "./SelectLanguage"
 import { FormattedMessage } from "react-intl"
 import menuTree from "../data/menuTree"
 import RootMenu from "../components/RootMenu"
 import RootMenuMobile from "../components/RootMenuMobile"
 import { BrowserView, MobileView, isMobile } from "react-device-detect"
 import select from "../components/utils"
+import SelectLanguage from "../components/SelectLanguage"
 
 const Header = class extends React.Component {
   componentDidMount() {
@@ -72,7 +71,11 @@ const Header = class extends React.Component {
           <div className="container">
             <div className="navbar-brand">
               <Link to="/" className="navbar-item" title="Logo">
-                <img src={logo} alt="Kaldi" style={{ width: "88px" }} />
+                <img
+                  src={logo}
+                  alt="Save Small Businesses"
+                  style={{ width: "88px" }}
+                />
               </Link>
               {/* Hamburger menu */}
               <div className="navbar-burger burger" data-target="navMenu">
@@ -82,52 +85,26 @@ const Header = class extends React.Component {
               </div>
             </div>
             <div id="navMenu" className="navbar-menu">
-              <div className="navbar-start has-text-centered">
+              <div className="navbar-end has-text-centered">
                 <Link className="navbar-item" to={"/" + props.langKey}>
-                  <FaHome className="menu-names" />{" "}
-                  <FormattedMessage id="home" />
-                </Link>
-                <BrowserView viewClassName="navbar-item has-dropdown is-hoverable">
-                  <RootMenu
-                    langKey={props.langKey}
-                    base={
-                      "/" + props.langKey + "/" + menuTree.artworks[sel] + "/"
-                    }
-                  />
-                </BrowserView>
-                <MobileView viewClassName="navbar-item has-dropdown is-hoverable">
-                  <RootMenuMobile
-                    langKey={props.langKey}
-                    base={
-                      "/" + props.langKey + "/" + menuTree.artworks[sel] + "/"
-                    }
-                  />
-                </MobileView>
-                <Link
-                  className="navbar-item"
-                  to={"/" + props.langKey + "/" + menuTree.about[sel] + "/"}
-                >
-                  <FaQuestion className="menu-names" />{" "}
-                  <FormattedMessage id="about" />
+                  <FormattedMessage id="Home" />
                 </Link>
                 <Link
                   className="navbar-item"
                   to={"/" + props.langKey + "/" + menuTree.blog[sel] + "/"}
                 >
-                  <FaPenAlt className="menu-names" />{" "}
-                  <FormattedMessage id="blog" />
+                  <FormattedMessage id="Discover Businesses" />
                 </Link>
                 <Link
                   className="navbar-item"
-                  to={"/" + props.langKey + "/" + menuTree.contact[sel] + "/"}
+                  to={"/" + props.langKey + "/" + menuTree.about[sel] + "/"}
                 >
-                  <FaAmericanSignLanguageInterpreting className="menu-names" />{" "}
-                  <FormattedMessage id="contact" />
+                  <FormattedMessage id="Our Story" />
                 </Link>
               </div>
               <div className="navbar-end">
                 <div className="navbar-item  has-text-centered">
-                  {/* <SelectLanguage langs={props.langs} /> */}
+                   <SelectLanguage langs={props.langs} />
                 </div>
               </div>
             </div>
@@ -138,4 +115,5 @@ const Header = class extends React.Component {
   }
 }
 
+Header.displayName = "Header"
 export default Header

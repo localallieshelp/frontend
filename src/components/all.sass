@@ -7,6 +7,9 @@
 $kaki-red: #D64000
 $kaki-red-invert: #fff
 
+$light-green: #D1EFC9
+$green: #397A4C
+
 $primary: $kaki-red
 $primary-invert: $kaki-red-invert
 $body-color: #333
@@ -18,29 +21,6 @@ $instagram-color: #EA4C89
 $pinterest-color: #FF0A12
 $vimeo-color: #47FF33
 $linkedin-color: #57F9FF
-
-#navMenu
-  background-color: $kaki-red-invert
-
-.navbar .navbar-menu
-  box-shadow:none !important
-
-.nested.dropdown
-  &:hover > .dropdown-menu
-    display: block
-
-  .dropdown-menu
-    top: -15px
-    margin-left: 100%
-
-  .dropdown-trigger
-
-    button
-      padding: 0px 0px
-      border: 0px
-      font-size: 14px
-      font-weight: 400
-      height: 2em
 
 .is-vertical-center
   display: flex
@@ -167,3 +147,610 @@ footer.footer
     padding: 5%
 
 @import "~bulma"
+
+
+/* Custom SASS */
+
+/* Navbar */
+
+.navbar
+  height: 6rem
+
+  @media screen and (max-width: 789px)
+    height: 5rem
+
+  .navbar-brand
+    img
+      max-height: 3.5rem
+
+  .container
+    max-width: 95%
+    margin: 0 auto
+    @media screen and (min-width: 789px)
+      display: flex
+
+#navMenu
+  display: grid
+  grid-auto-flow: column
+  grid-template-columns: 80% 20%
+  flex-grow: 1
+  flex-shrink: 0
+  @media screen and (min-width: 789px)
+    background-color: transparent
+    box-shadow: none
+    padding: 0px
+
+  @media screen and (max-width: 1000px)
+    grid-template-columns: 70% 30%
+
+  @media screen and (max-width: 789px)
+    display: none
+
+  &.is-active
+    @media screen and (max-width: 789px)
+      display: block
+  div
+    @media screen and (min-width: 789px)
+      display: flex
+
+  a.navbar-item
+    padding: 0.5rem 1.75rem
+    align-items: center
+    @media screen and (min-width: 789px)
+      display: flex
+
+    &:hover
+      color: $green
+
+  .language
+    column-gap: 5px
+
+    @media screen and (max-width: 789px)
+      width: 225px
+      padding: 10px !important
+      margin: 0 auto
+
+    header
+      column-gap: 5px
+      align-items: center
+      color: black
+
+.navbar-burger
+  @media screen and (min-width: 789px)
+    display: none
+
+  @media screen and (max-width: 789px)
+    margin-top: 15px
+
+.navbar-end
+  @media screen and (min-width: 789px)
+    justify-content: flex-end
+    margin-left: auto
+
+/* Home */
+
+.home
+  button
+    border-color: $green
+    color: $green
+
+    &:hover
+      background-color: $green
+      color: white
+
+.padded-width-image
+  width: 95%
+  margin: 0 auto
+  height: 500px
+  background-size: cover
+  background-position: bottom
+  display: flex
+  justify-content: center
+  align-items: center
+
+.home .padded-width-image
+  justify-content: left
+  background-size: 100%
+
+  @media screen and (max-width: 789px)
+    background-size: cover
+    background-position: right top !important
+
+  div
+    width: 50%
+    padding: 0px 3rem
+
+    @media screen and (max-width: 1100px)
+      width: 70%
+
+    @media screen and (max-width: 789px)
+      width: 90%
+
+  h1
+    background-color: transparent !important
+    box-shadow: none !important
+    color: black !important
+    margin: 0px
+    padding: 0px !important
+    font-size: 40px !important
+
+    @media screen and (max-width: 789px)
+      font-size: 30px !important
+
+    @media screen and (min-width: 789px)
+      margin-top: 5rem
+
+
+  h3
+    background-color: transparent !important
+    box-shadow: none !important
+    color: black !important
+    font-size: 15px !important
+    font-weight: normal !important
+    animation-delay: 0.5s
+    margin: 1.5rem 0px
+    padding: 0px !important
+
+    span
+      font-size: 14px
+
+      @media screen and (max-width: 789px)
+        font-size: 12px
+
+    @media screen and (min-width: 789px)
+      font-size: 18px !important
+
+  button
+    width: 220px
+    animation-delay: 1s
+
+.padded-width-container
+  width: 95%
+  margin: 0 auto
+
+.grid-section
+  display: grid
+  grid-auto-flow: column
+  column-gap: 4rem
+
+section.initiative
+  padding: 3rem 5rem
+
+  @media screen and (max-width: 789px)
+    padding: 3rem 3rem
+
+  @media screen and (max-width: 400px)
+    padding: 3rem 1rem
+
+  .initiative-items
+    text-align: center
+
+    img
+      width: 100%
+
+    h3
+      margin: 5px 0px
+      text-align: left
+
+    p
+      text-align: left
+
+  .grid-section
+    grid-template-columns: 1fr 1fr 1fr
+
+    @media screen and (max-width: 900px)
+      grid-template-columns: 1fr 1fr
+      grid-auto-flow: unset
+
+    @media screen and (max-width: 789px)
+      grid-auto-flow: row
+      grid-template-columns: 100%
+
+/* Footer */
+
+footer.footer
+  padding: 3rem 2rem
+  position: relative
+  background-color: $light-green !important
+
+  .inner-footer
+
+    .footer-logo
+      margin-bottom: 0px
+
+    .menu
+      display: flex
+      justify-content: center
+      padding: 0px 6rem
+
+      a.navbar-item
+        &:hover
+          background: transparent
+          color: $green
+    .grid-section
+      column-gap: 0px
+
+      @media screen and (max-width: 789px)
+        grid-auto-flow: row
+
+      .copyright
+        text-align: left
+        padding: 0px
+
+        @media screen and (max-width: 789px)
+          text-align: center
+
+      .social
+        text-align: right
+        padding: 0px
+
+        @media screen and (max-width: 789px)
+          text-align: center
+          grid-row: 1
+          padding: 1rem 0rem
+
+  .level
+    right: 6rem
+    position: absolute
+    top: 1rem
+
+    @media screen and (max-width: 789px)
+      right: 1rem
+      top: 0.5rem
+
+    .button
+      background: transparent
+      border: 2px solid $green
+      color: $green
+      padding: 1rem 0.8rem
+
+  section.copyright
+    padding: 20px
+    text-align: center
+
+
+/* About Page */
+
+.about
+  padding: 0px !important
+
+  .padded-width-container
+    width: 95%
+
+  .story
+    .grid-section
+      grid-template-columns: 45% 45%
+
+      @media screen and (max-width: 600px)
+        grid-template-columns: 100%
+        grid-auto-flow: row
+
+      img
+        width: 100%
+
+    @media screen and (max-width: 460px)
+      padding: 0rem 1.5rem
+
+  .team
+    padding: 3rem 0rem
+
+    @media screen and (max-width: 789px)
+      padding: 3rem 1.5rem
+
+    .grid-section
+      grid-template-columns: 1fr 1fr 1fr
+      grid-auto-flow: unset
+      row-gap: 2rem
+
+      @media screen and (max-width: 789px)
+        grid-template-columns: 1fr 1fr
+
+      @media screen and (max-width: 460px)
+        grid-template-columns: 1fr
+
+  .team-items
+    text-align: center
+
+    img
+      width: 100%
+
+    h3
+      margin: 5px 0px
+      text-align: left
+
+    p
+      text-align: left
+
+
+/* Business Hub */
+
+.blog
+  button
+    border-color: $green
+    color: $green
+
+    &:hover
+      background-color: $green
+      color: white
+  .grid-section
+    width: 80%
+    margin: 0 auto
+    padding: 2rem 0rem
+    grid-template-columns: 20% 77%
+    column-gap: 2rem
+
+    @media screen and (max-width: 1150px)
+      width: 90%
+
+    @media screen and (max-width: 1000px)
+      width: 95%
+      column-gap: 1rem
+
+    @media screen and (max-width: 600px)
+      grid-auto-flow: row
+      grid-template-columns: 100%
+
+.blog .padded-width-image
+  justify-content: left
+  background-size: 100%
+  height: 300px
+
+  @media screen and (max-width: 789px)
+    background-size: 150%
+
+  div
+    width: 100%
+    padding: 0px 3rem
+    text-align: center
+
+  h1
+    background-color: transparent !important
+    box-shadow: none !important
+    color: black !important
+    margin: 0px
+    padding: 0px !important
+
+    @media screen and (max-width: 789px)
+      font-size: 18px
+
+
+  h3
+    background-color: transparent !important
+    box-shadow: none !important
+    color: black !important
+    font-size: 16px !important
+    font-weight: normal !important
+    animation-delay: 0.5s
+    margin: 1.5rem 0px
+    padding: 0px !important
+
+    @media screen and (min-width: 789px)
+      font-size: 18px !important
+
+.blogroll
+  article
+    border: 1px solid black
+    border-radius: 0px
+    background: transparent
+    box-shadow: none
+
+    img
+      width: 100%
+
+    &.grid-section
+      padding: 1rem
+      grid-template-columns: 30% 66%
+      width: 100%
+
+      @media screen and (max-width: 500px)
+        grid-auto-flow: row
+        grid-template-columns: 100%
+
+    .business-content
+
+      .title
+        padding: 0px
+        margin: 0px
+        width: 100%
+        grid-template-columns: 63% 34%
+        column-gap: 1rem
+        margin-bottom: 0.5rem
+
+        @media screen and (max-width: 890px)
+          grid-template-columns: 100%
+          grid-auto-flow: row
+
+        a
+          font-size: 18px !important
+          color: black !important
+          text-decoration: none
+          display: block
+
+      .action
+        padding: 0px
+        margin: 0px
+        width: 100%
+        grid-template-columns: 63% 34%
+        column-gap: 1rem
+        margin-top: 1rem
+
+        @media screen and (max-width: 890px)
+          grid-template-columns: 100%
+          grid-auto-flow: row
+
+      p
+        margin: 0px
+
+      .type
+        font-size: 16px
+        font-weight: normal
+        padding: 0.5rem 0rem
+
+      .location
+        font-size: 17px
+        font-weight: normal
+        text-align: right
+
+        @media screen and (max-width: 890px)
+          text-align: left
+
+      .modes
+        display: flex
+        align-items: center
+
+        div
+          padding-right: 1rem
+          display: flex
+          align-items: center
+
+      .view
+        text-align: right
+
+        @media screen and (max-width: 890px)
+          text-align: left
+          margin-top: 1rem
+
+      .button
+        border-color: $green
+        color: $green
+
+        &:hover
+          background-color: $green
+          color: white
+
+  .row
+    margin-bottom: 1rem
+
+
+
+/* Business Page */
+
+.business-info
+  padding: 0px
+
+  @media screen and (max-width: 1024px)
+    width: 95%
+    margin: 0 auto
+
+  .grid-section
+    grid-template-columns: 3fr 1fr
+
+    @media screen and (max-width: 1100px)
+      grid-template-columns: 2fr 1fr
+      column-gap: 2rem
+
+    @media screen and (max-width: 900px)
+      grid-template-columns: 56% 40%
+
+    @media screen and (max-width: 789px)
+      grid-template-columns: 100%
+      grid-auto-flow: row
+
+  .general-info
+
+    .title
+      margin-bottom: 0.5rem
+
+    .type
+      margin-bottom: 1.5rem
+
+    img
+      width: 100%
+
+    .tabs
+      margin-top: 1.5rem
+
+      ul
+        margin: 0px
+        border: none
+
+        li
+          &.is-active a
+            color: $green
+
+          &:hover a
+            color: $green
+
+          a
+            padding-left: 0px
+            padding-right: 2rem
+            text-transform: uppercase
+            font-size: 1.2rem
+
+    .menu-content
+      .grid-section
+        grid-template-columns: 1fr 1fr
+        column-gap: 1rem
+
+    .photo-content
+
+      .left
+        grid-template-columns: 2fr 1fr
+        column-gap: 1rem
+        row-gap: 1rem
+
+        .grid-section
+          grid-auto-flow: row
+          row-gap: 1rem
+          grid-template-columns: 100%
+
+      .right
+        grid-template-columns: 1fr 2fr
+        column-gap: 1rem
+        row-gap: 1rem
+
+        .grid-section
+          grid-auto-flow: row
+          row-gap: 1rem
+          grid-template-columns: 100%
+
+  .fixed-info
+    margin-top: 6rem
+    position: relative
+
+    @media screen and (max-width: 789px)
+      display: none
+
+    .fixed-inner
+      position: fixed
+
+    .grid-section
+      column-gap: 1rem
+      grid-template-columns: 35%
+      margin-bottom: 1rem
+
+      @media screen and (max-width: 900px)
+        grid-template-columns: 26%
+
+      div:first-child
+        font-weight: bold
+
+    .hours-list
+      font-size: 14px
+
+      .grid-section
+        column-gap: 0rem
+        grid-template-columns: 24% 77%
+
+  .mobile-info
+    margin-top: 0rem
+    position: relative
+    display: none
+
+    @media screen and (max-width: 789px)
+      display: block
+
+    .grid-section
+      column-gap: 1rem
+      grid-template-columns: 100%
+      margin-bottom: 1rem
+
+      div:first-child
+        font-weight: bold
+
+    .hours-list
+      font-size: 14px
+
+      .grid-section
+        column-gap: 0rem
+        grid-template-columns: 24% 77%

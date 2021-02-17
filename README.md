@@ -14,11 +14,27 @@ Run the yarn installer to install all the packages and dependencies:
 yarn install
 ```
 
+Open a separate terminal and run the following command. This will allow you to
+access the netlify-cms locally at: `localhost:8000/admin` or the same port
+the gatsby app is running.
+
+```
+npx netlify-cms-proxy-server
+```
+
 After yarn has finished to install all the packages then you can run:
 
 ```
 gatsby develop
 ```
+
+## Dev Tips
+
+- If you get an error on a line like this:
+
+  `const image = frontmatter.image.childImageSharp.fluid.src`
+
+  Try deleting the `.cache` folder and/or run `gatsby clean`. This may happen when switching between branches.
 
 ## Features
 

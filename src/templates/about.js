@@ -5,18 +5,84 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO/SEO"
 import Content, { HTMLContent } from "../components/Content"
+import TeamImg from "../../static/img/team-image.png"
 
 const AboutPageTemplate = ({
   title,
+  copy,
   content,
   contentComponent,
   tags,
   langKey,
+  image,
 }) => {
   const PageContent = contentComponent || Content
   return (
-    <div className="container content">
-      <h1 className="title animated bounceInLeft">{title}</h1>
+    <div className="content about">
+      <div className="padded-width-container">
+        <section class="section story">
+          <div className="grid-section">
+            <div>
+              <img src={image.childImageSharp.fluid.src} className="animated fadeInLeft"/>
+            </div>
+            <div>
+              <h3 className="animated fadeIn">{title}</h3>
+              <p className="animated slideInUp">
+                {copy}
+                <br />
+                <br />
+                Inspired by these acts of compassion, we set out to create the
+                volunteer-led Local Allies program to set up a sustainable next
+                step for small businesses in need. This includes a specialized
+                website that provides a free hub to input their small business
+                information; create donation programs where all funds go back to
+                the business; and a helpful staff of experienced volunteers of
+                marketers, translators, and web developers to provide
+                complimentary consultation and suggestions on other ways to
+                help.*
+                <br />
+                <br />
+                Special thanks to Send Chinatown Love and the Little Tokyo
+                Service Center for their inspiration and assistance!
+                <br />
+                <br />
+                *Please note, in order to best help those business owners most
+                in need, only small, non-franchised businesses of less than 50
+                employees with little to no digital/social media presence may
+                participate. If you do not qualify, we will still be glad to
+                help direct you to other services for additional assistance.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div className="padded-width-container">
+        <section class="section team">
+          <h3>Our Team</h3>
+          <div className="grid-section">
+            <div className="team-items">
+              <img src={TeamImg}></img>
+              <h3>Name</h3>
+              <p>Title:</p>
+            </div>
+            <div className="team-items">
+              <img src={TeamImg}></img>
+              <h3>Name</h3>
+              <p>Title:</p>
+            </div>
+            <div className="team-items">
+              <img src={TeamImg}></img>
+              <h3>Name</h3>
+              <p>Title:</p>
+            </div>
+            <div className="team-items">
+              <img src={TeamImg}></img>
+              <h3>Name</h3>
+              <p>Title:</p>
+            </div>
+          </div>
+        </section>
+      </div>
       <section className="section">
         <PageContent className="container content" content={content} />
         <TagList tags={tags} langKey={langKey} />
@@ -27,6 +93,7 @@ const AboutPageTemplate = ({
 
 AboutPageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
+  copy: PropTypes.string,
   content: PropTypes.string,
   contentComponent: PropTypes.func,
   tags: PropTypes.array,
@@ -56,6 +123,8 @@ class AboutPage extends React.Component {
           <AboutPageTemplate
             contentComponent={HTMLContent}
             title={dataMarkdown.frontmatter.title}
+            copy={dataMarkdown.frontmatter.copy}
+            image={dataMarkdown.frontmatter.image}
             content={dataMarkdown.html}
             tags={tags}
             langKey={langKey}
@@ -98,6 +167,7 @@ export const pageQuery = graphql`
         id
         title
         description
+        copy
         tags
         lang
         image {

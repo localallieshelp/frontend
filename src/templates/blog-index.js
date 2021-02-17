@@ -13,30 +13,63 @@ export default class BlogIndexPage extends React.Component {
     const jsonData = data.allArticlesJson.edges[0].node.articles
 
     return (
-      <Layout data={data} jsonData={jsonData} location={location}>
+      <Layout data={data} jsonData={jsonData} location={location} className="blog">
         <SEO frontmatter={data.markdownRemark.frontmatter} />
-        <section className="content">
+        <div
+          className="padded-width-image margin-top-0"
+          style={{
+            backgroundImage: `url('/img/business-header.png')`,
+            backgroundPosition: `top left`,
+            backgroundAttachment: `fixed`,
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              height: "150px",
+              lineHeight: "1",
+              justifyContent: "space-around",
+              alignItems: "left",
+              flexDirection: "column",
+            }}
+          >
+            <h1
+              className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen is-centered animated fadeInDown"
+              style={{
+                boxShadow:
+                  "rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px",
+                backgroundColor: "rgb(255, 68, 0)",
+                color: "white",
+                lineHeight: "1",
+                padding: "0.25em",
+              }}
+            >
+              <FormattedMessage id="blog-message" />
+            </h1>
+            <h3
+              className="is-size-5-mobile is-size-5-tablet is-size-4-widescreen animated fadeInUp"
+              style={{
+                boxShadow:
+                  "rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px",
+                backgroundColor: "rgb(255, 68, 0)",
+                color: "white",
+                lineHeight: "1",
+                padding: "0.25em",
+              }}
+            >
+              We work with each small merchant on a direct one-to-one basis to
+              make sure they are getting the specific help they need starting
+              with their own specialized page on our small business hub that
+              includes relevant information tailored to your needs.
+            </h3>
+          </div>
+        </div>
+        <section className="content grid-section ">
+          <div clasName="sidebar">
+            <h4>Filter By</h4>
+          </div>
           <div className="container">
-            <div className="content">
-              <div
-                className="full-width-image-container margin-top-0"
-                style={{
-                  backgroundImage: `url('https://upload.wikimedia.org/wikipedia/commons/3/34/Persimmons_yamagata_2005-10.JPG')`,
-                }}
-              >
-                <h1
-                  className="has-text-weight-bold is-size-1"
-                  style={{
-                    boxShadow: "0.5rem 0 0 #f40, -0.5rem 0 0 #f40",
-                    backgroundColor: "#f40",
-                    color: "white",
-                    padding: "1rem",
-                  }}
-                >
-                  <FormattedMessage id="blog-message" />
-                </h1>
-              </div>
-            </div>
+            <h4>DISCOVER LOCAL BUSINESSES</h4>
             <BlogRoll />
           </div>
         </section>
@@ -77,7 +110,6 @@ export const pageQuery = graphql`
       html
       frontmatter {
         id
-        date
         title
         description
         tags
