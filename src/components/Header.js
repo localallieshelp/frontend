@@ -1,21 +1,14 @@
 import React from "react"
 import { Link } from "gatsby"
 import logo from "../img/logo.svg"
-import {
-  FaHome,
-  FaQuestion,
-  FaPenAlt,
-  FaAmericanSignLanguageInterpreting,
-} from "react-icons/fa"
 import { FormattedMessage } from "react-intl"
 import menuTree from "../data/menuTree"
-import RootMenu from "../components/RootMenu"
-import RootMenuMobile from "../components/RootMenuMobile"
-import { BrowserView, MobileView, isMobile } from "react-device-detect"
+import { isMobile } from "react-device-detect"
 import select from "../components/utils"
 import SelectLanguage from "../components/SelectLanguage"
 
 const Header = class extends React.Component {
+
   componentDidMount() {
     const $navbarBurgers = Array.prototype.slice.call(
       document.querySelectorAll(".navbar-burger"),
@@ -70,7 +63,11 @@ const Header = class extends React.Component {
         >
           <div className="container">
             <div className="navbar-brand">
-              <Link to="/" className="navbar-item" title="Logo">
+              <Link
+                to="/"
+                className="navbar-item"
+                title="Logo"
+              >
                 <img
                   src={logo}
                   alt="Save Small Businesses"
@@ -104,7 +101,7 @@ const Header = class extends React.Component {
               </div>
               <div className="navbar-end">
                 <div className="navbar-item  has-text-centered">
-                   <SelectLanguage langs={props.langs} />
+                  <SelectLanguage langs={props.langs} />
                 </div>
               </div>
             </div>
