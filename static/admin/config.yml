@@ -16,10 +16,9 @@ collections:
     name: "english_posts"
     folder: "src/pages/blog"
     create: true
-    slug: "en/blog/{{slug}}"
+    slug: "{{slug}}"
     filter: { field: "lang", value: "en" }
     fields:
-      - { label: "Id", name: id, widget: number }
       - {
           label: "Template Key",
           name: "templateKey",

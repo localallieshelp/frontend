@@ -184,8 +184,6 @@ export default (langKey) => (
         ) {
           edges {
             node {
-              excerpt(pruneLength: 400)
-              id
               fields {
                 slug
               }

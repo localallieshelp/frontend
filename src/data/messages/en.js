@@ -32,7 +32,7 @@ module.exports = {
   interactivity: "Interactivity",
   experimental: "Experimental",
   blog: "Blog",
-  "blog-message": "Last News",
+  "blog-message": "Small Business Hub",
   "keep-reading": "Keep reading →",
   "find-out-more": "Find out more...",
   followus: "Follow Us: ",
