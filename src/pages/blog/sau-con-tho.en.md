@@ -17,6 +17,7 @@ tags:
 services_offered:
   - delivery
   - takeout
+  - donations
 address: 8450 Garvey Ave Unit 103, Rosemead, CA 91770
 phone: ""
 homepage_link: saucantho.com

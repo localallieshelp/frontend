@@ -2,10 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link, graphql, StaticQuery } from "gatsby"
 import { FormattedMessage } from "react-intl"
-import {
-  FaUtensils,
-  FaCheck
-} from "react-icons/fa"
+import { FaUtensils, FaCheck, FaTimes } from "react-icons/fa"
 
 const switchData = (data, langKey) => {
   var posts
@@ -18,7 +15,6 @@ const switchData = (data, langKey) => {
       return " "
   }
 }
-
 
 class BlogRoll extends React.Component {
   constructor(props) {
@@ -38,8 +34,9 @@ class BlogRoll extends React.Component {
     const { data } = this.props
     const langKey = this.state.url.slice(1, 3)
     const { edges: posts } = switchData(data, langKey)
-    const iconStyles = { fill:"black"};
-    const ciconStyles = { fill:"green"};
+    const iconStyles = { fill: "black" }
+    const ciconStyles = { fill: "green" }
+    const xiconStyles = { fill: "red" }
 
     return (
       <div className="rows is-multiline blogroll">
@@ -48,7 +45,11 @@ class BlogRoll extends React.Component {
             <div className="is-parent row is-full" key={post.id}>
               <article className="tile is-child box notification grid-section">
                 <div>
-                  <img src={post.frontmatter.primary_image} />
+                  <img
+                    src={
+                      post.frontmatter.primary_image.childImageSharp.fluid.src
+                    }
+                  />
                 </div>
                 <div className="business-content">
                   <div className="grid-section title">
@@ -62,26 +63,81 @@ class BlogRoll extends React.Component {
                         </Link>
                       </p>
                       <p className="type">
-                        <FaUtensils className="utensils-icon" size="1em" style={iconStyles}/>
+                        <FaUtensils
+                          className="utensils-icon"
+                          size="1em"
+                          style={iconStyles}
+                        />
                         Restaurant, Vietnamese
                       </p>
                     </div>
                     <div>
-                      <p className="location">12345 Main St. Neighborhood</p>
+                      <p className="location">{post.frontmatter.address}</p>
                     </div>
                   </div>
                   <div>
-                    <p className="excerpt">{post.excerpt}</p>
+                    <p className="excerpt">{post.description}</p>
                   </div>
                   <div className="grid-section action">
                     <div className="modes">
-                      <div><FaCheck className="check-icon" size="1em" style={ciconStyles}/>Delivery</div>
-                      <div><FaCheck className="check-icon" size="1em" style={ciconStyles}/>Takeout</div>
-                      <div><FaCheck className="check-icon" size="1em" style={ciconStyles}/>Donations</div>
+                      <div>
+                        {post.frontmatter.services_offered.includes(
+                          "delivery"
+                        ) ? (
+                          <FaCheck
+                            className="check-icon"
+                            size="1em"
+                            style={ciconStyles}
+                          />
+                        ) : (
+                          <FaTimes
+                            className="check-icon"
+                            size="1em"
+                            style={xiconStyles}
+                          />
+                        )}
+                        Delivery
+                      </div>
+                      <div>
+                        {post.frontmatter.services_offered.includes(
+                          "takeout"
+                        ) ? (
+                          <FaCheck
+                            className="check-icon"
+                            size="1em"
+                            style={ciconStyles}
+                          />
+                        ) : (
+                          <FaTimes
+                            className="check-icon"
+                            size="1em"
+                            style={xiconStyles}
+                          />
+                        )}
+                        Takeout
+                      </div>
+                      <div>
+                        {post.frontmatter.services_offered.includes(
+                          "donations"
+                        ) ? (
+                          <FaCheck
+                            className="check-icon"
+                            size="1em"
+                            style={ciconStyles}
+                          />
+                        ) : (
+                          <FaTimes
+                            className="check-icon"
+                            size="1em"
+                            style={xiconStyles}
+                          />
+                        )}
+                        Donations
+                      </div>
                     </div>
                     <div className="view">
                       <Link className="button" to={post.fields.slug}>
-                        <FormattedMessage id="keep-reading" />
+                        <FormattedMessage id="view" />
                       </Link>
                     </div>
                   </div>

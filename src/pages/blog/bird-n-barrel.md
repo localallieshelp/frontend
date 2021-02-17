@@ -17,7 +17,6 @@ business_type:
 tags:
   - restaurant
 services_offered:
-  - delivery
   - takeout
 address: 305 E 4th St 105, Santa Ana, CA 92701
 phone: (714) 584-3662
