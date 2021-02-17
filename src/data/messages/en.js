@@ -1,5 +1,5 @@
 module.exports = {
-  selectLanguage: "Select your language",
+  selectLanguage: "Language",
   tags: "Tags",
   "tags.allTagsLink": "Browse all tags",
   "tags.intro": "Here you can find all the tags",

@@ -29,8 +29,7 @@ const HomePageTemplate = ({
             !!image.childImageSharp ? image.childImageSharp.fluid.src : image
           })`,
           backgroundPosition: `top left`,
-          backgroundAttachment: `fixed`,
-          backgroundSize: `contain`
+          backgroundAttachment: `fixed`
         }}
       >
         <div

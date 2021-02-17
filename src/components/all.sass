@@ -153,29 +153,79 @@ footer.footer
 
 /* Navbar */
 
-.navbar .container
-  max-width: 95%
-  margin: 0 auto
-
 .navbar
   height: 6rem
+
+  @media screen and (max-width: 789px)
+    height: 5rem
 
   .navbar-brand
     img
       max-height: 3.5rem
 
+  .container
+    max-width: 95%
+    margin: 0 auto
+    @media screen and (min-width: 789px)
+      display: flex
+
 #navMenu
   display: grid
   grid-auto-flow: column
   grid-template-columns: 80% 20%
+  flex-grow: 1
+  flex-shrink: 0
+  @media screen and (min-width: 789px)
+    background-color: transparent
+    box-shadow: none
+    padding: 0px
+
+  @media screen and (max-width: 1000px)
+    grid-template-columns: 70% 30%
+  
+  @media screen and (max-width: 789px)
+    display: none
+
+  &.is-active
+    @media screen and (max-width: 789px)
+      display: block
+  div
+    @media screen and (min-width: 789px)
+      display: flex
 
   a.navbar-item
     padding: 0.5rem 1.75rem
+    align-items: center
+    @media screen and (min-width: 789px)
+      display: flex
 
     &:hover
       color: $green
-    
+  
+  .language
+    column-gap: 5px
 
+    @media screen and (max-width: 789px)
+      width: 225px
+      padding: 10px !important
+      margin: 0 auto
+
+    header
+      column-gap: 5px
+      align-items: center
+      color: black
+
+.navbar-burger
+  @media screen and (min-width: 789px)
+    display: none
+
+  @media screen and (max-width: 789px)
+    margin-top: 15px
+
+.navbar-end
+  @media screen and (min-width: 789px)
+    justify-content: flex-end
+    margin-left: auto
 
 /* Home */
 
@@ -188,8 +238,6 @@ footer.footer
       background-color: $green
       color: white
     
-
-
 .padded-width-image
   width: 95%
   margin: 0 auto
@@ -202,10 +250,17 @@ footer.footer
 
 .home .padded-width-image
   justify-content: left
+  background-size: 100%
+
+  @media screen and (max-width: 789px)
+    background-size: 150%
 
   div
     width: 50%
     padding: 0px 3rem
+
+    @media screen and (max-width: 789px)
+      width: 75%
 
   h1
     background-color: transparent !important
@@ -213,23 +268,30 @@ footer.footer
     color: black !important
     margin: 0px
     padding: 0px !important
-    margin-top: 8rem
+
+    @media screen and (max-width: 789px)
+      font-size: 18px
+
+    @media screen and (min-width: 789px)
+      margin-top: 8rem
+  
 
   h3
     background-color: transparent !important
     box-shadow: none !important
     color: black !important
-    font-size: 18px !important
+    font-size: 16px !important
     font-weight: normal !important
     animation-delay: 0.5s
     margin: 1.5rem 0px
     padding: 0px !important
+
+    @media screen and (min-width: 789px)
+      font-size: 18px !important
   
   button
     width: 100px
     animation-delay: 1s
-
-
 
 .padded-width-container
   width: 95%
@@ -243,12 +305,14 @@ footer.footer
 section.initiative
   padding: 3rem 5rem
 
+  @media screen and (max-width: 400px)
+    padding: 3rem 1rem
+
   .initiative-items
     text-align: center
 
     img
       width: 100%
-      height: 300px
 
     h3
       margin: 5px 0px
@@ -256,6 +320,10 @@ section.initiative
 
     p
       text-align: left
+  
+  .grid-section
+      @media screen and (max-width: 789px)
+        grid-auto-flow: row
 
 /* Footer */
 
@@ -281,18 +349,33 @@ footer.footer
     .grid-section
       column-gap: 0px
 
+      @media screen and (max-width: 789px)
+        grid-auto-flow: row
+
       .copyright
         text-align: left
         padding: 0px
+
+        @media screen and (max-width: 789px)
+          text-align: center
 
       .social
         text-align: right
         padding: 0px
 
+        @media screen and (max-width: 789px)
+          text-align: center
+          grid-row: 1
+          padding: 1rem 0rem
+
   .level
     right: 6rem
     position: absolute
     top: 1rem
+
+    @media screen and (max-width: 400px)
+      right: 1rem
+      top: 0.5rem
 
     .button
       background: transparent
