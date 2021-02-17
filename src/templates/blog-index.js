@@ -13,7 +13,12 @@ export default class BlogIndexPage extends React.Component {
     const jsonData = data.allArticlesJson.edges[0].node.articles
 
     return (
-      <Layout data={data} jsonData={jsonData} location={location} className="blog">
+      <Layout
+        data={data}
+        jsonData={jsonData}
+        location={location}
+        className="blog"
+      >
         <SEO frontmatter={data.markdownRemark.frontmatter} />
         <div
           className="padded-width-image margin-top-0"

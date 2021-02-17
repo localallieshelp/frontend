@@ -7,17 +7,19 @@ import {
   FaFacebook,
   FaTwitter,
   FaInstagram,
-  FaVimeo,
   FaLinkedin,
 } from "react-icons/fa"
 import Copyright from "../components/Copyright"
 import ScrollToTop from "../components/ScrollToTop"
 import logo from "../img/logo.svg"
 
-const iconStyles = { fill:"transparent", stroke: "green", strokeWidth: "1.5rem" };
+const iconStyles = {
+  fill: "transparent",
+  stroke: "green",
+  strokeWidth: "1.5rem",
+}
 
 const Footer = class extends React.Component {
-
   render() {
     const props = this.props
     const sel = select(props.langKey)
@@ -40,10 +42,10 @@ const Footer = class extends React.Component {
                 >
                   <FormattedMessage id="about" />
                 </Link>
-                <Link to={"/" + props.langKey} className="navbar-item">
-                  <FormattedMessage id="Contact" />
+                <Link to={"/" + props.langKey + "/" + menuTree.contact[sel] + "/"} className="navbar-item">
+                  <FormattedMessage id="contact" />
                 </Link>
-                <Link to={"/" + props.langKey} className="navbar-item">
+                <Link to={"/" + props.langKey + "/" + menuTree.blog[sel] + "/"} className="navbar-item">
                   <FormattedMessage id="Get Involved" />
                 </Link>
               </section>
@@ -52,16 +54,32 @@ const Footer = class extends React.Component {
               <Copyright />
               <div className="social">
                 <a title="facebook" href="https://facebook.com">
-                  <FaFacebook className="facebook-icon" size="2em" style={iconStyles}/>
+                  <FaFacebook
+                    className="facebook-icon"
+                    size="2em"
+                    style={iconStyles}
+                  />
                 </a>
                 <a title="twitter" href="https://twitter.com">
-                  <FaTwitter className="twitter-icon" size="2em" style={iconStyles}/>
+                  <FaTwitter
+                    className="twitter-icon"
+                    size="2em"
+                    style={iconStyles}
+                  />
                 </a>
                 <a title="instagram" href="https://instagram.com">
-                  <FaInstagram className="instagram-icon" size="2em" style={iconStyles}/>
+                  <FaInstagram
+                    className="instagram-icon"
+                    size="2em"
+                    style={iconStyles}
+                  />
                 </a>
                 <a title="linkedin" href="https://linkedin.com">
-                  <FaLinkedin className="linkedin-icon" size="2em" style={iconStyles}/>
+                  <FaLinkedin
+                    className="linkedin-icon"
+                    size="2em"
+                    style={iconStyles}
+                  />
                 </a>
               </div>
             </div>
