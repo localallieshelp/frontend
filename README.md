@@ -34,7 +34,7 @@ gatsby develop
 
   `const image = frontmatter.image.childImageSharp.fluid.src`
 
-  Try deleting the `.cache` folder. This may happen when switching between branches.
+  Try deleting the `.cache` folder and/or run `gatsby clean`. This may happen when switching between branches.
 
 ## Features
 

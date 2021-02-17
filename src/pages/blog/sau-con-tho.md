@@ -4,7 +4,7 @@ title: Sau Con Tho
 date: 2021-02-16T20:43:21.976Z
 description: DESCRIPTION
 lang: en
-path: /en/blog/2019-02-01-my-first-gatsby-blog-post
+path: /en/blog/sau-con-tho
 about_the_business: From the kitchen of Phong Dinh, comes a brand new restaurant
   serving all your favorite dishes. We are the home of the Original Famous Baked
   Fish, Hot Pots, Family Dinners and other exotic Southern Vietnam entrees.
