@@ -29,7 +29,7 @@ const HomePageTemplate = ({
             !!image.childImageSharp ? image.childImageSharp.fluid.src : image
           })`,
           backgroundPosition: `top left`,
-          backgroundAttachment: `fixed`
+          backgroundAttachment: `fixed`,
         }}
       >
         <div
@@ -67,8 +67,17 @@ const HomePageTemplate = ({
             }}
           >
             {heading}
+            <br/><br/>
+            <span>
+              {" "}
+              *World Economic Forum - Mapping the uneven recovery of America’s
+              small businesses
+              https://www.weforum.org/agenda/2020/10/mapped-uneven-recovery-us-america-small-businesses-closure{" "}
+            </span>
           </h3>
-          <button class="button animated bounceInLeft">Button</button>
+          <button class="button animated bounceInLeft">
+            View Local Business Hub
+          </button>
         </div>
       </div>
       <div className="padded-width-container">
@@ -77,30 +86,36 @@ const HomePageTemplate = ({
           <div className="grid-section">
             <div className="initiative-items">
               <img src={main.image1.image.childImageSharp.fluid.src}></img>
-              <h3>Heading</h3>
+              <h3>Small Business Hub</h3>
               <p>
-                Copy text goes here maybe some graphics ...Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit.
+                We work with each small merchant on a direct one-to-one basis to
+                make sure they are getting the specific help they need starting
+                with their own specialized page on our small business hub that
+                includes relevant information tailored to your needs.
               </p>
-              <button class="button">Button</button>
+              <button class="button">Learn More</button>
             </div>
             <div className="initiative-items">
-              <img src={main.image1.image.childImageSharp.fluid.src}></img>
-              <h3>Heading</h3>
+              <img src="/img/initiative-2.png"></img>
+              <h3>Donation Programs</h3>
               <p>
-                Copy text goes here maybe some graphics ...Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit.
+                Each small business will get access to our donation programs,
+                which include but are not limited to gift vouchers and
+                donate-a-meal opportunities - 100% of these funds raised will go
+                back to the business.
               </p>
-              <button class="button">Button</button>
+              <button class="button">Donate</button>
             </div>
             <div className="initiative-items">
-              <img src={main.image1.image.childImageSharp.fluid.src}></img>
-              <h3>Heading</h3>
+              <img src="/img/initiative-3.png"></img>
+              <h3>Specialized Consultation</h3>
               <p>
-                Copy text goes here maybe some graphics ...Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit.
+                Our team will work with each partner to build a plan that
+                includes digital and social media marketing help and, if needed,
+                translation services (languages currently supported include
+                Mandarin and Cantonese) - all provided free-of-service.
               </p>
-              <button class="button">Button</button>
+              <button class="button">Learn More</button>
             </div>
           </div>
         </section>

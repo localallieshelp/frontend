@@ -1,6 +1,6 @@
 ---
 id: "01"
-title: "Save Local Businesses"
+title: "Providing Sustainable Help for Our Local Small Businesses"
 description: "some content"
 templateKey: home
 tags:
@@ -8,12 +8,13 @@ tags:
 lang: en
 date: "05-03-2019"
 image: /img/home-header.png
-heading: "Copy text goes here...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac tincidunt lacus. Mauris aliquet urna nec ipsum tincidunt, vitae scelerisque urna mollis. Suspendisse a sollicitudin lectus. In ullamcorper enim odio, eu pulvinar est sagittis id. "
+heading: "Small businesses across the United States need our help. Nearly a quarter of US small merchants are closed and overall revenue is still down for many due to the COVID-19 pandemic.* 
+Become a Local Ally and help your local small business today! "
 main:
   title: Our Initiative
   image1:
     alt: Initiative One
-    image: /img/home-square.png
+    image: /img/initiative-1.png
     link: /home
   image2:
     alt: Initiative Two

@@ -268,12 +268,13 @@ footer.footer
     color: black !important
     margin: 0px
     padding: 0px !important
+    font-size: 40px !important
 
     @media screen and (max-width: 789px)
       font-size: 18px
 
     @media screen and (min-width: 789px)
-      margin-top: 8rem
+      margin-top: 5rem
 
 
   h3
@@ -286,11 +287,14 @@ footer.footer
     margin: 1.5rem 0px
     padding: 0px !important
 
+    span
+      font-size: 14px
+
     @media screen and (min-width: 789px)
       font-size: 18px !important
 
   button
-    width: 100px
+    width: 220px
     animation-delay: 1s
 
 .padded-width-container
@@ -322,8 +326,10 @@ section.initiative
       text-align: left
 
   .grid-section
-      @media screen and (max-width: 789px)
-        grid-auto-flow: row
+    grid-template-columns: 1fr 1fr 1fr
+
+    @media screen and (max-width: 789px)
+      grid-auto-flow: row
 
 /* Footer */
 
@@ -441,7 +447,7 @@ footer.footer
       text-align: left
 
 
-/* Blog */
+/* Business Hub */
 
 .blog
   button
@@ -602,3 +608,134 @@ footer.footer
 
 
 
+/* Business Page */
+
+.business-info
+  padding: 0px
+
+  @media screen and (max-width: 1024px)
+    width: 95%
+    margin: 0 auto
+
+  .grid-section
+    grid-template-columns: 3fr 1fr
+
+    @media screen and (max-width: 1100px)
+      grid-template-columns: 2fr 1fr
+      column-gap: 2rem
+
+    @media screen and (max-width: 900px)
+      grid-template-columns: 56% 40%
+
+    @media screen and (max-width: 789px)
+      grid-template-columns: 100%
+      grid-auto-flow: row
+
+  .general-info
+
+    .title
+      margin-bottom: 0.5rem
+
+    .type
+      margin-bottom: 1.5rem
+
+    img
+      width: 100%
+
+    .tabs
+      margin-top: 1.5rem
+
+      ul
+        margin: 0px
+        border: none
+
+        li
+          &.is-active a
+            color: $green
+
+          &:hover a
+            color: $green
+
+          a
+            padding-left: 0px
+            padding-right: 2rem
+            text-transform: uppercase
+            font-size: 1.2rem
+
+    .menu-content
+      .grid-section
+        grid-template-columns: 1fr 1fr
+        column-gap: 1rem
+
+    .photo-content
+
+      .left
+        grid-template-columns: 2fr 1fr
+        column-gap: 1rem
+        row-gap: 1rem
+
+        .grid-section
+          grid-auto-flow: row
+          row-gap: 1rem
+          grid-template-columns: 100%
+
+      .right
+        grid-template-columns: 1fr 2fr
+        column-gap: 1rem
+        row-gap: 1rem
+
+        .grid-section
+          grid-auto-flow: row
+          row-gap: 1rem
+          grid-template-columns: 100%
+
+  .fixed-info
+    margin-top: 6rem
+    position: relative
+
+    @media screen and (max-width: 789px)
+      display: none
+
+    .fixed-inner
+      position: fixed
+
+    .grid-section
+      column-gap: 1rem
+      grid-template-columns: 35%
+      margin-bottom: 1rem
+
+      @media screen and (max-width: 900px)
+        grid-template-columns: 26%
+
+      div:first-child
+        font-weight: bold
+
+    .hours-list
+      font-size: 14px
+
+      .grid-section
+        column-gap: 0rem
+        grid-template-columns: 24% 77%
+
+  .mobile-info
+    margin-top: 0rem
+    position: relative
+    display: none
+
+    @media screen and (max-width: 789px)
+      display: block
+
+    .grid-section
+      column-gap: 1rem
+      grid-template-columns: 100%
+      margin-bottom: 1rem
+
+      div:first-child
+        font-weight: bold
+
+    .hours-list
+      font-size: 14px
+
+      .grid-section
+        column-gap: 0rem
+        grid-template-columns: 24% 77%
