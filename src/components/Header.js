@@ -13,6 +13,7 @@ import RootMenu from "../components/RootMenu"
 import RootMenuMobile from "../components/RootMenuMobile"
 import { BrowserView, MobileView, isMobile } from "react-device-detect"
 import select from "../components/utils"
+import SelectLanguage from "../components/SelectLanguage"
 
 const Header = class extends React.Component {
   componentDidMount() {
@@ -103,7 +104,7 @@ const Header = class extends React.Component {
               </div>
               <div className="navbar-end">
                 <div className="navbar-item  has-text-centered">
-                  {/* <SelectLanguage langs={props.langs} /> */}
+                   <SelectLanguage langs={props.langs} />
                 </div>
               </div>
             </div>

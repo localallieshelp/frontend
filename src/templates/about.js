@@ -5,98 +5,56 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO/SEO"
 import Content, { HTMLContent } from "../components/Content"
+import TeamImg from "../../static/img/team-image.png"
 
 const AboutPageTemplate = ({
   title,
+  copy,
   content,
   contentComponent,
   tags,
   langKey,
+  image
 }) => {
   const PageContent = contentComponent || Content
   return (
     <div className="content about">
       <div className="padded-width-container">
-        <section className="section story">
+        <section class="section story">
           <div className="grid-section">
             <div>
-              <img />
+              <img src={image.childImageSharp.fluid.src}/>
             </div>
             <div>
-              <h3>Our Story</h3>
+              <h3>{title}</h3>
               <p>
-                Local Allies was created to help independent small businesses be
-                equipped with the tools to thrive in a quickly-changing digital
-                and difficult landscape. Throughout the COVID-19 pandemic, we
-                witnessed volunteers from across the nation create donation
-                campaigns and provide assistance in any way they could from
-                creating social media groups made to uplift small merchants to
-                those regularly buying takeout meals from local mom-and-pop
-                restaurants.
-              </p>
-              <p>
-                Inspired by these acts of compassion, we set out to create the
-                volunteer-led Local Allies program to set up a sustainable next
-                step for small businesses in need. This includes a specialized
-                website that provides a free hub to input their small business
-                information; create donation programs where all funds go back to
-                the business; and a helpful staff of experienced volunteers of
-                marketers, translators, and web developers to provide
-                complimentary consultation and suggestions on other ways to
-                help.*
-                <p>
-                  Special thanks to Send Chinatown Love and the Little Tokyo
-                  Service Center for their inspiration and assistance!
-                </p>
-                <p>
-                  *Please note, in order to best help those business owners most
-                  in need, only small, non-franchised businesses of less than 50
-                  employees with little to no digital/social media presence may
-                  participate. If you do not qualify, we will still be glad to
-                  help direct you to other services for additional assistance.
-                </p>
-                <p>Get Involved</p>
-                <p>
-                  +Interested in participating? Please email jwie@alumni.usc.edu
-                  with your small business name, contact information, and any
-                  other helpful information about yourself and your small
-                  business. We’ll get back to you as soon as we can.
-                </p>
-                <p>
-                  +Know of a small business that may need our help? Please email
-                  jwie@alumni.usc.edu with the small business’ name and contact
-                  information (if available) including a short 2-3 sentences on
-                  why they may need assistance.
-                </p>
-                <p>
-                  +Want to join our team of volunteers? We’re actively looking
-                  for translators, digital/social media marketers, accountants,
-                  web developers, and web designers! Email jwie@alumni.usc.edu
-                  with your name, email address, and a short resume, LinkedIn,
-                  or list of skill sets, and we’ll get back to you with further
-                  details.
-                </p>
+                {copy}
               </p>
             </div>
           </div>
         </section>
       </div>
       <div className="padded-width-container">
-        <section className="section team">
+        <section class="section team">
           <h3>Our Team</h3>
           <div className="grid-section">
             <div className="team-items">
-              <img></img>
+              <img src={TeamImg}></img>
               <h3>Name</h3>
               <p>Title:</p>
             </div>
             <div className="team-items">
-              <img></img>
+              <img src={TeamImg}></img>
               <h3>Name</h3>
               <p>Title:</p>
             </div>
             <div className="team-items">
-              <img></img>
+              <img src={TeamImg}></img>
+              <h3>Name</h3>
+              <p>Title:</p>
+            </div>
+            <div className="team-items">
+              <img src={TeamImg}></img>
               <h3>Name</h3>
               <p>Title:</p>
             </div>
@@ -113,6 +71,7 @@ const AboutPageTemplate = ({
 
 AboutPageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
+  copy: PropTypes.string,
   content: PropTypes.string,
   contentComponent: PropTypes.func,
   tags: PropTypes.array,
@@ -142,6 +101,8 @@ class AboutPage extends React.Component {
           <AboutPageTemplate
             contentComponent={HTMLContent}
             title={dataMarkdown.frontmatter.title}
+            copy={dataMarkdown.frontmatter.copy}
+            image={dataMarkdown.frontmatter.image}
             content={dataMarkdown.html}
             tags={tags}
             langKey={langKey}
@@ -184,6 +145,7 @@ export const pageQuery = graphql`
         id
         title
         description
+        copy
         tags
         lang
         image {

@@ -14,23 +14,26 @@ import Copyright from "../components/Copyright"
 import ScrollToTop from "../components/ScrollToTop"
 import logo from "../img/logo.svg"
 
+const iconStyles = { fill:"transparent", stroke: "green", strokeWidth: "1.5rem" };
+
 const Footer = class extends React.Component {
+
   render() {
     const props = this.props
     const sel = select(props.langKey)
     return (
-      <footer className="footer has-background-black has-text-white-ter">
-        <div className="grid-section inner-footer">
-          <div className="content">
+      <footer className="footer has-text-white-ter">
+        <div className="inner-footer">
+          <div className="content has-text-centered footer-logo">
             <img
               src={logo}
               alt="Save Small Businesses"
               style={{ width: "14em", height: "5em" }}
             />
           </div>
-          <div className="content has-background-black has-text-white-ter">
-            <div className="container has-background-black has-text-white-ter grid-section">
-              <section className="menu grid-section">
+          <div className="content">
+            <div className="container ">
+              <section className="menu has-text-centered">
                 <Link
                   className="navbar-item"
                   to={"/" + props.langKey + "/" + menuTree.about[sel] + "/"}
@@ -44,25 +47,27 @@ const Footer = class extends React.Component {
                   <FormattedMessage id="Get Involved" />
                 </Link>
               </section>
+            </div>
+            <div className="content grid-section">
+              <Copyright />
               <div className="social">
                 <a title="facebook" href="https://facebook.com">
-                  <FaFacebook className="facebook-icon" size="2em" />
+                  <FaFacebook className="facebook-icon" size="2em" style={iconStyles}/>
                 </a>
                 <a title="twitter" href="https://twitter.com">
-                  <FaTwitter className="twitter-icon" size="2em" />
+                  <FaTwitter className="twitter-icon" size="2em" style={iconStyles}/>
                 </a>
                 <a title="instagram" href="https://instagram.com">
-                  <FaInstagram className="instagram-icon" size="2em" />
+                  <FaInstagram className="instagram-icon" size="2em" style={iconStyles}/>
                 </a>
                 <a title="linkedin" href="https://linkedin.com">
-                  <FaLinkedin className="linkedin-icon" size="2em" />
+                  <FaLinkedin className="linkedin-icon" size="2em" style={iconStyles}/>
                 </a>
               </div>
             </div>
           </div>
         </div>
         <ScrollToTop />
-        <Copyright />
       </footer>
     )
   }

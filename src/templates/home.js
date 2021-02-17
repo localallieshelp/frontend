@@ -6,29 +6,15 @@ import Layout from "../components/Layout"
 import SEO from "../components/SEO/SEO"
 import Content, { HTMLContent } from "../components/Content"
 import IconMenu from "../components/IconMenu"
-import iconLinks from "../data/artworksMenu"
 import select from "../components/utils"
-import Slider from "../components/Slider"
-import Banner from "../components/Banner"
-import Testimonials from "../components/Testimonials"
-import CardSlide from "../components/CardSlide"
 
 const HomePageTemplate = ({
-  imageCardSL,
   image,
   heading,
-  display,
-  array,
-  mainpitch,
   main,
-  testimonials,
   title,
   content,
   contentComponent,
-  firstLink,
-  secondLink,
-  thirdLink,
-  fourthLink,
   tags,
   langKey,
 }) => {
@@ -43,7 +29,7 @@ const HomePageTemplate = ({
             !!image.childImageSharp ? image.childImageSharp.fluid.src : image
           })`,
           backgroundPosition: `top left`,
-          backgroundAttachment: `fixed`,
+          backgroundAttachment: `fixed`
         }}
       >
         <div
@@ -70,7 +56,7 @@ const HomePageTemplate = ({
             {title}
           </h1>
           <h3
-            className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen animated bounceInRight"
+            className="is-size-5-mobile is-size-5-tablet is-size-4-widescreen animated bounceInLeft"
             style={{
               boxShadow:
                 "rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px",
@@ -82,14 +68,15 @@ const HomePageTemplate = ({
           >
             {heading}
           </h3>
+          <button class="button animated bounceInLeft">Button</button>
         </div>
       </div>
       <div className="padded-width-container">
         <section class="section initiative">
-          <h3>Our Initiative</h3>
+          <h3>{main.title}</h3>
           <div className="grid-section">
             <div className="initiative-items">
-              <img></img>
+              <img src={main.image1.image.childImageSharp.fluid.src}></img>
               <h3>Heading</h3>
               <p>
                 Copy text goes here maybe some graphics ...Lorem ipsum dolor sit
@@ -98,7 +85,7 @@ const HomePageTemplate = ({
               <button class="button">Button</button>
             </div>
             <div className="initiative-items">
-              <img></img>
+              <img src={main.image1.image.childImageSharp.fluid.src}></img>
               <h3>Heading</h3>
               <p>
                 Copy text goes here maybe some graphics ...Lorem ipsum dolor sit
@@ -107,7 +94,7 @@ const HomePageTemplate = ({
               <button class="button">Button</button>
             </div>
             <div className="initiative-items">
-              <img></img>
+              <img src={main.image1.image.childImageSharp.fluid.src}></img>
               <h3>Heading</h3>
               <p>
                 Copy text goes here maybe some graphics ...Lorem ipsum dolor sit
@@ -142,8 +129,6 @@ class HomePage extends React.Component {
     const jsonData = data.allArticlesJson.edges[0].node.articles
     const langKey = dataMarkdown.frontmatter.lang
     const { frontmatter } = data.markdownRemark
-    const { display } = frontmatter.slider
-    const { array } = frontmatter.slider
     const sel = select(langKey)
     const image = frontmatter.image.childImageSharp.fluid.src
     const tags = frontmatter.tags
@@ -158,14 +143,9 @@ class HomePage extends React.Component {
         <SEO frontmatter={frontmatter} postImage={image} />
         <div>
           <HomePageTemplate
-            imageCardSL={dataMarkdown.frontmatter.imageCardSL}
             image={dataMarkdown.frontmatter.image}
             heading={dataMarkdown.frontmatter.heading}
-            display={display}
-            array={array}
-            mainpitch={dataMarkdown.frontmatter.mainpitch}
             main={dataMarkdown.frontmatter.main}
-            testimonials={dataMarkdown.frontmatter.testimonials}
             contentComponent={HTMLContent}
             title={dataMarkdown.frontmatter.title}
             content={dataMarkdown.html}
@@ -222,37 +202,8 @@ export const pageQuery = graphql`
           }
         }
         heading
-        mainpitch {
-          heading
-          subheading
-          title
-          description
-          link
-        }
-        slider {
-          display
-          array {
-            original
-            thumbnail
-            originalAlt
-            originalTitle
-            description
-          }
-        }
-        imageCardSL {
-          alt
-          image {
-            childImageSharp {
-              fluid(maxWidth: 128, quality: 84) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          name
-          description
-          website
-        }
         main {
+          title
           image1 {
             alt
             image {
@@ -262,11 +213,8 @@ export const pageQuery = graphql`
                 }
               }
             }
+            link
           }
-        }
-        testimonials {
-          author
-          quote
         }
       }
       fields {

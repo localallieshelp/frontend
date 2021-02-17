@@ -2,8 +2,13 @@ import React from "react"
 import PropTypes from "prop-types"
 import Link from "gatsby-link"
 import { FormattedMessage } from "react-intl"
+import {
+  FaGlobe
+} from "react-icons/fa"
 import En from "./Flags/En"
 import It from "./Flags/It"
+
+const iconStyles = { fill: "transparent", stroke: "black", strokeWidth: "1.5rem" };
 
 const getIcon = (langKey) => {
   switch (langKey) {
@@ -32,13 +37,13 @@ const SelectLanguage = (props) => {
   ))
 
   return (
-    <div className="section" style={{ padding: "1.5rem" }}>
+    <div className="section grid-section language" style={{ padding: "1.5rem" }}>
       <header
-        style={{
-          color: "#D64000",
-        }}
+        className="grid-section"
       >
+        <FaGlobe className="globe-icon" size="1em" style={iconStyles} />
         <FormattedMessage id="selectLanguage" />
+        <span>|</span>
       </header>
       <ul>{links}</ul>
     </div>
