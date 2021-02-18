@@ -57,41 +57,53 @@ export default class DonateForm extends React.Component {
 
   render() {
     return (
-      <div className="columns is-multiline donate">
+      <div className="columns is-multiline donate-form">
         <div className="row">
-          <h1>Make a Difference</h1>
-          <SquarePaymentForm
-            sandbox={true}
-            applicationId={process.env.SANDBOX_APPLICATION_ID}
-            locationId={process.env.SANDBOX_LOCATION_ID}
-            cardNonceResponseReceived={this.cardNonceResponseReceived}
-            createVerificationDetails={this.createVerificationDetails}
-          >
-            <fieldset className="sq-fieldset">
-              <CreditCardNumberInput />
-              <div className="sq-form-third">
-                <CreditCardExpirationDateInput />
-              </div>
+          <h1>Support And Make A Difference</h1>
+          <p className="subtitle">
+            100% of your donation will support the merchant toward their
+            operating costs.{" "}
+          </p>
+          <div className="donate-step-1">
+            <h3>Step 1: Select Donation Amount</h3>
+          </div>
+          <div className="donate-step-2">
+            <h3>Step 2: Enter Payment Information</h3>
+            <p>
+              Your transaction is secure and 100% of the funds will go directly
+              to the owner to help sustain their business.
+            </p>
+            <SquarePaymentForm
+              sandbox={true}
+              applicationId={process.env.SANDBOX_APPLICATION_ID}
+              locationId={process.env.SANDBOX_LOCATION_ID}
+              cardNonceResponseReceived={this.cardNonceResponseReceived}
+              createVerificationDetails={this.createVerificationDetails}
+            >
+              <fieldset className="sq-fieldset">
+                <CreditCardNumberInput />
+                <div className="sq-form-third">
+                  <CreditCardCVVInput />
+                </div>
 
-              <div className="sq-form-third">
-                <CreditCardPostalCodeInput />
-              </div>
+                <div className="sq-form-third">
+                  <CreditCardExpirationDateInput />
+                </div>
 
-              <div className="sq-form-third">
-                <CreditCardCVVInput />
-              </div>
-            </fieldset>
+                <div className="sq-form-third">
+                  <CreditCardPostalCodeInput />
+                </div>
+              </fieldset>
 
-            <CreditCardSubmitButton>Send</CreditCardSubmitButton>
-          </SquarePaymentForm>
-
-          <div className="sq-error-message">
-            {this.state.errorMessages.map((errorMessage) => (
-              <li key={`sq-error-${errorMessage}`}>{errorMessage}</li>
-            ))}
+              <CreditCardSubmitButton>Send</CreditCardSubmitButton>
+            </SquarePaymentForm>
+            <div className="sq-error-message">
+              {this.state.errorMessages.map((errorMessage) => (
+                <li key={`sq-error-${errorMessage}`}>{errorMessage}</li>
+              ))}
+            </div>
           </div>
         </div>
-        <div className="row">How much widget</div>
       </div>
     )
   }
