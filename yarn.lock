@@ -8487,6 +8487,11 @@ gatsby-plugin-sitemap@^2.4.5:
     pify "^3.0.0"
     sitemap "^1.13.0"
 
+gatsby-plugin-square-payment-form@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-square-payment-form/-/gatsby-plugin-square-payment-form-1.0.3.tgz#9bb419f98e23e1e9eec5f87086f9e78363b5f480"
+  integrity sha512-4NQrUCAiB/6fkC2TvsWOq6CZDM+VhZPz/AmkeDmChz/AKir0SLvD/5LOlovchBbB7nKshWvALgLmheamxa6J5g==
+
 gatsby-plugin-typescript@^2.12.0:
   version "2.12.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-typescript/-/gatsby-plugin-typescript-2.12.0.tgz#44df6cfde747ab94c1984621e5bb749da94af959"

@@ -9,6 +9,7 @@ import {
 } from "react-square-payment-form"
 import "react-square-payment-form/lib/default.css"
 
+// TODO can this be removed b/c we are using gatsby-plugin-square-payment-form
 export const loadSquareSdk = () => {
   return new Promise((resolve, reject) => {
     const sqPaymentScript = document.createElement("script")
@@ -26,7 +27,7 @@ export const loadSquareSdk = () => {
   })
 }
 
-export class DonateForm extends React.Component {
+export default class DonateForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
