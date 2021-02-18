@@ -6,7 +6,7 @@ copy: "Local Allies was created to help independent small businesses be equipped
 copy2: "Inspired by these acts of compassion, we set out to create the volunteer-led Local Allies program to set up a sustainable next step for small businesses in need. This includes a specialized website that provides a free hub to input their small business information; create donation programs where all funds go back to the business; and a helpful staff of experienced volunteers of marketers, translators, and web developers to provide complimentary consultation and suggestions on other ways to help.*"
 copy3: "Special thanks to Send Chinatown Love and the Little Tokyo Service Center for their inspiration and assistance!"
 copy4: "*Please note, in order to best help those business owners most in need, only small, non-franchised businesses of less than 50 employees with little to no digital/social media presence may participate. If you do not qualify, we will still be glad to help direct you to other services for additional assistance."
-templateKey: about
+templateKey: story
 lang: en
 image: /img/story-image.png
 team:

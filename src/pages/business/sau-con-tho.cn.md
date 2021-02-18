@@ -2,8 +2,8 @@
 id: "07"
 templateKey: business-post
 lang: en
-path: /en/business/sau-con-tho/
-slug: /en/business/sau-con-tho/
+path: /cn/business/sau-con-tho/
+slug: /cn/business/sau-con-tho/
 title: Sau Con Tho
 primary_image: /img/sau-con-tho.jpg
 date: 2021-02-16T20:43:21.976Z

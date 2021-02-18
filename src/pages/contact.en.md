@@ -23,6 +23,6 @@ imageCardSL:
   name: John Kaki
   description: I am a visual artist, follow me in this adventure...!
   website: www.kaki.com
-path: /en/contact
-slug: /en/contact
+path: /en/contact/
+slug: /en/contact/
 ---

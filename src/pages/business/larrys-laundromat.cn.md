@@ -7,6 +7,8 @@ date: 2020-02-17T06:24:55.287Z
 description: >
   We help you wash your clothes.
 lang: en
+path: /cn/business/larrys-laundromat/
+slug: /cn/business/larrys-laundromat/
 story: >
   From your closet to our machines.
 business_type:

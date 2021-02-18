@@ -8,7 +8,7 @@ import Layout from "../components/Layout"
 import SEO from "../components/SEO/SEO"
 import Content, { HTMLContent } from "../components/Content"
 
-const AboutPageTemplate = ({
+const StoryPageTemplate = ({
   title,
   copy,
   copytwo,
@@ -103,7 +103,7 @@ const AboutPageTemplate = ({
   )
 }
 
-AboutPageTemplate.propTypes = {
+StoryPageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
   copy: PropTypes.string,
   content: PropTypes.string,
@@ -112,7 +112,7 @@ AboutPageTemplate.propTypes = {
   langKey: PropTypes.string,
 }
 
-class AboutPage extends React.Component {
+class StoryPage extends React.Component {
   render() {
     var dataMarkdown = []
     if (this.props.data !== null) {
@@ -132,7 +132,7 @@ class AboutPage extends React.Component {
       >
         <SEO frontmatter={frontmatter} postImage={image} />
         <div>
-          <AboutPageTemplate
+          <StoryPageTemplate
             contentComponent={HTMLContent}
             title={dataMarkdown.frontmatter.title}
             copy={dataMarkdown.frontmatter.copy}
@@ -151,14 +151,14 @@ class AboutPage extends React.Component {
   }
 }
 
-AboutPage.propTypes = {
+StoryPage.propTypes = {
   data: PropTypes.object.isRequired,
 }
 
-export default AboutPage
+export default StoryPage
 
 export const pageQuery = graphql`
-  query AboutPageQuery($id: String!) {
+  query StoryPageQuery($id: String!) {
     site {
       siteMetadata {
         languages {
