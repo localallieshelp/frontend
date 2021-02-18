@@ -93,6 +93,12 @@ const Header = class extends React.Component {
                 >
                   <FormattedMessage id="our_story" />
                 </Link>
+                <Link
+                  className="navbar-item"
+                  to={"/" + props.langKey + "/" + menuTree.donate[sel]}
+                >
+                  <FormattedMessage id="donate" />
+                </Link>
               </div>
               <div className="navbar-end">
                 <div className="navbar-item  has-text-centered">

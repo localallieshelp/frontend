@@ -25,4 +25,5 @@ module.exports = {
   404: "You are arrived to an unvailable page or you have missed the path...",
   copyright: "2021 LocAllies. All rights reserved.",
   "click-here": "Click Here",
+  donate: "Donate",
 }

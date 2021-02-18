@@ -3,4 +3,5 @@ module.exports = {
   story: ["story", "story"],
   business: ["business", "business"],
   contact: ["contact", "contact"],
+  donate: ["donate", "donate"],
 }
