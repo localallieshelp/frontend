@@ -3,10 +3,12 @@ import PropTypes from "prop-types"
 import TagList from "../components/TagList"
 import Helmet from "react-helmet"
 import SEO from "../components/SEO/SEO"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/Layout"
 import Content, { HTMLContent } from "../components/Content"
 import { FaUtensils } from "react-icons/fa"
+import menuTree from "../data/menuTree"
+import select from "../components/utils"
 
 export const BusinessPostTemplate = ({
   data,
@@ -23,17 +25,21 @@ export const BusinessPostTemplate = ({
   const PostContent = contentComponent || Content
   const iconStyles = { fill: "black" }
   const fe = frontmatter
+  const sel = select(langKey)
   const onTabClick = (e, tabName) => {
     var i, tabs, tabcontent
     tabs = document.getElementsByClassName("tablink")
     tabcontent = document.getElementsByClassName("tab-content")
-    
+
     for (i = 0; i < tabs.length; i++) {
       tabs[i].className = tabs[i].className.replace(" is-active", "")
-      tabcontent[i].className = tabcontent[i].className.replace(" is-active", "")
+      tabcontent[i].className = tabcontent[i].className.replace(
+        " is-active",
+        ""
+      )
     }
 
-    document.getElementsByClassName(tabName)[0].className += " is-active";
+    document.getElementsByClassName(tabName)[0].className += " is-active"
     e.currentTarget.className += " is-active"
   }
 
@@ -58,13 +64,28 @@ export const BusinessPostTemplate = ({
             <div className="tabs">
               <ul>
                 <li>
-                  <a className="tablink is-active" onClick={(e) => onTabClick(e,'story-content')}>Story</a>
+                  <a
+                    className="tablink is-active"
+                    onClick={(e) => onTabClick(e, "story-content")}
+                  >
+                    Story
+                  </a>
                 </li>
                 <li>
-                  <a className="tablink" onClick={(e) => onTabClick(e,'menu-content')}>Menu</a>
+                  <a
+                    className="tablink"
+                    onClick={(e) => onTabClick(e, "menu-content")}
+                  >
+                    Menu
+                  </a>
                 </li>
                 <li>
-                  <a className="tablink" onClick={(e) => onTabClick(e,'photo-content')}>Photos</a>
+                  <a
+                    className="tablink"
+                    onClick={(e) => onTabClick(e, "photo-content")}
+                  >
+                    Photos
+                  </a>
                 </li>
               </ul>
             </div>
@@ -75,15 +96,24 @@ export const BusinessPostTemplate = ({
                 <div>
                   <div className="grid-section">
                     <div>Location</div>
-                    <div> {frontmatter.address ? frontmatter.address : 'Not Listed'}</div>
+                    <div>
+                      {" "}
+                      {frontmatter.address ? frontmatter.address : "Not Listed"}
+                    </div>
                   </div>
                   <div className="grid-section">
                     <div>Phone</div>
-                    <div>{frontmatter.phone ? frontmatter.phone : 'Not Listed'}</div>
+                    <div>
+                      {frontmatter.phone ? frontmatter.phone : "Not Listed"}
+                    </div>
                   </div>
                   <div className="grid-section">
                     <div>Website</div>
-                    <div>{frontmatter.homepage_link ? frontmatter.homepage_link: 'Not Listed'}</div>
+                    <div>
+                      {frontmatter.homepage_link
+                        ? frontmatter.homepage_link
+                        : "Not Listed"}
+                    </div>
                   </div>
                   <div className="grid-section">
                     <div>Hours</div>
@@ -110,6 +140,15 @@ export const BusinessPostTemplate = ({
                       </div>
                     </div>
                   </div>
+                </div>
+                <div className="business-donate">
+                  <Link
+                    className="button"
+                    to={"/" + langKey + "/donate"}
+                  >
+                    {" "}
+                    Donate{" "}
+                  </Link>
                 </div>
               </div>
             </div>
@@ -156,17 +195,33 @@ export const BusinessPostTemplate = ({
         </div>
         <div className="fixed-info">
           <div className="fixed-inner">
+            <div className="business-donate">
+              <Link
+                className="button"
+                to={"/" + langKey + "/donate"}
+              >
+                {" "}
+                Donate{" "}
+              </Link>
+            </div>
             <div className="grid-section">
               <div>Location</div>
-              <div> {frontmatter.address ? frontmatter.address: 'Not Listed'}</div>
+              <div>
+                {" "}
+                {frontmatter.address ? frontmatter.address : "Not Listed"}
+              </div>
             </div>
             <div className="grid-section">
               <div>Phone</div>
-              <div>{frontmatter.phone ? frontmatter.phone : 'Not Listed'}</div>
+              <div>{frontmatter.phone ? frontmatter.phone : "Not Listed"}</div>
             </div>
             <div className="grid-section">
               <div>Website</div>
-              <div>{frontmatter.homepage_link ? frontmatter.homepage_link : 'Not Listed'}</div>
+              <div>
+                {frontmatter.homepage_link
+                  ? frontmatter.homepage_link
+                  : "Not Listed"}
+              </div>
             </div>
             <div className="grid-section">
               <div>Hours</div>
