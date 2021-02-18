@@ -9,7 +9,7 @@ description: "We work with each small merchant on a direct one-to-one basis to
   includes relevant information tailored to your needs."
 listtitle: "DISCOVER LOCAL BUSINESSES"
 lang: en
-image: /img/PersimmonHD.jpg
+image: /img/128x128.png
 path: /en/business/
 slug: /en/business/
 tags:

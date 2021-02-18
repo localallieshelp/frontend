@@ -6,7 +6,7 @@ templateKey: message
 tags:
   - web
 lang: cn
-image: /img/PersimmonHD.jpg
+image: /img/128x128.png
 date: "31-03-2019"
 path: /cn/contact/thanks
 slug: /cn/contact/thanks

@@ -129,11 +129,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `SaveSMB`,
-        short_name: `SaveSMB`,
+        name: `LocAllies`,
+        short_name: `LocAllies`,
         start_url: `/`,
         background_color: `#fff`,
-        theme_color: `#D64000`,
+        theme_color: `#397A4C`,
         display: `standalone`,
         icon: `src/img/icon.png`,
       },
