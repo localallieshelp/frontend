@@ -23,7 +23,7 @@ const DonatePageTemplate = ({
   const sel = select(langKey)
 
   return (
-    <div className="container content">
+    <div className="container content donate">
       <div className="padded-width-container">
         <section className="section">
           <DonateForm></DonateForm>
