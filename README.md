@@ -34,7 +34,13 @@ gatsby develop
 
   `const image = frontmatter.image.childImageSharp.fluid.src`
 
-  Try deleting the `.cache` folder and/or run `gatsby clean`. This may happen when switching between branches.
+Try running `gatsby clean`. This may happen when switching between branches.
+
+- If you get an error like this:
+
+  `Field "image" must not have a selection since type "String" has no subfields.`
+
+  Then you are probably missing data in your markdown or your image path doesn't exist.
 
 ## Features
 
