@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-i18n-bulma",
-  "description": "Gatsby example site using i18n and bulma for CSS",
-  "version": "v1.1.5",
-  "author": "Walter Perdan <info@kalwaltart.it> (www.kalwaltart.com)",
+  "name": "LocAllies",
+  "description": "Local Allies Save Local Businesses",
+  "version": "v1.0.0",
+  "author": "mfuery@gmail.com",
   "dependencies": {
     "@babel/parser": "^7.9.4",
     "@babel/traverse": "^7.9.0",
