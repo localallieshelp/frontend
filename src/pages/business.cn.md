@@ -1,9 +1,10 @@
 ---
 id: "02"
 templateKey: business-index
-title: Business index page.
-date: 2019-03-24
-description: Index page for all Business posts. Do not edit or delete.
+title: Discover Local Businesses
+date: 2021-02-15
+description: "我们为小型商户提供量身订做的一对一援助，包括建立其网页。点击“小型商户中心”获取适合您的相关咨询。"
+listtitle: "发现商户"
 lang: cn
 image: /img/PersimmonHD.jpg
 path: /cn/business/
