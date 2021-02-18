@@ -9,6 +9,7 @@ import Content, { HTMLContent } from "../components/Content"
 import { FaUtensils } from "react-icons/fa"
 import menuTree from "../data/menuTree"
 import select from "../components/utils"
+import { FormattedMessage } from "react-intl"
 
 export const BusinessPostTemplate = ({
   data,
@@ -143,8 +144,7 @@ export const BusinessPostTemplate = ({
                 </div>
                 <div className="business-donate">
                   <Link className="button" to={"/" + langKey + "/donate"}>
-                    {" "}
-                    Donate{" "}
+                    <FormattedMessage id="donate" />
                   </Link>
                 </div>
               </div>
@@ -194,8 +194,7 @@ export const BusinessPostTemplate = ({
           <div className="fixed-inner">
             <div className="business-donate">
               <Link className="button" to={"/" + langKey + "/donate"}>
-                {" "}
-                Donate{" "}
+                <FormattedMessage id="donate" />
               </Link>
             </div>
             <div className="grid-section">

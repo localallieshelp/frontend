@@ -2,23 +2,23 @@ const languages = require("./src/data/languages")
 
 module.exports = {
   siteMetadata: {
-    title: `LocAllies`,
+    title: `Local Allies`,
     description: `
   This is a blog theme. The description will be showed in SEO results on pages
   without their own descriptions.
 `,
-    siteUrl: "https://savesmb.netlify.app",
+    siteUrl: process.env.siteUrl || "https://www.localallies.org",
     image: "img.jpg",
     author: {
-      name: "LocAllies",
+      name: "Local Allies",
       minibio: `
         This bio is shown at the bottom of each blog post. It supports
         <strong>custom HTML</strong> if you’re into that sort of thing.
       `,
     },
     organization: {
-      name: "LocAllies",
-      url: "https://example.com",
+      name: "Local Allies",
+      url: process.env.siteUrl || "https://www.localallies.org",
       logo: "img/logo.svg",
     },
     social: {
@@ -157,8 +157,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `LocAllies`,
-        short_name: `LocAllies`,
+        name: `Local Allies`,
+        short_name: `Local Allies`,
         start_url: `/`,
         background_color: `#fff`,
         theme_color: `#397A4C`,

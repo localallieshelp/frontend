@@ -57,9 +57,11 @@ export default class DonateForm extends React.Component {
 
   render() {
     return (
-      <div className="columns is-multiline donate">
+      <div className="rows is-centered donate">
         <div className="row">
           <h1>Make a Difference</h1>
+        </div>
+        <div className="row">
           <SquarePaymentForm
             sandbox={true}
             applicationId={process.env.SANDBOX_APPLICATION_ID}
@@ -91,7 +93,6 @@ export default class DonateForm extends React.Component {
             ))}
           </div>
         </div>
-        <div className="row">How much widget</div>
       </div>
     )
   }
