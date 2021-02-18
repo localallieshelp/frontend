@@ -1,27 +1,28 @@
 ---
 id: "01"
 title: "LocAllies"
-description: "Small businesses across the United States need our help. Nearly a quarter of US small merchants are closed and overall revenue is still down for many due to the COVID-19 pandemic.*
-Become a Local Ally and help your local small business today!"
+description: "
+美国各地的小型企业都需要我们的帮助。由于COVID-19大流行，将近四分之一的美国小商户被关闭，许多人的总收入仍然下降。*
+成为本地盟友，今天就帮助您的本地小型企业！"
 templateKey: home
 tags:
   - web
-lang: en
+lang: cn
 date: "02-15-2021"
 image: /img/home-header.png
-mainheading: "Providing Sustainable Help for Our Local Small Businesses"
-heading: "Small businesses across the United States need our help. Nearly a quarter of US small merchants are closed and overall revenue is still down for many due to the COVID-19 pandemic.*
-Become a Local Ally and help your local small business today! "
-buttontext: "View Local Business Hub"
+mainheading: "为我们本地的小企业提供可持续的帮助"
+heading: "美国各地的小型企业都需要我们的帮助。由于COVID-19大流行，将近四分之一的美国小商户被关闭，许多人的总收入仍然下降。*
+成为本地盟友，今天就帮助您的本地小型企业！"
+buttontext: "查看本地业务中心"
 main:
   title: Our Initiatives
-  subtitle: "Small Business Hub"
-  description: "We work with each small merchant on a direct one-to-one basis to make sure they are getting the specific help they need starting with their own specialized page on our small business hub that includes relevant information tailored to your needs."
+  subtitle: "小型企业中心"
+  description: "我们会与每个小型商人直接一对一地合作，以确保他们从他们在小型企业中心的专门页面开始，获得他们需要的特定帮助，其中包括针对您的需求量身定制的相关信息。"
   buttontext: "Learn More"
   image1:
     alt: "Initiative One"
     image: /img/initiative-1.png
-  link: /en/business
+  link: /cn/business/
 main2:
   subtitle: "Donation Programs"
   description: "Each small business will get access to our donation programs, which include but are not limited to gift vouchers and donate-a-meal opportunities - 100% of these funds raised will go back to the business."
@@ -29,7 +30,7 @@ main2:
   image1:
     alt: "Initiative Two"
     image: /img/initiative-2.png
-  link: /en/business
+  link: /cn/business/
 main3:
   subtitle: "Specialized Consultation"
   description: "Our team will work with each partner to build a plan that includes digital and social media marketing help and, if needed, translation services (languages currently supported include Mandarin and Cantonese) - all provided free-of-service."
@@ -37,10 +38,10 @@ main3:
   image1:
     alt: "Initiative Three"
     image: /img/initiative-3.png
-  link: /en/contact
+  link: /cn/contact
 
-path: /en/
-slug: /en/
+path: /cn/
+slug: /cn/
 ---
 
 # Locallies home page

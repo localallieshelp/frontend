@@ -1,11 +1,13 @@
 import React from "react"
 import * as PropTypes from "prop-types"
 import TagList from "../components/TagList"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
+import { FormattedMessage } from "react-intl"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO/SEO"
 import Content, { HTMLContent } from "../components/Content"
 import select from "../components/utils"
+import menuTree from "../data/menuTree"
 
 const HomePageTemplate = ({
   title,
@@ -21,6 +23,7 @@ const HomePageTemplate = ({
   langKey,
 }) => {
   const PageContent = contentComponent || Content
+  const sel = select(langKey)
 
   return (
     <div className="home">
@@ -28,7 +31,7 @@ const HomePageTemplate = ({
         className="padded-width-image margin-top-0"
         style={{
           backgroundImage: `url(${
-            !!image.childImageSharp ? image.childImageSharp.fluid.src : image
+            image.childImageSharp ? image.childImageSharp.fluid.src : image
           })`,
           backgroundPosition: `top left`,
           backgroundAttachment: `fixed`,
@@ -78,13 +81,18 @@ const HomePageTemplate = ({
               https://www.weforum.org/agenda/2020/10/mapped-uneven-recovery-us-america-small-businesses-closure{" "}
             </span>
           </h3>
-          <a href="/blog">
-            <button class="button animated bounceInLeft">{buttontext}</button>
-          </a>
+          <div className="animated bounceInLeft">
+            <Link
+              className="button"
+              to={"/" + langKey + "/" + menuTree.business[sel]}
+            >
+              <FormattedMessage id="view_local_business_hub" />
+            </Link>
+          </div>
         </div>
       </div>
       <div className="padded-width-container">
-        <section class="section initiative">
+        <section className="section initiative">
           <h3>{main.title}</h3>
           <div className="grid-section">
             <div className="initiative-items">
@@ -92,7 +100,7 @@ const HomePageTemplate = ({
               <h3>{main.subtitle}</h3>
               <p>{main.description}</p>
               <a href={main.link}>
-                <button class="button">{main.buttontext}</button>
+                <button className="button">{main.buttontext}</button>
               </a>
             </div>
             <div className="initiative-items">
@@ -100,7 +108,7 @@ const HomePageTemplate = ({
               <h3>{maintwo.subtitle}</h3>
               <p>{maintwo.description}</p>
               <a href={maintwo.link}>
-                <button class="button">{maintwo.buttontext}</button>
+                <button className="button">{maintwo.buttontext}</button>
               </a>
             </div>
             <div className="initiative-items">
@@ -108,7 +116,7 @@ const HomePageTemplate = ({
               <h3>{mainthree.subtitle}</h3>
               <p>{mainthree.description}</p>
               <a href={mainthree.link}>
-                <button class="button">{mainthree.buttontext}</button>
+                <button className="button">{mainthree.buttontext}</button>
               </a>
             </div>
           </div>
@@ -192,7 +200,7 @@ export const pageQuery = graphql`
         node {
           articles {
             en
-            it
+            cn
           }
         }
       }

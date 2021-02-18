@@ -3,15 +3,14 @@ import PropTypes from "prop-types"
 import { Link, graphql, StaticQuery } from "gatsby"
 import { FormattedMessage } from "react-intl"
 import { FaUtensils, FaCheck, FaTimes } from "react-icons/fa"
-import { _ } from "lodash"
 
 const switchData = (data, langKey) => {
   var posts
   switch (langKey) {
     case "en":
       return (posts = data.en)
-    case "it":
-      return (posts = data.it)
+    case "cn":
+      return (posts = data.cn)
     default:
       return " "
   }
@@ -20,7 +19,7 @@ const switchData = (data, langKey) => {
 class BlogRoll extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { url: "/en/blog/" }
+    this.state = { url: "/en/business/" }
   }
 
   getUrl() {
@@ -177,8 +176,50 @@ export default (langKey) => (
           sort: { order: DESC, fields: [frontmatter___date] }
           filter: {
             frontmatter: {
-              templateKey: { eq: "blog-post" }
+              templateKey: { eq: "business-post" }
               lang: { regex: "/(en|any)/" }
+            }
+          }
+        ) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+                templateKey
+                date
+                description
+                lang
+                primary_image {
+                  childImageSharp {
+                    fluid(maxWidth: 2048, quality: 100) {
+                      ...GatsbyImageSharpFluid
+                      src
+                    }
+                  }
+                }
+                story
+                business_type
+                services_offered
+                address
+                phone
+                tags
+                homepage_link
+                instagram_link
+                facebook_link
+                twitter_link
+              }
+            }
+          }
+        }
+        cn: allMarkdownRemark(
+          sort: { order: DESC, fields: [frontmatter___date] }
+          filter: {
+            frontmatter: {
+              templateKey: { eq: "business-post" }
+              lang: { regex: "/(cn|any)/" }
             }
           }
         ) {

@@ -2,20 +2,22 @@ import React from "react"
 import PropTypes from "prop-types"
 import Link from "gatsby-link"
 import { FormattedMessage } from "react-intl"
-import {
-  FaGlobe
-} from "react-icons/fa"
+import { FaGlobe } from "react-icons/fa"
 import En from "./Flags/En"
-import It from "./Flags/It"
+import Cn from "./Flags/Cn"
 
-const iconStyles = { fill: "transparent", stroke: "black", strokeWidth: "1.5rem" };
+const iconStyles = {
+  fill: "transparent",
+  stroke: "black",
+  strokeWidth: "1.5rem",
+}
 
 const getIcon = (langKey) => {
   switch (langKey) {
     case "en":
       return <En />
-    case "it":
-      return <It />
+    case "cn":
+      return <Cn />
     default:
       return null
   }
@@ -37,10 +39,11 @@ const SelectLanguage = (props) => {
   ))
 
   return (
-    <div className="section grid-section language" style={{ padding: "1.5rem" }}>
-      <header
-        className="grid-section"
-      >
+    <div
+      className="section grid-section language"
+      style={{ padding: "1.5rem" }}
+    >
+      <header className="grid-section">
         <FaGlobe className="globe-icon" size="1em" style={iconStyles} />
         <FormattedMessage id="selectLanguage" />
         <span>|</span>

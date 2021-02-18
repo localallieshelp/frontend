@@ -5,7 +5,7 @@ description: "Page to send an e-mail"
 templateKey: contacts
 tags:
   - web
-lang: en
+lang: cn
 image: /img/PersimmonHD.jpg
 date: "08-03-2019"
 address: "Piazza Unità d'Italia, 34121 Trieste TS"
@@ -23,6 +23,6 @@ imageCardSL:
   name: John Kaki
   description: I am a visual artist, follow me in this adventure...!
   website: www.kaki.com
-path: /en/contact/
-slug: /en/contact/
+path: /cn/contact
+slug: /cn/contact
 ---

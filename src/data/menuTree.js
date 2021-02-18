@@ -1,6 +1,6 @@
 module.exports = {
-  about: ["about", "presentazione"],
-  artworks: ["businesses", "businesses"],
-  blog: ["blog", "blog"],
-  contact: ["contact", "contact"]
+  // {<token>: [en uri, cn uri], ...}
+  story: ["story", "story"],
+  business: ["business", "business"],
+  contact: ["contact", "contact"],
 }

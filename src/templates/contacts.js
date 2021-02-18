@@ -22,7 +22,7 @@ function setActionPath(langKey) {
   if (langKey === "en") {
     path = "/en/contact/thanks/"
   } else {
-    path = "/it/contatto/grazie/"
+    path = "/cn/contact/thanks/"
   }
   return path
 }
@@ -332,7 +332,7 @@ export const pageQuery = graphql`
         node {
           articles {
             en
-            it
+            cn
           }
         }
       }
