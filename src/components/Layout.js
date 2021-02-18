@@ -104,29 +104,6 @@ class TemplateWrapper extends Component {
     // at the moment this assumes that langKey will provide us
     // with the appropriate language code
     this.i18nMessages = require(`../data/messages/${this.langKey}`)
-
-    this.setState({
-      loaded: false,
-    })
-  }
-
-  componentWillMount() {
-    console.log("componentWillMount")
-    if (!this.props.loaded) {
-      console.log("NOT LOADED, so loading...")
-
-      const that = this
-      let sqPaymentScript = document.createElement("script")
-      sqPaymentScript.src = process.env.SQUARE_API_ENDPOINT
-      sqPaymentScript.type = "text/javascript"
-      sqPaymentScript.async = false
-      sqPaymentScript.onload = () => {
-        that.setState({
-          loaded: true,
-        })
-      }
-      document.getElementsByTagName("head")[0].appendChild(sqPaymentScript)
-    }
   }
 
   render() {

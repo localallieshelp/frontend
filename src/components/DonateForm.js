@@ -9,7 +9,24 @@ import {
 } from "react-square-payment-form"
 import "react-square-payment-form/lib/default.css"
 
-export default class DonateForm extends React.Component {
+export const loadSquareSdk = () => {
+  return new Promise((resolve, reject) => {
+    const sqPaymentScript = document.createElement("script")
+    sqPaymentScript.src =
+      process.env.SQUARE_API_ENDPOINT ||
+      "https://js.squareup.com/v2/paymentform"
+    sqPaymentScript.crossorigin = "anonymous"
+    sqPaymentScript.onload = () => {
+      resolve()
+    }
+    sqPaymentScript.onerror = () => {
+      reject(`Failed to load ${sqPaymentScript.src}`)
+    }
+    document.getElementsByTagName("head")[0].appendChild(sqPaymentScript)
+  })
+}
+
+export class DonateForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
