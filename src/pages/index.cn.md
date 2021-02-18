@@ -1,6 +1,6 @@
 ---
 id: "01"
-title: "LocAllies"
+title: "Local Allies"
 description: "
 美国各地的小型企业都需要我们的帮助。由于COVID-19大流行，将近四分之一的美国小商户被关闭，许多人的总收入仍然下降。*
 成为本地盟友，今天就帮助您的本地小型企业！"

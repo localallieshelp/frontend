@@ -67,8 +67,9 @@ export default class BusinessIndexPage extends React.Component {
           </div>
         </div>
         <section className="content grid-section ">
-          <div clasName="sidebar">
+          <div className="sidebar">
             <h4>Filter By</h4>
+            <button className="button"> All </button>
           </div>
           <div className="container">
             <h4>{data.markdownRemark.frontmatter.listtitle}</h4>
