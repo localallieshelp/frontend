@@ -34,16 +34,24 @@ npx netlify-cms-proxy-server
 
 ## Features
 
-- Multilanguage support
+- Multilanguage support / i18n
 - Admin portal
 - Bulma CSS framework
-- fontawesome
-- i18n
+- fontawesome library
 - netlify-cms
 
 ## Hackathon Launch Feb 18, 2021
 
-We accomplished a lot during the 10-day span of rapid development.
+We accomplished a lot during the 10-day span of rapid development. We bootstrapped a new Gatsby project with many features and technologies.
+
+- Learned how to develop and deploy a Gatsby JAMstack complete website
+- Learned to set up, design, and use a Content Management System (CMS) with a WYSIWYG user interface (UI) in a JAMstack context (netlify-cms)
+- Learned to implement multilanguage support, including unicode typography (Chinese Simplified) into an entire website
+- Improved our React development skills
+- Familiarized ourselves with Bulma CSS Framework and Fontawesome libraries
+- Further developed our skills in working with design, product, and engineering team members
+- Gained additional experience in full-cycle software development
+- Gained additional experience in build and deployment of a website onto a IaaS (Infrastructure as a Service) provider (Netlify)
 
 ## Dev Tips
 
