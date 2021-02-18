@@ -5,9 +5,6 @@ import { navigate } from "gatsby-link"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO/SEO"
 import Content, { HTMLContent } from "../components/Content"
-import ContactDetails from "../components/ContactDetails"
-import OsmMap from "../components/OsmMap"
-import FollowUs from "../components/FollowUs"
 import { getCurrentLangKey } from "ptz-i18n"
 import { FormattedMessage } from "react-intl"
 
@@ -35,27 +32,50 @@ const ContactPageTemplate = ({
   address,
   phone,
   email,
+  form,
+  options,
   handleSubmit,
   handleChange,
   action,
 }) => {
   const PageContent = contentComponent || Content
   return (
-    <section className="section">
+    <section className="section contact">
       <div className="container">
         <div className="content">
           <h1 className="title">{title}</h1>
-          <PageContent className="container content" content={content} />
-          <ContactDetails
-            image={image}
-            address={address}
-            phone={phone}
-            email={email}
-          />
+          <div className="options">
+            <div className="grid-section">
+              <div>
+                <img src={options.one.image1.image.childImageSharp.fluid.src} />
+              </div>
+              <div>
+                <h2>{options.one.title}</h2>
+                <p>{options.one.description}</p>
+              </div>
+            </div>
+            <div className="grid-section">
+              <div>
+                <img src={options.two.image1.image.childImageSharp.fluid.src} />
+              </div>
+              <div>
+                <h2>{options.two.title}</h2>
+                <p>{options.two.description}</p>
+              </div>
+            </div>
+            <div className="grid-section">
+              <div>
+                <img src={options.three.image1.image.childImageSharp.fluid.src} />
+              </div>
+              <div>
+                <h2>{options.three.title}</h2>
+                <p>{options.three.description}</p>
+              </div>
+            </div>
+          </div>
           <div className="box">
-            <h4 className="subtitle">
-              <FormattedMessage id="contact.fill-the-form" />
-            </h4>
+            <h3 className="form-title">{form.title}</h3>
+            <p>{form.subtitle}</p>
             <form
               name="contact"
               method="post"
@@ -83,21 +103,6 @@ const ContactPageTemplate = ({
                     name="name"
                     onChange={handleChange}
                     id="name"
-                    required={true}
-                  />
-                </div>
-              </div>
-              <div className="field">
-                <label className="label" htmlFor="surname">
-                  <FormattedMessage id="contact.surname" />
-                </label>
-                <div className="control">
-                  <input
-                    className="input"
-                    type="text"
-                    name="surname"
-                    onChange={handleChange}
-                    id="surname"
                     required={true}
                   />
                 </div>
@@ -131,71 +136,6 @@ const ContactPageTemplate = ({
                     required={true}
                   />
                 </div>
-              </div>
-              <div className="field">
-                <div className="control">
-                  <label className="radio menu-names">
-                    <input
-                      type="radio"
-                      name="gender-male"
-                      value="male"
-                      onChange={handleChange}
-                      defaultChecked
-                    />
-                    <span>
-                      <FormattedMessage id="contact.gender.male" />
-                    </span>
-                  </label>
-                  <label className="radio">
-                    <input
-                      type="radio"
-                      name="gender-female"
-                      value="female"
-                      onChange={handleChange}
-                    />
-                    <span>
-                      <FormattedMessage id="contact.gender.female" />
-                    </span>
-                  </label>
-                </div>
-              </div>
-              <div className="field">
-                <label className="label">
-                  <p className="content has-text-weight-semibold">
-                    <FormattedMessage id="contact.enquiry" />
-                  </p>
-                  <div className="select">
-                    <select
-                      className="content"
-                      name="type-enquiry"
-                      defaultValue="Type of Enquiry"
-                      onChange={handleChange}
-                      required
-                    >
-                      <option name="options" disabled hidden>
-                        Choose
-                      </option>
-                      <FormattedMessage
-                        id="contact.enquiry.a"
-                        key={"op" + "-" + "a"}
-                      >
-                        {(message) => <option value="a">{message}</option>}
-                      </FormattedMessage>
-                      <FormattedMessage
-                        id="contact.enquiry.b"
-                        key={"op" + "-" + "b"}
-                      >
-                        {(message) => <option value="b">{message}</option>}
-                      </FormattedMessage>
-                      <FormattedMessage
-                        id="contact.enquiry.c"
-                        key={"op" + "-" + "c"}
-                      >
-                        {(message) => <option value="c">{message}</option>}
-                      </FormattedMessage>
-                    </select>
-                  </div>
-                </label>
               </div>
               <div className="field">
                 <label className="label" htmlFor="message">
@@ -272,13 +212,7 @@ class ContactPage extends React.Component {
     const address = dataMarkdown.frontmatter.address
     const phone = dataMarkdown.frontmatter.phone
     const email = dataMarkdown.frontmatter.email
-    const locations = dataMarkdown.frontmatter.locations
-    const { lat } = locations
-    const { lng } = locations
-    const { message } = locations
-    const linkinsta = dataMarkdown.frontmatter.linkinsta
-    const instagram = dataMarkdown.frontmatter.instagram
-    const image = dataMarkdown.frontmatter.imageCardSL
+    const image = dataMarkdown.frontmatter.image
     const { frontmatter } = dataMarkdown
     const imageSEO = frontmatter.image.childImageSharp.fluid.src
     return (
@@ -297,15 +231,14 @@ class ContactPage extends React.Component {
             address={address}
             phone={phone}
             email={email}
+            form={dataMarkdown.frontmatter.form}
+            options={dataMarkdown.frontmatter.options}
             title={dataMarkdown.frontmatter.title}
             content={dataMarkdown.html}
             onSubmit={this.handleSubmit}
             action={action}
           />
         </div>
-
-        <OsmMap lat={lat} lng={lng} message={message} />
-        <FollowUs link={linkinsta} instagram={instagram} />
       </Layout>
     )
   }
@@ -356,25 +289,56 @@ export const pageQuery = graphql`
         address
         phone
         email
-        locations {
-          lat
-          lng
-          message
-        }
-        linkinsta
-        instagram
-        imageCardSL {
-          alt
-          image {
-            childImageSharp {
-              fluid(maxWidth: 128, quality: 80) {
-                ...GatsbyImageSharpFluid
+        options {
+          one {
+            title
+            description
+            image1 {
+              alt
+              image {
+                childImageSharp {
+                  fluid(maxWidth: 2048, quality: 100) {
+                    ...GatsbyImageSharpFluid
+                    src
+                  }
+                }
               }
             }
           }
-          name
-          description
-          website
+          two {
+            title
+            description
+            image1 {
+              alt
+              image {
+                childImageSharp {
+                  fluid(maxWidth: 2048, quality: 100) {
+                    ...GatsbyImageSharpFluid
+                    src
+                  }
+                }
+              }
+            }
+          }
+          three {
+            title
+            description
+            image1 {
+              alt
+              image {
+                childImageSharp {
+                  fluid(maxWidth: 2048, quality: 100) {
+                    ...GatsbyImageSharpFluid
+                    src
+                  }
+                }
+              }
+            }
+          }
+        }
+        form {
+          title
+          subtitle
         }
       }
       fields {

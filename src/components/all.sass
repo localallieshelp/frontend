@@ -428,6 +428,16 @@ footer.footer
       img
         width: 100%
 
+        @media screen and (max-width: 600px)
+          display: none
+
+        &.mobile
+          display: none
+
+          @media screen and (max-width: 600px)
+            display: block !important
+            margin-bottom: 2rem
+
     @media screen and (max-width: 460px)
       padding: 0rem 1.5rem
 
@@ -613,6 +623,7 @@ footer.footer
       .button
         border-color: $green
         color: $green
+        text-transform: capitalize
 
         &:hover
           background-color: $green
@@ -665,8 +676,6 @@ footer.footer
         border: none
 
         li
-          &.is-active a
-            color: $green
 
           &:hover a
             color: $green
@@ -677,12 +686,29 @@ footer.footer
             text-transform: uppercase
             font-size: 1.2rem
 
+            &.is-active
+              color: $green
+
+    .story-content
+      display: none
+      
+      &.is-active
+        display: block
+
     .menu-content
+      display: none
       .grid-section
         grid-template-columns: 1fr 1fr
         column-gap: 1rem
+      
+      &.is-active
+        display: block
 
     .photo-content
+      display: none
+
+      &.is-active
+        display: block
 
       .left
         grid-template-columns: 2fr 1fr
@@ -754,3 +780,56 @@ footer.footer
       .grid-section
         column-gap: 0rem
         grid-template-columns: 24% 77%
+
+/* Contact Page */
+
+.contact
+  padding: 2rem 0px
+
+  .title
+    @media screen and (max-width: 600px)
+      text-align: center
+
+  @media screen and (min-width: 1024px)
+    max-width: 900px
+    margin: 0 auto
+
+  @media screen and (max-width: 1024px)
+    width: 95%
+    margin: 0 auto
+
+  .options
+    .grid-section
+      grid-template-columns: 15% 81%
+      column-gap: 2rem
+      align-items: center
+      margin-bottom: 1rem
+
+      @media screen and (max-width: 600px)
+        grid-template-columns: 100%
+        grid-auto-flow: unset
+        text-align: center
+    
+      h2
+        font-size: 1.4rem
+  
+  .box
+    box-shadow: none
+    padding: 2rem 0px
+
+    button  
+      background: white
+      border: 1px solid $green
+      color: $green
+
+      &:hover
+        background: $green
+        color: white
+
+    .form-title
+      @media screen and (max-width: 600px)
+        text-align: center
+
+    p
+      @media screen and (max-width: 600px)
+        text-align: center

@@ -62,10 +62,7 @@ export default class BusinessIndexPage extends React.Component {
                 padding: "0.25em",
               }}
             >
-              We work with each small merchant on a direct one-to-one basis to
-              make sure they are getting the specific help they need starting
-              with their own specialized page on our small business hub that
-              includes relevant information tailored to your needs.
+              {data.markdownRemark.frontmatter.description}
             </h3>
           </div>
         </div>
@@ -74,7 +71,7 @@ export default class BusinessIndexPage extends React.Component {
             <h4>Filter By</h4>
           </div>
           <div className="container">
-            <h4>DISCOVER LOCAL BUSINESSES</h4>
+            <h4>{data.markdownRemark.frontmatter.listtitle}</h4>
             <BlogRoll />
           </div>
         </section>
@@ -117,6 +114,7 @@ export const pageQuery = graphql`
         id
         title
         description
+        listtitle
         tags
         lang
       }
