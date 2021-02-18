@@ -23,6 +23,6 @@ module.exports = {
   "contact.send": "Send",
   not_found: "404 - Page Not Found",
   404: "You are arrived to an unvailable page or you have missed the path...",
-  copyright: "2021 LocAllies. All rights reserved.",
+  copyright: "2021 Local Allies. All rights reserved.",
   "click-here": "Click Here",
 }
