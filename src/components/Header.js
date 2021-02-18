@@ -50,14 +50,13 @@ const Header = class extends React.Component {
       navMenu.style.backgroundColor = "#abd6d1"
     }
 
-    const langdropdown= document.querySelectorAll('.dropdown-item')
+    const langdropdown = document.querySelectorAll(".dropdown-item")
     var sellang = ""
 
     if (langdropdown.length > 0) {
       // Add a click event on each of them
       langdropdown.forEach((el) => {
-        if(el.ariaCurrent == "page")
-          sellang = el;
+        if (el.ariaCurrent == "page") sellang = el
       })
     }
 
@@ -119,7 +118,7 @@ const Header = class extends React.Component {
               </div>
               <div className="navbar-end">
                 <div className="navbar-item  has-text-centered">
-                  <SelectLanguage langs={props.langs}/>
+                  <SelectLanguage langs={props.langs} />
                 </div>
               </div>
             </div>

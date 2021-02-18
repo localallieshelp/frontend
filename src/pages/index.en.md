@@ -44,6 +44,6 @@ path: /en/
 slug: /en/
 ---
 
-# Locallies home page
+# Local Allies home page
 
 <br>

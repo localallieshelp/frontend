@@ -2,23 +2,23 @@ const languages = require("./src/data/languages")
 
 module.exports = {
   siteMetadata: {
-    title: `LocAllies`,
+    title: `Local Allies`,
     description: `
   This is a blog theme. The description will be showed in SEO results on pages
   without their own descriptions.
 `,
-    siteUrl: "https://savesmb.netlify.app",
+    siteUrl: process.env.siteUrl || "https://www.localallies.org",
     image: "img.jpg",
     author: {
-      name: "LocAllies",
+      name: "Local Allies",
       minibio: `
         This bio is shown at the bottom of each blog post. It supports
         <strong>custom HTML</strong> if you’re into that sort of thing.
       `,
     },
     organization: {
-      name: "LocAllies",
-      url: "https://example.com",
+      name: "Local Allies",
+      url: process.env.siteUrl || "https://www.localallies.org",
       logo: "img/logo.svg",
     },
     social: {
@@ -32,6 +32,28 @@ module.exports = {
       resolve: "gatsby-plugin-google-analytics",
       options: {
         trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
+        // Defines where to place the tracking script - `true` in the head and `false` in the body
+        head: true,
+        // Setting this parameter is optional
+        anonymize: true,
+        // Setting this parameter is also optional
+        respectDNT: true,
+        // Avoids sending pageview hits from custom paths
+        exclude: ["/preview/**", "/do-not-track/me/too/"],
+        // Delays sending pageview hits on route update (in milliseconds)
+        pageTransitionDelay: 0,
+        // Enables Google Optimize using your container Id
+        // optimizeId: "YOUR_GOOGLE_OPTIMIZE_TRACKING_ID",
+        // Enables Google Optimize Experiment ID
+        // experimentId: "YOUR_GOOGLE_EXPERIMENT_ID",
+        // Set Variation ID. 0 for original 1,2,3....
+        // variationId: "YOUR_GOOGLE_OPTIMIZE_VARIATION_ID",
+        // Defers execution of google analytics script after page load
+        defer: false,
+        // Any additional optional fields
+        sampleRate: 5,
+        siteSpeedSampleRate: 10,
+        cookieDomain: "localallies.org",
       },
     },
     `gatsby-plugin-react-helmet`,
@@ -135,8 +157,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `LocAllies`,
-        short_name: `LocAllies`,
+        name: `Local Allies`,
+        short_name: `Local Allies`,
         start_url: `/`,
         background_color: `#fff`,
         theme_color: `#397A4C`,

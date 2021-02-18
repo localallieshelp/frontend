@@ -15651,6 +15651,11 @@ react-split-pane@^0.1.85:
     react-lifecycles-compat "^3.0.4"
     react-style-proptype "^3.2.2"
 
+react-square-payment-form@^0.7.2:
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/react-square-payment-form/-/react-square-payment-form-0.7.2.tgz#b64e9165b67554fad258dcde3d8d64f9327a5533"
+  integrity sha512-y40LOnwi24vVy2ygMJMHP4OnfnynQOMMDOo0bKpLZRPi0z6UzB+HI4eqF+n1a/627ztS/ZapTvjGXy2fq8z4yA==
+
 react-style-proptype@^3.2.2:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/react-style-proptype/-/react-style-proptype-3.2.2.tgz#d8e998e62ce79ec35b087252b90f19f1c33968a0"

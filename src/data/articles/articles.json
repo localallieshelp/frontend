@@ -50,6 +50,11 @@
       "id": "10",
       "en": "business/thai-chaiyo",
       "cn": "business/thai-chaiyo"
+    },
+    {
+      "id": "11",
+      "en": "donate",
+      "cn": "donate"
     }
   ]
 }

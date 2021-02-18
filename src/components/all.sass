@@ -811,7 +811,6 @@ footer.footer
           grid-template-columns: 100%
 
   .fixed-info
-    margin-top: 6rem
     position: relative
 
     @media screen and (max-width: 789px)
@@ -843,6 +842,21 @@ footer.footer
         column-gap: 0rem
         grid-template-columns: 24% 77%
         margin-bottom: 0.5rem
+  
+  .business-donate
+    height: 6rem
+    display: flex
+    align-items: center
+
+    .button
+      border-color: $green
+      color: $green
+      text-transform: capitalize
+      width: 100%
+
+      &:hover
+        background-color: $green
+        color: white
 
   .mobile-info
     margin-top: 0rem
