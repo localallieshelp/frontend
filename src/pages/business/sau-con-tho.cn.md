@@ -1,7 +1,7 @@
 ---
 id: "07"
 templateKey: business-post
-lang: en
+lang: cn
 path: /cn/business/sau-con-tho/
 slug: /cn/business/sau-con-tho/
 title: Sau Con Tho
