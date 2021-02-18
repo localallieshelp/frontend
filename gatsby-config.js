@@ -28,6 +28,12 @@ module.exports = {
     languages,
   },
   plugins: [
+    {
+      resolve: "gatsby-plugin-google-analytics",
+      options: {
+        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: "gatsby-plugin-sass",

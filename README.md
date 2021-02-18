@@ -1,32 +1,57 @@
-# Save Small Businesses Hack 2021
+# Local Allies
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/d7f25446-66fd-49ed-9593-fd82da45067c/deploy-status)](https://app.netlify.com/sites/savesmb/deploys)
 
-You can view the starter at this link: https://gatsby-starter-i18n-bulma.netlify.com
+Small businesses across the United States need our help. Nearly a quarter of US small merchants are closed and overall revenue is still down for many due to the COVID-19 pandemic.
 
-A gatsby multilanguage template with bulma and i18n. This project is under heavy development, consider that frequent changes can break compatibility.
+We've built a platform for small businesses with little-to-no online presence and those disproportionately hurt by COVID-19 to get help with marketing and social.
 
-## Dev setup
+## Getting Started
 
-Run the yarn installer to install all the packages and dependencies:
+This starter is developed within the Gatsby ecosystem. It requires `node.js`, `npm`, `yarn` and `gatsby-cli` to be installed.
+
+Install project packages:
 
 ```
 yarn install
 ```
 
-Open a separate terminal and run the following command. This will allow you to
-access the netlify-cms locally at: `localhost:8000/admin` or the same port
-the gatsby app is running.
+After yarn has finished, begin dev:
+
+```
+gatsby develop
+```
+
+The site will be served at `localhost:8000`
+
+#### Admin CMS
+
+Open a separate terminal and run the following command. This will allow you to access the netlify-cms locally at: `localhost:8000/admin` or the same port the gatsby app is running.
 
 ```
 npx netlify-cms-proxy-server
 ```
 
-After yarn has finished to install all the packages then you can run:
+## Features
 
-```
-gatsby develop
-```
+- Multilanguage support / i18n
+- Admin portal
+- Bulma CSS framework
+- fontawesome library
+- netlify-cms
+
+## Hackathon Launch Feb 18, 2021
+
+We accomplished a lot during the 10-day span of rapid development. We bootstrapped a new Gatsby project with many features and technologies.
+
+- Learned how to develop and deploy a Gatsby JAMstack complete website
+- Learned to set up, design, and use a Content Management System (CMS) with a WYSIWYG user interface (UI) in a JAMstack context (netlify-cms)
+- Learned to implement multilanguage support, including unicode typography (Chinese Simplified) into an entire website
+- Improved our React development skills
+- Familiarized ourselves with Bulma CSS Framework and Fontawesome libraries
+- Further developed our skills in working with design, product, and engineering team members
+- Gained additional experience in full-cycle software development
+- Gained additional experience in build and deployment of a website onto a IaaS (Infrastructure as a Service) provider (Netlify)
 
 ## Dev Tips
 
@@ -42,56 +67,6 @@ Try running `gatsby clean`. This may happen when switching between branches.
 
   Then you are probably missing data in your markdown or your image path doesn't exist.
 
-## Features
-
-A simple website with multilanguage support, blogging, bulma css, fontawesome, i18n, netlify-cms
-and much more...
-
-### Language switcher
-
-With this starter you can switch between different languages pages with different names for example:
-
-`en/artworks/`
-
-to
-
-`/it/opere/`
-
-## Plugins
-
-This starter use these Gatsby.js Plugins:
-
-- gatsby-plugin-google-analytics
-- gatsby-plugin-i18n
-- gatsby-plugin-i18n-tags
-- gatsby-plugin-manifest
-- gatsby-plugin-netlify
-- gatsby-plugin-netlify-cms
-- gatsby-plugin-offline
-- gatsby-plugin-purgecss
-- gatsby-plugin-react-helmet
-- gatsby-plugin-remove-trailing-slashes
-- gatsby-plugin-robots-txt
-- gatsby-plugin-sass
-- gatsby-plugin-sharp
-- gatsby-plugin-sitemap
-- gatsby-remark-copy-linked-files
-- gatsby-remark-images
-- gatsby-remark-relative-images
-- gatsby-source-filesystem
-- gatsby-transformer-javascript-frontmatter
-- gatsby-transformer-json
-- gatsby-transformer-remark
-- gatsby-transformer-sharp
-
 ## Inspired by
 
-This project in part is based on the Netify template: [gatsby-starter-netlify-cms](https://github.com/netlify-templates/gatsby-starter-netlify-cms)
-and the [gatsby-starter-contentful-i18n](https://github.com/mccrodp/gatsby-starter-contentful-i18n)
-But a special mention i reserved to [gatsby-plugin-i18n](https://github.com/angeloocana/gatsby-plugin-i18n)
-
-## Documentation
-
-For more information, see the [wiki page][4509389d]
-
-[4509389d]: https://github.com/kalwalt/gatsby-starter-i18n-bulma/wiki "wiki"
+This project was bootstrapped by this gatsby template: [gatsby-starter-i18n-bulma](https://github.com/kalwalt/gatsby-starter-i18n-bulma)
