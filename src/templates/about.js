@@ -7,6 +7,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO/SEO"
 import Content, { HTMLContent } from "../components/Content"
+import MobileImg from "../../static/img/story-image-mobile.png"
 
 const AboutPageTemplate = ({
   title,
@@ -33,6 +34,10 @@ const AboutPageTemplate = ({
               <img
                 src={image.childImageSharp.fluid.src}
                 className="animated fadeInLeft"
+              />
+              <img 
+                src={MobileImg}
+                className="animated fadeInLeft mobile"
               />
             </div>
             <div>

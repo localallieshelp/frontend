@@ -23,6 +23,19 @@ export const BlogPostTemplate = ({
   const PostContent = contentComponent || Content
   const iconStyles = { fill: "black" }
   const fe = frontmatter
+  const onTabClick = (e, tabName) => {
+    var i, tabs, tabcontent
+    tabs = document.getElementsByClassName("tablink")
+    tabcontent = document.getElementsByClassName("tab-content")
+    
+    for (i = 0; i < tabs.length; i++) {
+      tabs[i].className = tabs[i].className.replace(" is-active", "")
+      tabcontent[i].className = tabcontent[i].className.replace(" is-active", "")
+    }
+
+    document.getElementsByClassName(tabName)[0].className += " is-active";
+    e.currentTarget.className += " is-active"
+  }
 
   return (
     <section className="section business-info">
@@ -40,36 +53,38 @@ export const BlogPostTemplate = ({
                 size="1em"
                 style={iconStyles}
               />
-              {fe.business_type}
+              {frontmatter.business_type}
             </p>
-            <img src="/img/business-page-image.png" />
+            <img src={frontmatter.primary_image.childImageSharp.fluid.src} />
             <div className="tabs">
               <ul>
-                <li className="is-active">
-                  <a>Story</a>
+                <li>
+                  <a className="tablink is-active" onClick={(e) => onTabClick(e,'story-content')}>Story</a>
                 </li>
                 <li>
-                  <a>Menu</a>
+                  <a className="tablink" onClick={(e) => onTabClick(e,'menu-content')}>Menu</a>
                 </li>
                 <li>
-                  <a>Photos</a>
+                  <a className="tablink" onClick={(e) => onTabClick(e,'photo-content')}>Photos</a>
                 </li>
               </ul>
             </div>
-            <div className="story-content">
+            <div className="tab-content story-content is-active">
+              <p>{description}</p>
+              <PostContent content={content} className="post-content" />
               <div className="mobile-info">
                 <div>
                   <div className="grid-section">
                     <div>Location</div>
-                    <div> 1234 Main St City, ST 56789</div>
+                    <div> {frontmatter.address ? frontmatter.address : 'Not Listed'}</div>
                   </div>
                   <div className="grid-section">
                     <div>Phone</div>
-                    <div>(123) 456-7890</div>
+                    <div>{frontmatter.phone ? frontmatter.phone : 'Not Listed'}</div>
                   </div>
                   <div className="grid-section">
                     <div>Website</div>
-                    <div>businessname.com</div>
+                    <div>{frontmatter.homepage_link ? frontmatter.homepage_link: 'Not Listed'}</div>
                   </div>
                   <div className="grid-section">
                     <div>Hours</div>
@@ -98,10 +113,8 @@ export const BlogPostTemplate = ({
                   </div>
                 </div>
               </div>
-              <p>{description}</p>
-              <PostContent content={content} className="post-content" />
             </div>
-            <div className="menu-content">
+            <div className="tab-content menu-content">
               <div className="grid-section">
                 <div>
                   <img src="/img/business-menu-1.png" />
@@ -111,7 +124,7 @@ export const BlogPostTemplate = ({
                 </div>
               </div>
             </div>
-            <div className="photo-content">
+            <div className="tab-content photo-content">
               <div className="grid-section left">
                 <div className="grid-section">
                   <div>
@@ -146,15 +159,15 @@ export const BlogPostTemplate = ({
           <div className="fixed-inner">
             <div className="grid-section">
               <div>Location</div>
-              <div> 1234 Main St City, ST 56789</div>
+              <div> {frontmatter.address ? frontmatter.address: 'Not Listed'}</div>
             </div>
             <div className="grid-section">
               <div>Phone</div>
-              <div>(123) 456-7890</div>
+              <div>{frontmatter.phone ? frontmatter.phone : 'Not Listed'}</div>
             </div>
             <div className="grid-section">
               <div>Website</div>
-              <div>businessname.com</div>
+              <div>{frontmatter.homepage_link ? frontmatter.homepage_link : 'Not Listed'}</div>
             </div>
             <div className="grid-section">
               <div>Hours</div>
