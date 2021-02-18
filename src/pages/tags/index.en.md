@@ -1,5 +1,5 @@
 ---
-id: "14"
+id: "06"
 title: "English tags"
 description: "Page for all english tags"
 templateKey: allTags

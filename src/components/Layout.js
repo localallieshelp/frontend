@@ -11,26 +11,37 @@ import { FaThList } from "react-icons/fa"
 if (!Intl.RelativeTimeFormat) {
   require("@formatjs/intl-relativetimeformat/polyfill")
   require("@formatjs/intl-relativetimeformat/dist/locale-data/en")
-  // TODO require("@formatjs/intl-relativetimeformat/dist/locale-data/cn")
+  require("@formatjs/intl-relativetimeformat/dist/locale-data/zh")
+}
+
+if (!Intl.NumberFormat) {
+  require("@formatjs/intl-numberformat/dist/locale-data/zh")
 }
 
 const getIdJsonUrl = (id, langKey, jsonData) => {
   if (id !== "undefined") {
     let res
-    switch (langKey) {
-      // We get the name of the page according the id.
-      case "en":
-        res = jsonData[id].en
-        break
-      case "cn":
-        res = jsonData[id].cn
-        break
-      default:
-        return " "
+    try {
+      switch (langKey) {
+        // We get the name of the page according the id.
+        case "en":
+          res = jsonData[id].en
+          break
+        case "cn":
+          res = jsonData[id].cn
+          break
+        default:
+          return " "
+      }
+    } catch (e) {
+      console.log(
+        `Layout.js: Missing id "${id}" in getIdJsonUrl() when trying to get page.`,
+        e.toString()
+      )
     }
     return res
   } else {
-    console.log("missed id in the getIdUrl() function!")
+    console.log("missing id in the getIdUrl() function!")
   }
 }
 
@@ -52,10 +63,8 @@ const check_path = (langKey, _url, id_article, jsonData) => {
 
 const setLangsMenu = (langsMenu, id, basePath, jsonData) => {
   if (id !== "undefined") {
-    langsMenu[0].link =
-      `/en/${basePath}` + getIdJsonUrl(id, "en", jsonData) + "/"
-    langsMenu[1].link =
-      `/cn/${basePath}` + getIdJsonUrl(id, "cn", jsonData) + "/"
+    langsMenu[0].link = `/en/${basePath}` + getIdJsonUrl(id, "en", jsonData)
+    langsMenu[1].link = `/cn/${basePath}` + getIdJsonUrl(id, "cn", jsonData)
   } else {
     console.log("missed id in the setLangsMenu() function!")
   }

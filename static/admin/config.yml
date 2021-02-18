@@ -21,14 +21,13 @@ collections:
     fields:
       - label: "id"
         name: "id"
-        widget: "hidden"
-        default: "999"
+        widget: "string"
 
       - {
           label: "Template Key",
           name: "templateKey",
           widget: "hidden",
-          default: "blog-post",
+          default: "business-post",
         }
       - { label: "Business Name", name: "title", widget: "string" }
       - { label: "Primary Image", name: "primary_image", widget: "image" }
@@ -98,14 +97,13 @@ collections:
     fields:
       - label: "id"
         name: "id"
-        widget: "hidden"
-        default: "888"
+        widget: "string"
 
       - {
           label: "Template Key",
           name: "templateKey",
           widget: "hidden",
-          default: "blog-post",
+          default: "business-post",
         }
       - { label: "Business Name", name: "title", widget: "string" }
       - { label: "Primary Image", name: "primary_image", widget: "image" }

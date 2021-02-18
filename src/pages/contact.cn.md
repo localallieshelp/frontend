@@ -34,6 +34,6 @@ form:
   title: "Send Us A Message"
   subtitle: "Fill in the contact form below or email John Wie at jwie@alumni.usc.edu to get started."
 
-path: /cn/contact
-slug: /cn/contact
+path: /cn/contact/
+slug: /cn/contact/
 ---

@@ -3,8 +3,7 @@ module.exports = {
   tags: "Tags",
   "tags.allTagsLink": "Browse all tags",
   "tags.intro": "Here you can find all the tags",
-  "tags.blog.intro": "Here you can find all the blog tags",
-  "tags.pages.intro": "Here you can find all the tags in the pages",
+  "tags.business.intro": "Here you can find all the business tags",
   "tags.nPostsTaggedWith": `{nPosts, number} {nPosts, plural,
       one {post}
       other {posts}
@@ -25,10 +24,5 @@ module.exports = {
   not_found: "404 - Page Not Found",
   404: "You are arrived to an unvailable page or you have missed the path...",
   copyright: "2021 LocAllies. All rights reserved.",
-  "menu-icon-message": "Choose a section",
-  "menu-icon-subtitle": "Artworks sections",
-  "menu-icon-painting": "Painting",
-  "menu-icon-sculpture": "Sculpture",
-  "menu-icon-performance": "Performance",
-  "menu-icon-interactivity": "Interactivity",
+  "click-here": "Click Here",
 }

@@ -3,11 +3,12 @@ import * as PropTypes from "prop-types"
 import TagList from "../components/TagList"
 import menuTree from "../data/menuTree"
 import select from "../components/utils"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO/SEO"
 import Content, { HTMLContent } from "../components/Content"
 import MobileImg from "../../static/img/story-image-mobile.png"
+import { FormattedMessage } from "react-intl"
 
 const StoryPageTemplate = ({
   title,
@@ -15,6 +16,7 @@ const StoryPageTemplate = ({
   copytwo,
   copythree,
   copyfour,
+  cta,
   team,
   content,
   contentComponent,
@@ -35,10 +37,7 @@ const StoryPageTemplate = ({
                 src={image.childImageSharp.fluid.src}
                 className="animated fadeInLeft"
               />
-              <img 
-                src={MobileImg}
-                className="animated fadeInLeft mobile"
-              />
+              <img src={MobileImg} className="animated fadeInLeft mobile" />
             </div>
             <div>
               <h3 className="animated fadeIn">{title}</h3>
@@ -55,11 +54,10 @@ const StoryPageTemplate = ({
                 {copyfour}
                 <br />
                 <br />
-                Have Questions? Want to Get Involved?
-                <a href={"/" + langKey + "/" + menuTree.contact[sel] + "/"}>
-                  Click here{" "}
-                </a>
-                .
+                {cta}{" "}
+                <Link to={"/" + langKey + "/" + menuTree.contact[sel]}>
+                  <FormattedMessage id="click-here" />.
+                </Link>
               </p>
             </div>
           </div>
@@ -144,6 +142,7 @@ class StoryPage extends React.Component {
             copytwo={dataMarkdown.frontmatter.copy2}
             copythree={dataMarkdown.frontmatter.copy3}
             copyfour={dataMarkdown.frontmatter.copy4}
+            cta={dataMarkdown.frontmatter.cta}
             image={dataMarkdown.frontmatter.image}
             team={dataMarkdown.frontmatter.team}
             content={dataMarkdown.html}
@@ -192,6 +191,7 @@ export const pageQuery = graphql`
         copy2
         copy3
         copy4
+        cta
         tags
         lang
         image {

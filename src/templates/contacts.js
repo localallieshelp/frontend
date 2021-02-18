@@ -65,7 +65,9 @@ const ContactPageTemplate = ({
             </div>
             <div className="grid-section">
               <div>
-                <img src={options.three.image1.image.childImageSharp.fluid.src} />
+                <img
+                  src={options.three.image1.image.childImageSharp.fluid.src}
+                />
               </div>
               <div>
                 <h2>{options.three.title}</h2>
@@ -193,7 +195,9 @@ class ContactPage extends React.Component {
         ...this.state,
       }),
     })
-      .then(() => navigate(form.getAttribute("action")))
+      .then((x) => {
+        alert(x)
+      }) //navigate(form.getAttribute("action")))
       .catch((error) => alert(error))
   }
   render() {

@@ -32,8 +32,8 @@ options:
       image: /img/contact-image-3.png
 form:
   title: "Send Us A Message"
-  subtitle: "Fill in the contact form below or email John Wie at jwie@alumni.usc.edu to get started."
+  subtitle: "Fill in the contact form below or email John Wie at jwie@alumni.usc.edu to get started." # TODO: extract email as link
 
-path: /en/contact
-slug: /en/contact
+path: /en/contact/
+slug: /en/contact/
 ---
