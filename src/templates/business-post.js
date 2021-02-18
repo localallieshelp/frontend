@@ -3,10 +3,12 @@ import PropTypes from "prop-types"
 import TagList from "../components/TagList"
 import Helmet from "react-helmet"
 import SEO from "../components/SEO/SEO"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/Layout"
 import Content, { HTMLContent } from "../components/Content"
 import { FaUtensils } from "react-icons/fa"
+import menuTree from "../data/menuTree"
+import select from "../components/utils"
 
 export const BusinessPostTemplate = ({
   data,
@@ -23,6 +25,7 @@ export const BusinessPostTemplate = ({
   const PostContent = contentComponent || Content
   const iconStyles = { fill: "black" }
   const fe = frontmatter
+  const sel = select(langKey)
   const onTabClick = (e, tabName) => {
     var i, tabs, tabcontent
     tabs = document.getElementsByClassName("tablink")
@@ -138,6 +141,12 @@ export const BusinessPostTemplate = ({
                     </div>
                   </div>
                 </div>
+                <div className="business-donate">
+                  <Link className="button" to={"/" + langKey + "/donate"}>
+                    {" "}
+                    Donate{" "}
+                  </Link>
+                </div>
               </div>
             </div>
             <div className="tab-content menu-content">
@@ -183,6 +192,12 @@ export const BusinessPostTemplate = ({
         </div>
         <div className="fixed-info">
           <div className="fixed-inner">
+            <div className="business-donate">
+              <Link className="button" to={"/" + langKey + "/donate"}>
+                {" "}
+                Donate{" "}
+              </Link>
+            </div>
             <div className="grid-section">
               <div>Location</div>
               <div>

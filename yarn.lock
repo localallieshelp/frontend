@@ -8327,14 +8327,6 @@ gatsby-plugin-google-analytics@^2.11.0:
     "@babel/runtime" "^7.12.5"
     minimatch "3.0.4"
 
-gatsby-plugin-google-gtag@^2.8.0:
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-gtag/-/gatsby-plugin-google-gtag-2.8.0.tgz#234dc936dd32440f861a3c0308521864ae55c5aa"
-  integrity sha512-ghvVjbcDszlt7/oaHvmx97WVceWbbMZQ7b6FSO4RY0FVUm/UkvrZldAxraioS1uEra+ndeEDyPM+MiftuDR8Aw==
-  dependencies:
-    "@babel/runtime" "^7.12.5"
-    minimatch "^3.0.4"
-
 gatsby-plugin-i18n-tags@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-i18n-tags/-/gatsby-plugin-i18n-tags-1.0.0.tgz#f40017945054bb0f55e52e5d78f8d2db0f450efd"
