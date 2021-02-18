@@ -30,7 +30,7 @@
     "gatsby-plugin-react-helmet": "^3.3.4",
     "gatsby-plugin-react-leaflet": "^2.0.13",
     "gatsby-plugin-remove-trailing-slashes": "^2.3.5",
-    "gatsby-plugin-robots-txt": "^1.5.1",
+    "gatsby-plugin-robots-txt": "^1.5.5",
     "gatsby-plugin-sass": "^3.2.0",
     "gatsby-plugin-sharp": "^2.6.11",
     "gatsby-plugin-sitemap": "^2.4.5",
