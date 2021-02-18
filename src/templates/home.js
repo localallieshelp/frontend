@@ -12,6 +12,7 @@ import menuTree from "../data/menuTree"
 const HomePageTemplate = ({
   title,
   heading,
+  heading2,
   buttontext,
   image,
   main,
@@ -74,12 +75,7 @@ const HomePageTemplate = ({
             {heading}
             <br />
             <br />
-            <span>
-              {" "}
-              *World Economic Forum - Mapping the uneven recovery of America’s
-              small businesses
-              https://www.weforum.org/agenda/2020/10/mapped-uneven-recovery-us-america-small-businesses-closure{" "}
-            </span>
+            <span>{heading2}</span>
           </h3>
           <div className="animated bounceInLeft">
             <Link
@@ -162,6 +158,7 @@ class HomePage extends React.Component {
           <HomePageTemplate
             title={dataMarkdown.frontmatter.mainheading}
             heading={dataMarkdown.frontmatter.heading}
+            heading2={dataMarkdown.frontmatter.heading2}
             buttontext={dataMarkdown.frontmatter.buttontext}
             image={dataMarkdown.frontmatter.image}
             main={dataMarkdown.frontmatter.main}
@@ -223,6 +220,7 @@ export const pageQuery = graphql`
         }
         mainheading
         heading
+        heading2
         buttontext
         main {
           title
