@@ -34,6 +34,7 @@
     "gatsby-plugin-sass": "^3.2.0",
     "gatsby-plugin-sharp": "^2.6.11",
     "gatsby-plugin-sitemap": "^2.4.5",
+    "gatsby-plugin-square-payment-form": "^1.0.3",
     "gatsby-remark-copy-linked-files": "^2.3.5",
     "gatsby-remark-images": "^3.3.10",
     "gatsby-remark-relative-images": "^0.3.0",
