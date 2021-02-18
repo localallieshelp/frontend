@@ -46,6 +46,6 @@ path: /cn/
 slug: /cn/
 ---
 
-# Locallies home page
+# Local Allies home page
 
 <br>

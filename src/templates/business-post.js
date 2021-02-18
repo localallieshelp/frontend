@@ -9,6 +9,7 @@ import Content, { HTMLContent } from "../components/Content"
 import { FaUtensils } from "react-icons/fa"
 import menuTree from "../data/menuTree"
 import select from "../components/utils"
+import { FormattedMessage } from "react-intl"
 
 export const BusinessPostTemplate = ({
   data,
@@ -142,12 +143,8 @@ export const BusinessPostTemplate = ({
                   </div>
                 </div>
                 <div className="business-donate">
-                  <Link
-                    className="button"
-                    to={"/" + langKey + "/donate"}
-                  >
-                    {" "}
-                    Donate{" "}
+                  <Link className="button" to={"/" + langKey + "/donate"}>
+                    <FormattedMessage id="donate" />
                   </Link>
                 </div>
               </div>
@@ -196,12 +193,8 @@ export const BusinessPostTemplate = ({
         <div className="fixed-info">
           <div className="fixed-inner">
             <div className="business-donate">
-              <Link
-                className="button"
-                to={"/" + langKey + "/donate"}
-              >
-                {" "}
-                Donate{" "}
+              <Link className="button" to={"/" + langKey + "/donate"}>
+                <FormattedMessage id="donate" />
               </Link>
             </div>
             <div className="grid-section">
@@ -213,15 +206,21 @@ export const BusinessPostTemplate = ({
             </div>
             <div className="grid-section">
               <div>Phone</div>
-              <div>{frontmatter.phone ? frontmatter.phone : "Not Listed"}</div>
+              <div>{frontmatter.phone || "Not Listed"}</div>
             </div>
             <div className="grid-section">
               <div>Website</div>
-              <div>
-                {frontmatter.homepage_link
-                  ? frontmatter.homepage_link
-                  : "Not Listed"}
-              </div>
+              {frontmatter.homepage_link ? (
+                <a
+                  href={frontmatter.homepage_link || "#"}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <div>{frontmatter.homepage_link}</div>
+                </a>
+              ) : (
+                <div>Not Listed</div>
+              )}
             </div>
             <div className="grid-section">
               <div>Hours</div>

@@ -9,5 +9,3 @@ date: "2021-02-18"
 path: /cn/donate
 slug: /cn/donate
 ---
-
-Thank you for donating!
