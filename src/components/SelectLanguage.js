@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import Link from "gatsby-link"
 import { FormattedMessage } from "react-intl"
 import { FaGlobe } from "react-icons/fa"
+import { FaAngleDown, FaAngleUp, FaCheck } from "react-icons/fa"
 import En from "./Flags/En"
 import Cn from "./Flags/Cn"
 
@@ -25,18 +26,33 @@ const getIcon = (langKey) => {
 
 const SelectLanguage = (props) => {
   const links = props.langs.map((lang) => (
-    <li className="flags" key={lang.langKey} selected={lang.selected}>
-      <Link
-        to={lang.link}
-        alt={lang.langKey}
-        style={{
-          color: "#D64000",
-        }}
-      >
-        {getIcon(lang.langKey)}
-      </Link>
-    </li>
+    <Link
+      to={lang.link}
+      alt={lang.langKey}
+      style={{
+        color: "#D64000",
+      }}
+      id={lang.langKey}
+      className="dropdown-item"
+      key={lang.langKey}
+      selected={lang.selected}
+    >
+      <FaCheck className="check-icon" size="1em" />
+      {lang.langKey == "en" ? "English" : "中文"}
+    </Link>
   ))
+
+  const showLang = (e) => {
+    var dropdown = document.getElementById("dropdown-menu")
+
+    if (e.currentTarget.classList.contains("is-active")) {
+      e.currentTarget.classList.remove("is-active")
+      dropdown.classList.remove("is-active")
+    } else {
+      e.currentTarget.className += " is-active"
+      dropdown.className += " is-active"
+    }
+  }
 
   return (
     <div
@@ -48,7 +64,25 @@ const SelectLanguage = (props) => {
         <FormattedMessage id="selectLanguage" />
         <span>|</span>
       </header>
-      <ul>{links}</ul>
+      <div className="dropdown is-active">
+        <div className="dropdown-trigger">
+          <button
+            className="button"
+            aria-haspopup="true"
+            aria-controls="dropdown-menu"
+            onClick={(e) => showLang(e)}
+          >
+            <span id="selectedLang">English</span>
+            <span className="icon is-small">
+              <FaAngleDown className="down-icon" size="1em" />
+              <FaAngleUp className="up-icon" size="1em" />
+            </span>
+          </button>
+        </div>
+        <div className="dropdown-menu" id="dropdown-menu" role="menu">
+          <div className="dropdown-content">{links}</div>
+        </div>
+      </div>
     </div>
   )
 }

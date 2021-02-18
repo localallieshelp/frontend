@@ -3,8 +3,6 @@ id: "04"
 title: "Get Involved"
 description: "Got Any Questions? Contact Us!"
 templateKey: contacts
-tags:
-  - web
 lang: en
 image: /img/128x128.png
 date: "02-12-2021"

@@ -23,7 +23,7 @@ module.exports = {
   "contact.send": "Send",
   not_found: "404 - Page Not Found",
   404: "You are arrived to an unvailable page or you have missed the path...",
-  copyright: "2021 LocAllies. 保留所有权利。",
+  copyright: "2021 Local Allies. 保留所有权利。",
   "click-here": "Click Here",
   donate: "捐",
 }

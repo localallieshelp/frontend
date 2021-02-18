@@ -6,6 +6,7 @@ import menuTree from "../data/menuTree"
 import { isMobile } from "react-device-detect"
 import select from "../components/utils"
 import SelectLanguage from "../components/SelectLanguage"
+import { FaLongArrowAltLeft } from "react-icons/fa"
 
 const Header = class extends React.Component {
   componentDidMount() {
@@ -13,6 +14,7 @@ const Header = class extends React.Component {
       document.querySelectorAll(".navbar-burger"),
       0
     )
+
     // Check if there are any navbar burgers
     if ($navbarBurgers.length > 0) {
       // Add a click event on each of them
@@ -46,6 +48,27 @@ const Header = class extends React.Component {
     if (isMobile) {
       let navMenu = document.getElementById("navMenu")
       navMenu.style.backgroundColor = "#abd6d1"
+    }
+
+    const langdropdown= document.querySelectorAll('.dropdown-item')
+    var sellang = ""
+
+    if (langdropdown.length > 0) {
+      // Add a click event on each of them
+      langdropdown.forEach((el) => {
+        if(el.ariaCurrent == "page")
+          sellang = el;
+      })
+    }
+
+    if (sellang.id) {
+      document.getElementById(sellang.id).className += " is-selected"
+
+      if (sellang.id == "en") {
+        document.getElementById("selectedLang").innerHTML = "English"
+      } else {
+        document.getElementById("selectedLang").innerHTML = "中文"
+      }
     }
   }
 
@@ -102,7 +125,7 @@ const Header = class extends React.Component {
               </div>
               <div className="navbar-end">
                 <div className="navbar-item  has-text-centered">
-                  <SelectLanguage langs={props.langs} />
+                  <SelectLanguage langs={props.langs}/>
                 </div>
               </div>
             </div>

@@ -1,10 +1,8 @@
 ---
 id: "04"
-title: "Get Involved"
+title: "参与"
 description: "Got Any Questions? Contact Us!"
 templateKey: contacts
-tags:
-  - web
 lang: cn
 image: /img/128x128.png
 date: "02-12-2021"
