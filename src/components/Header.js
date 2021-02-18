@@ -28,6 +28,17 @@ const Header = class extends React.Component {
       })
     }
 
+    const selectedLang = document.querySelector('[aria-current="page"]').id
+    document.getElementById(selectedLang).className += " is-selected"
+
+    if (selectedLang == "en") {
+      document.getElementById("selectedLang").innerHTML = "English"
+    }
+    else{
+      document.getElementById("selectedLang").innerHTML = "中文"
+    }
+
+
     // Get all "navbar-link" elements
     const navbarLink = Array.prototype.slice.call(
       document.querySelectorAll(".navbar-link"),
@@ -96,7 +107,7 @@ const Header = class extends React.Component {
               </div>
               <div className="navbar-end">
                 <div className="navbar-item  has-text-centered">
-                  <SelectLanguage langs={props.langs} />
+                  <SelectLanguage langs={props.langs}/>
                 </div>
               </div>
             </div>

@@ -49,7 +49,7 @@ const HomePageTemplate = ({
           }}
         >
           <h1
-            className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen is-centered animated bounceInLeft"
+            className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen is-centered animated fadeInLeft"
             style={{
               boxShadow:
                 "rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px",
@@ -62,7 +62,7 @@ const HomePageTemplate = ({
             {title}
           </h1>
           <h3
-            className="is-size-5-mobile is-size-5-tablet is-size-4-widescreen animated bounceInLeft"
+            className="is-size-5-mobile is-size-5-tablet is-size-4-widescreen animated fadeInLeft"
             style={{
               boxShadow:
                 "rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px",
@@ -77,7 +77,7 @@ const HomePageTemplate = ({
             <br />
             <span>{heading2}</span>
           </h3>
-          <div className="animated bounceInLeft">
+          <div className="animated fadeInLeft buttondiv">
             <Link
               className="button"
               to={"/" + langKey + "/" + menuTree.business[sel]}
