@@ -8,8 +8,8 @@ tags:
 lang: cn
 image: /img/PersimmonHD.jpg
 date: "31-03-2019"
-path: /cn/thanks/
-slug: /cn/thanks/
+path: /cn/contact/thanks/
+slug: /cn/contact/thanks/
 ---
 
 谢谢！我们会尽快与您联系。

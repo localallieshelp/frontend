@@ -8,8 +8,8 @@ tags:
 lang: en
 image: /img/PersimmonHD.jpg
 date: "31-03-2019"
-path: /en/thanks/
-slug: /en/thanks/
+path: /en/contact/thanks/
+slug: /en/contact/thanks/
 ---
 
 Thank you! You will be contacted as soon as possible.

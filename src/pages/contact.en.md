@@ -26,5 +26,3 @@ imageCardSL:
 path: /en/contact
 slug: /en/contact
 ---
-
-In this page you can send an e-mail.

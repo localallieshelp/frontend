@@ -20,9 +20,9 @@ function encode(data) {
 function setActionPath(langKey) {
   let path
   if (langKey === "en") {
-    path = "/en/thanks/"
+    path = "/en/contact/thanks/"
   } else {
-    path = "/cn/thanks/"
+    path = "/cn/contact/thanks/"
   }
   return path
 }
