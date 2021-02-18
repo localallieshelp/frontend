@@ -43,9 +43,9 @@ const ContactPageTemplate = ({
     <section className="section contact">
       <div className="container">
         <div className="content">
-          <h1 className="title animated fadeInDown">{title}</h1>
+          <h1 className="title">{title}</h1>
           <div className="options">
-            <div className="grid-section animated fadeInLeft">
+            <div className="grid-section">
               <div>
                 <img src={options.one.image1.image.childImageSharp.fluid.src} />
               </div>
@@ -54,7 +54,7 @@ const ContactPageTemplate = ({
                 <p>{options.one.description}</p>
               </div>
             </div>
-            <div className="grid-section animated fadeInLeft">
+            <div className="grid-section">
               <div>
                 <img src={options.two.image1.image.childImageSharp.fluid.src} />
               </div>
@@ -63,7 +63,7 @@ const ContactPageTemplate = ({
                 <p>{options.two.description}</p>
               </div>
             </div>
-            <div className="grid-section animated fadeInLeft">
+            <div className="grid-section">
               <div>
                 <img
                   src={options.three.image1.image.childImageSharp.fluid.src}

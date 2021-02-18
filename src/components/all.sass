@@ -172,7 +172,7 @@ footer.footer
 #navMenu
   display: grid
   grid-auto-flow: column
-  grid-template-columns: 77% 22%
+  grid-template-columns: 80% 20%
   flex-grow: 1
   flex-shrink: 0
   @media screen and (min-width: 789px)
@@ -204,7 +204,6 @@ footer.footer
 
   .language
     column-gap: 5px
-    padding: 1.5rem 0rem !important
 
     @media screen and (max-width: 789px)
       width: 225px
@@ -215,50 +214,6 @@ footer.footer
       column-gap: 5px
       align-items: center
       color: black
-    
-    .dropdown
-      button
-        border: none
-        padding: 0rem
-
-        .down-icon
-          display: none
-        
-        &.is-active
-          .up-icon
-            display: none
-
-          .down-icon
-            display: block
-
-      
-      .dropdown-menu
-        position: absolute
-        left: -7rem
-        display: none
-
-        &.is-active
-          display: block
-
-        .dropdown-content
-          display: grid
-          width: 100%
-          align-items: center
-          background: $light-green
-          border-radius: 0px
-
-          a
-            padding: 0.5rem !important
-            color: black !important
-          
-            .check-icon 
-              display: none
-              margin-right: 2px
-
-            &.is-selected
-              .check-icon 
-                display: inline-block
-
 
 .navbar-burger
   @media screen and (min-width: 789px)
@@ -275,7 +230,7 @@ footer.footer
 /* Home */
 
 .home
-  .button
+  button
     border-color: $green
     color: $green
 
@@ -345,11 +300,8 @@ footer.footer
     @media screen and (min-width: 789px)
       font-size: 18px !important
 
-  .button
+  button
     width: 220px
-  
-  .buttondiv
-    padding: 0rem
     animation-delay: 1s
 
 .padded-width-container
@@ -852,15 +804,6 @@ footer.footer
       column-gap: 2rem
       align-items: center
       margin-bottom: 1rem
-
-      &:nth-child(1)
-        animation-delay: 0.3s
-
-      &:nth-child(2)
-        animation-delay: 0.5s
-
-      &:nth-child(3)
-        animation-delay: 0.7s
 
       @media screen and (max-width: 600px)
         grid-template-columns: 100%
