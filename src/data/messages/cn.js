@@ -1,10 +1,9 @@
 module.exports = {
   selectLanguage: "语言",
   tags: "Tags",
-  "tags.allTagsLink": "Sfoglia tutti i tags",
-  "tags.intro": "Qui puoi trovare tutti i tags",
-  "tags.blog.intro": "Qui puoi trovare tutti i tags del blog",
-  "tags.pages.intro": "Qui puoi trovare tutti i tags delle pagine",
+  "tags.allTagsLink": "Browse all tags",
+  "tags.intro": "Here you can find all the tags",
+  "tags.business.intro": "Here you can find all the business tags",
   "tags.nPostsTaggedWith": `{nPosts, number} {nPosts, plural,
       one {post}
       other {posts}
@@ -25,4 +24,5 @@ module.exports = {
   not_found: "404 - Page Not Found",
   404: "You are arrived to an unvailable page or you have missed the path...",
   copyright: "2021 LocAllies. 保留所有权利。",
+  "click-here": "Click Here",
 }

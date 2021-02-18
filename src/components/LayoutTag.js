@@ -10,7 +10,10 @@ import "./all.sass"
 if (!Intl.RelativeTimeFormat) {
   require("@formatjs/intl-relativetimeformat/polyfill")
   require("@formatjs/intl-relativetimeformat/dist/locale-data/en")
-  // TODO require("@formatjs/intl-relativetimeformat/dist/locale-data/cn")
+  require("@formatjs/intl-relativetimeformat/dist/locale-data/zh")
+}
+if (!Intl.NumberFormat) {
+  require("@formatjs/intl-numberformat/dist/locale-data/zh")
 }
 
 class TemplateWrapper extends Component {

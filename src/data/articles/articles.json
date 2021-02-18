@@ -22,6 +22,16 @@
       "cn": "contact"
     },
     {
+      "id": "05",
+      "en": "contact/thanks",
+      "cn": "contact/thanks"
+    },
+    {
+      "id": "06",
+      "en": "tags",
+      "cn": "tags"
+    },
+    {
       "id": "07",
       "en": "business/sau-con-tho",
       "cn": "business/sau-con-tho"
@@ -32,14 +42,14 @@
       "cn": "business/bird-n-barrel"
     },
     {
-      "id": "13",
-      "en": "contact/thanks",
-      "cn": "contact/thanks"
+      "id": "09",
+      "en": "business/larrys-laundromat",
+      "cn": "business/larrys-laundromat"
     },
     {
-      "id": "14",
-      "en": "tags",
-      "cn": "tags"
+      "id": "10",
+      "en": "business/thai-chaiyo",
+      "cn": "business/thai-chaiyo"
     }
   ]
 }
