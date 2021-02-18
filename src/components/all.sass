@@ -780,3 +780,56 @@ footer.footer
       .grid-section
         column-gap: 0rem
         grid-template-columns: 24% 77%
+
+/* Contact Page */
+
+.contact
+  padding: 2rem 0px
+
+  .title
+    @media screen and (max-width: 600px)
+      text-align: center
+
+  @media screen and (min-width: 1024px)
+    max-width: 900px
+    margin: 0 auto
+
+  @media screen and (max-width: 1024px)
+    width: 95%
+    margin: 0 auto
+
+  .options
+    .grid-section
+      grid-template-columns: 15% 81%
+      column-gap: 2rem
+      align-items: center
+      margin-bottom: 1rem
+
+      @media screen and (max-width: 600px)
+        grid-template-columns: 100%
+        grid-auto-flow: unset
+        text-align: center
+    
+      h2
+        font-size: 1.4rem
+  
+  .box
+    box-shadow: none
+    padding: 2rem 0px
+
+    button  
+      background: white
+      border: 1px solid $green
+      color: $green
+
+      &:hover
+        background: $green
+        color: white
+
+    .form-title
+      @media screen and (max-width: 600px)
+        text-align: center
+
+    p
+      @media screen and (max-width: 600px)
+        text-align: center

@@ -43,7 +43,7 @@ const Footer = class extends React.Component {
                   <FormattedMessage id="about" />
                 </Link>
                 <Link to={"/" + props.langKey + "/" + menuTree.contact[sel] + "/"} className="navbar-item">
-                  <FormattedMessage id="contact" />
+                  <FormattedMessage id="Contact" />
                 </Link>
                 <Link to={"/" + props.langKey + "/" + menuTree.blog[sel] + "/"} className="navbar-item">
                   <FormattedMessage id="Get Involved" />
