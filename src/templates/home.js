@@ -81,7 +81,7 @@ const HomePageTemplate = ({
               https://www.weforum.org/agenda/2020/10/mapped-uneven-recovery-us-america-small-businesses-closure{" "}
             </span>
           </h3>
-          <div className=" animated bounceInLeft">
+          <div className="animated bounceInLeft">
             <Link
               className="button"
               to={"/" + langKey + "/" + menuTree.business[sel]}

@@ -8,8 +8,8 @@ tags:
 lang: cn
 image: /img/PersimmonHD.jpg
 date: "31-03-2019"
-path: /cn/contact/thanks/
-slug: /cn/contact/thanks/
+path: /cn/thanks/
+slug: /cn/thanks/
 ---
 
-Thank you! You will be contacted as soon as possible, in the meantime we wish you a good visit and a good continuation!
+谢谢！我们会尽快与您联系。
