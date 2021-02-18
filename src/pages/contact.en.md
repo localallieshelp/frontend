@@ -6,7 +6,7 @@ templateKey: contacts
 tags:
   - web
 lang: en
-image: /img/PersimmonHD.jpg
+image: /img/128x128.png
 date: "02-12-2021"
 address: ""
 phone: ""

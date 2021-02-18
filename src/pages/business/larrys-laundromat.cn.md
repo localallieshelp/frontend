@@ -3,7 +3,7 @@ id: "09"
 templateKey: business-post
 lang: cn
 title: Larry's Laundromat
-primary_image: /img/Caco.jpg
+primary_image: /img/laundromat.png
 date: 2020-02-17T06:24:55.287Z
 description: >
   We help you wash your clothes.
