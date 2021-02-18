@@ -27,13 +27,16 @@ export const BusinessPostTemplate = ({
     var i, tabs, tabcontent
     tabs = document.getElementsByClassName("tablink")
     tabcontent = document.getElementsByClassName("tab-content")
-    
+
     for (i = 0; i < tabs.length; i++) {
       tabs[i].className = tabs[i].className.replace(" is-active", "")
-      tabcontent[i].className = tabcontent[i].className.replace(" is-active", "")
+      tabcontent[i].className = tabcontent[i].className.replace(
+        " is-active",
+        ""
+      )
     }
 
-    document.getElementsByClassName(tabName)[0].className += " is-active";
+    document.getElementsByClassName(tabName)[0].className += " is-active"
     e.currentTarget.className += " is-active"
   }
 
@@ -58,13 +61,28 @@ export const BusinessPostTemplate = ({
             <div className="tabs">
               <ul>
                 <li>
-                  <a className="tablink is-active" onClick={(e) => onTabClick(e,'story-content')}>Story</a>
+                  <a
+                    className="tablink is-active"
+                    onClick={(e) => onTabClick(e, "story-content")}
+                  >
+                    Story
+                  </a>
                 </li>
                 <li>
-                  <a className="tablink" onClick={(e) => onTabClick(e,'menu-content')}>Menu</a>
+                  <a
+                    className="tablink"
+                    onClick={(e) => onTabClick(e, "menu-content")}
+                  >
+                    Menu
+                  </a>
                 </li>
                 <li>
-                  <a className="tablink" onClick={(e) => onTabClick(e,'photo-content')}>Photos</a>
+                  <a
+                    className="tablink"
+                    onClick={(e) => onTabClick(e, "photo-content")}
+                  >
+                    Photos
+                  </a>
                 </li>
               </ul>
             </div>
@@ -75,15 +93,24 @@ export const BusinessPostTemplate = ({
                 <div>
                   <div className="grid-section">
                     <div>Location</div>
-                    <div> {frontmatter.address ? frontmatter.address : 'Not Listed'}</div>
+                    <div>
+                      {" "}
+                      {frontmatter.address ? frontmatter.address : "Not Listed"}
+                    </div>
                   </div>
                   <div className="grid-section">
                     <div>Phone</div>
-                    <div>{frontmatter.phone ? frontmatter.phone : 'Not Listed'}</div>
+                    <div>
+                      {frontmatter.phone ? frontmatter.phone : "Not Listed"}
+                    </div>
                   </div>
                   <div className="grid-section">
                     <div>Website</div>
-                    <div>{frontmatter.homepage_link ? frontmatter.homepage_link: 'Not Listed'}</div>
+                    <div>
+                      {frontmatter.homepage_link
+                        ? frontmatter.homepage_link
+                        : "Not Listed"}
+                    </div>
                   </div>
                   <div className="grid-section">
                     <div>Hours</div>
@@ -158,15 +185,28 @@ export const BusinessPostTemplate = ({
           <div className="fixed-inner">
             <div className="grid-section">
               <div>Location</div>
-              <div> {frontmatter.address ? frontmatter.address: 'Not Listed'}</div>
+              <div>
+                {" "}
+                {frontmatter.address ? frontmatter.address : "Not Listed"}
+              </div>
             </div>
             <div className="grid-section">
               <div>Phone</div>
-              <div>{frontmatter.phone ? frontmatter.phone : 'Not Listed'}</div>
+              <div>{frontmatter.phone || "Not Listed"}</div>
             </div>
             <div className="grid-section">
               <div>Website</div>
-              <div>{frontmatter.homepage_link ? frontmatter.homepage_link : 'Not Listed'}</div>
+              {frontmatter.homepage_link ? (
+                <a
+                  href={frontmatter.homepage_link || "#"}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <div>{frontmatter.homepage_link}</div>
+                </a>
+              ) : (
+                <div>Not Listed</div>
+              )}
             </div>
             <div className="grid-section">
               <div>Hours</div>
