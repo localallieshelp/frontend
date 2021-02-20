@@ -41,8 +41,14 @@ class BlogRoll extends React.Component {
     return (
       <div className="rows is-multiline blogroll">
         {posts &&
-          posts.map(({ node: post }) => (
-            <div className="is-parent row is-full" key={post.id}>
+          posts.map(({ node: post }, idx) => (
+            <div
+              className={"is-parent row is-full animated fadeInUp"}
+              key={post.id}
+              style={{
+                animationDelay: idx / 4 + "s",
+              }}
+            >
               <article className="tile is-child box notification grid-section">
                 <div>
                   <img

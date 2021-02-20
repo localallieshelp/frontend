@@ -4,8 +4,6 @@ import Link from "gatsby-link"
 import { FormattedMessage } from "react-intl"
 import { FaGlobe } from "react-icons/fa"
 import { FaAngleDown, FaAngleUp, FaCheck } from "react-icons/fa"
-import En from "./Flags/En"
-import Cn from "./Flags/Cn"
 
 const iconStyles = {
   fill: "transparent",
@@ -13,14 +11,12 @@ const iconStyles = {
   strokeWidth: "1.5rem",
 }
 
-const getIcon = (langKey) => {
+const getLangByKey = (langKey) => {
   switch (langKey) {
     case "en":
-      return <En />
+      return "English"
     case "cn":
-      return <Cn />
-    default:
-      return null
+      return "中文"
   }
 }
 
@@ -38,7 +34,7 @@ const SelectLanguage = (props) => {
       selected={lang.selected}
     >
       <FaCheck className="check-icon" size="1em" />
-      {lang.langKey == "en" ? "English" : "中文"}
+      {getLangByKey(lang.langKey)}
     </Link>
   ))
 
