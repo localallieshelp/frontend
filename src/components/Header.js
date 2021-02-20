@@ -84,7 +84,11 @@ const Header = class extends React.Component {
         >
           <div className="container">
             <div className="navbar-brand">
-              <Link to="/" className="navbar-item" title="Logo">
+              <Link
+                to={"/" + props.langKey + "/"}
+                className="navbar-item"
+                title="Logo"
+              >
                 <img
                   src={logo}
                   alt="Save Small Businesses"
@@ -100,18 +104,18 @@ const Header = class extends React.Component {
             </div>
             <div id="navMenu" className="navbar-menu">
               <div className="navbar-end has-text-centered">
-                <Link className="navbar-item" to={"/" + props.langKey}>
+                <Link className="navbar-item" to={"/" + props.langKey + "/"}>
                   <FormattedMessage id="home" />
                 </Link>
                 <Link
                   className="navbar-item"
-                  to={"/" + props.langKey + "/" + menuTree.business[sel]}
+                  to={"/" + props.langKey + "/" + menuTree.business[sel] + "/"}
                 >
                   <FormattedMessage id="discover_businesses" />
                 </Link>
                 <Link
                   className="navbar-item"
-                  to={"/" + props.langKey + "/" + menuTree.story[sel]}
+                  to={"/" + props.langKey + "/" + menuTree.story[sel] + "/"}
                 >
                   <FormattedMessage id="our_story" />
                 </Link>
