@@ -185,6 +185,7 @@ class ContactPage extends React.Component {
       body: encode({
         "form-name": form.getAttribute("name"),
         ...this.state,
+        ...name,
       }),
     })
       .then((x) => {
