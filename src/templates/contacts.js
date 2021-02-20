@@ -43,9 +43,9 @@ const ContactPageTemplate = ({
     <section className="section contact">
       <div className="container">
         <div className="content">
-          <h1 className="title">{title}</h1>
+          <h1 className="title animated fadeInDown">{title}</h1>
           <div className="options">
-            <div className="grid-section">
+            <div className="grid-section animated fadeInLeft">
               <div>
                 <img src={options.one.image1.image.childImageSharp.fluid.src} />
               </div>
@@ -54,7 +54,7 @@ const ContactPageTemplate = ({
                 <p>{options.one.description}</p>
               </div>
             </div>
-            <div className="grid-section">
+            <div className="grid-section animated fadeInLeft">
               <div>
                 <img src={options.two.image1.image.childImageSharp.fluid.src} />
               </div>
@@ -63,7 +63,7 @@ const ContactPageTemplate = ({
                 <p>{options.two.description}</p>
               </div>
             </div>
-            <div className="grid-section">
+            <div className="grid-section animated fadeInLeft">
               <div>
                 <img
                   src={options.three.image1.image.childImageSharp.fluid.src}
@@ -81,19 +81,11 @@ const ContactPageTemplate = ({
             <form
               name="contact"
               method="post"
-              action={action}
               data-netlify="true"
-              data-netlify-honeypot="bot-field"
               onSubmit={handleSubmit}
             >
               {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
               <input type="hidden" name="form-name" value="contact" />
-              <div hidden>
-                <label>
-                  Don’t fill this out:{" "}
-                  <input name="bot-field" onChange={handleChange} />
-                </label>
-              </div>
               <div className="field">
                 <label className="label" htmlFor="name">
                   <FormattedMessage id="contact.name" />
@@ -193,6 +185,7 @@ class ContactPage extends React.Component {
       body: encode({
         "form-name": form.getAttribute("name"),
         ...this.state,
+        ...name,
       }),
     })
       .then((x) => {
