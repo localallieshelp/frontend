@@ -10,6 +10,7 @@ import { FaUtensils } from "react-icons/fa"
 import menuTree from "../data/menuTree"
 import select from "../components/utils"
 import { FormattedMessage } from "react-intl"
+import { navigate } from "@reach/router"
 
 export const BusinessPostTemplate = ({
   data,
@@ -143,9 +144,18 @@ export const BusinessPostTemplate = ({
                   </div>
                 </div>
                 <div className="business-donate">
-                  <Link className="button" to={"/" + langKey + "/donate"}>
+                  <button
+                    className="button"
+                    onClick={() => {
+                      navigate(
+                        `/${langKey}/donate?b=${encodeURIComponent(
+                          frontmatter.title
+                        )}`
+                      )
+                    }}
+                  >
                     <FormattedMessage id="donate" />
-                  </Link>
+                  </button>
                 </div>
               </div>
             </div>
@@ -193,9 +203,18 @@ export const BusinessPostTemplate = ({
         <div className="fixed-info">
           <div className="fixed-inner">
             <div className="business-donate">
-              <Link className="button" to={"/" + langKey + "/donate"}>
+              <button
+                className="button"
+                onClick={() => {
+                  navigate(
+                    `/${langKey}/donate?b=${encodeURIComponent(
+                      frontmatter.title
+                    )}`
+                  )
+                }}
+              >
                 <FormattedMessage id="donate" />
-              </Link>
+              </button>
             </div>
             <div className="grid-section">
               <div>Location</div>
