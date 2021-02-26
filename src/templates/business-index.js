@@ -7,6 +7,26 @@ import { FormattedMessage } from "react-intl"
 import { graphql } from "gatsby"
 
 export default class BusinessIndexPage extends React.Component {
+  filterHandler(filter) {
+    console.log(filter)
+    let allPosts = document.querySelectorAll(".blogroll .post")
+    if (filter == "all") {
+      allPosts.forEach((postDiv) => {
+        postDiv.classList.remove("is-hidden")
+      })
+      return this
+    }
+
+    allPosts.forEach((postDiv) => {
+      postDiv.classList.add("is-hidden")
+    })
+    document
+      .querySelectorAll(".blogroll .post ." + filter)
+      .forEach((postDiv) => {
+        postDiv.parentNode.classList.remove("is-hidden")
+      })
+  }
+
   render() {
     const data = this.props.data
     const location = this.props.location
@@ -67,9 +87,32 @@ export default class BusinessIndexPage extends React.Component {
           </div>
         </div>
         <section className="content grid-section ">
-          <div className="sidebar">
+          <div className="sidebar location-filter">
             <h4>Filter By</h4>
-            <button className="button"> All </button>
+            <button
+              className="button"
+              onClick={() => {
+                this.filterHandler("all")
+              }}
+            >
+              All
+            </button>
+            <button
+              className="button"
+              onClick={() => {
+                this.filterHandler("orange-county")
+              }}
+            >
+              Orange County
+            </button>
+            <button
+              className="button"
+              onClick={() => {
+                this.filterHandler("los-angeles-county")
+              }}
+            >
+              Los Angeles County
+            </button>
           </div>
           <div className="container">
             <h4>{data.markdownRemark.frontmatter.listtitle}</h4>
@@ -116,6 +159,7 @@ export const pageQuery = graphql`
         title
         description
         listtitle
+        location_filters
         tags
         lang
       }
