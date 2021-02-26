@@ -4,7 +4,6 @@ import PropTypes from "prop-types"
 class Hours extends React.Component {
   constructor(props) {
     super()
-    console.log(props)
   }
 
   render() {
