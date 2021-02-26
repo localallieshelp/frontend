@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React from "react"
 import {
   SquarePaymentForm,
   CreditCardNumberInput,
@@ -77,7 +77,11 @@ export default class DonateForm extends React.Component {
             </div>
           </fieldset>
 
-          <CreditCardSubmitButton>Send</CreditCardSubmitButton>
+          <p>I agree with the terms and conditions.*</p>
+
+          <CreditCardSubmitButton onClick={this.props.submitButtonHandler}>
+            Send
+          </CreditCardSubmitButton>
         </SquarePaymentForm>
         <div className="sq-error-message">
           {this.state.errorMessages.map((errorMessage) => (

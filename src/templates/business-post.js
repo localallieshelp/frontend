@@ -10,6 +10,7 @@ import { FaUtensils, FaExternalLinkAlt } from "react-icons/fa"
 import menuTree from "../data/menuTree"
 import select from "../components/utils"
 import { FormattedMessage } from "react-intl"
+import { navigate } from "@reach/router"
 import Hours from "../components/Hours"
 
 export const BusinessPostTemplate = ({
@@ -144,13 +145,18 @@ export const BusinessPostTemplate = ({
                   </div>
                 </div>
                 <div className="business-donate">
-                  <Link
+                  <button
                     className="button"
-                    to={"/" + langKey + "/donate"}
-                    businessName={frontmatter.title}
+                    onClick={() => {
+                      navigate(
+                        `/${langKey}/donate?b=${encodeURIComponent(
+                          frontmatter.title
+                        )}`
+                      )
+                    }}
                   >
                     <FormattedMessage id="donate" />
-                  </Link>
+                  </button>
                 </div>
               </div>
             </div>
@@ -198,9 +204,18 @@ export const BusinessPostTemplate = ({
         <div className="fixed-info">
           <div className="fixed-inner">
             <div className="business-donate">
-              <Link className="button" to={"/" + langKey + "/donate"}>
+              <button
+                className="button"
+                onClick={() => {
+                  navigate(
+                    `/${langKey}/donate?b=${encodeURIComponent(
+                      frontmatter.title
+                    )}`
+                  )
+                }}
+              >
                 <FormattedMessage id="donate" />
-              </Link>
+              </button>
             </div>
             <div className="grid-section">
               <div>Location</div>

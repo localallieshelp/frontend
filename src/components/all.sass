@@ -3,15 +3,9 @@
 @import "~@creativebulma/bulma-collapsible/src/sass/index.sass"
 
 // Config vars
-// Kaki logo brand color: #FD461E
-$kaki-red: #D64000
-$kaki-red-invert: #fff
 
 $light-green: #D1EFC9
 $green: #397A4C
-
-$primary: $kaki-red
-$primary-invert: $kaki-red-invert
 $body-color: #333
 
 //social icons
@@ -219,7 +213,7 @@ footer.footer
       column-gap: 5px
       align-items: center
       color: black
-    
+
     .dropdown
       button
         border: none
@@ -227,7 +221,7 @@ footer.footer
 
         .down-icon
           display: none
-        
+
         &.is-active
           .up-icon
             display: none
@@ -235,7 +229,7 @@ footer.footer
           .down-icon
             display: block
 
-      
+
       .dropdown-menu
         position: absolute
         left: -7rem
@@ -254,13 +248,13 @@ footer.footer
           a
             padding: 0.5rem !important
             color: black !important
-          
-            .check-icon 
+
+            .check-icon
               display: none
               margin-right: 2px
 
             &.is-selected
-              .check-icon 
+              .check-icon
                 display: inline-block
 
 
@@ -489,7 +483,7 @@ footer.footer
           @media screen and (max-width: 600px)
             display: block !important
             margin-bottom: 2rem
-    
+
     a
       color: $green
     @media screen and (max-width: 460px)
@@ -771,7 +765,7 @@ footer.footer
 
     .story-content
       display: none
-      
+
       &.is-active
         display: block
 
@@ -780,7 +774,7 @@ footer.footer
       .grid-section
         grid-template-columns: 1fr 1fr
         column-gap: 1rem
-      
+
       &.is-active
         display: block
 
@@ -819,7 +813,7 @@ footer.footer
     .fixed-inner
       position: fixed
       max-width: 400px
-      
+
       @media screen and (max-width: 900px)
         max-width: 290px
 
@@ -842,7 +836,7 @@ footer.footer
         column-gap: 0rem
         grid-template-columns: 24% 77%
         margin-bottom: 0.5rem
-  
+
   .business-donate
     height: 6rem
     display: flex
@@ -919,15 +913,15 @@ footer.footer
         grid-template-columns: 100%
         grid-auto-flow: unset
         text-align: center
-    
+
       h2
         font-size: 1.4rem
-  
+
   .box
     box-shadow: none
     padding: 2rem 0px
 
-    button  
+    button
       background: white
       border: 1px solid $green
       color: $green
@@ -956,7 +950,7 @@ footer.footer
     padding: 1rem 0rem
     padding-top: 3rem
 
-    button  
+    button
       background: white
       border: 1px solid $green
       color: $green
@@ -964,3 +958,11 @@ footer.footer
       &:hover
         background: $green
         color: white
+
+    p
+      font-size: 1rem
+
+    .footnote
+      font-size: 0.8rem
+      font-style: italic
+      color: #999

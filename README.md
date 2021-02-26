@@ -1,6 +1,6 @@
 # Local Allies
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/d7f25446-66fd-49ed-9593-fd82da45067c/deploy-status)](https://app.netlify.com/sites/savesmb/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/42743021-b1f8-466b-860d-bf9fc35d4311/deploy-status)](https://app.netlify.com/sites/localallies/deploys)
 
 Small businesses across the United States need our help. Nearly a quarter of US small merchants are closed and overall revenue is still down for many due to the COVID-19 pandemic.
 

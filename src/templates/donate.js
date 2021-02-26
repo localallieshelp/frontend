@@ -9,6 +9,7 @@ import SEO from "../components/SEO/SEO"
 import Content, { HTMLContent } from "../components/Content"
 import { FormattedMessage } from "react-intl"
 import DonateForm from "../components/DonateForm"
+import { FaExclamationTriangle, FaRegEnvelope } from "react-icons/fa"
 
 const DonatePageTemplate = ({
   title,
@@ -18,7 +19,7 @@ const DonatePageTemplate = ({
   tags,
   langKey,
   image,
-  businessName,
+  businessData,
 }) => {
   const PageContent = contentComponent || Content
   const sel = select(langKey)
@@ -30,12 +31,6 @@ const DonatePageTemplate = ({
     cardData,
     buyerVerificationToken
   ) => {
-    if (errors) {
-      this.setState({ errorMessages: errors.map((error) => error.message) })
-      return
-    }
-
-    this.setState({ errorMessages: [] })
     alert(
       "nonce created: " +
         nonce +
@@ -62,14 +57,35 @@ const DonatePageTemplate = ({
     }
   }
 
+  const donationAmountClickHandler = (e) => {
+    e.preventDefault()
+    const otherAmountField = document.getElementById("other-input-field")
+    if (e.currentTarget.id === "other-button") {
+      otherAmountField.classList.remove("is-hidden")
+    } else {
+      otherAmountField.classList.add("is-hidden")
+    }
+  }
+
+  const submitButtonHandler = (e) => {
+    e.preventDefault()
+    document.getElementById("result-modal").classList.remove("is-hidden")
+  }
+
   return (
     <div className="content">
       <div className="columns is-multiline padded-width-container donate-form">
         <div className="column is-full">
-          <h1>Support {businessName + " "}And Make A Difference</h1>
+          {businessData.name ? (
+            <h1>Donation for {businessData.name + " "}</h1>
+          ) : (
+            <h1>Support Your Local Community</h1>
+          )}
+
           <p className="subtitle">
-            100% of your donation will support the merchant toward their
-            operating costs.{" "}
+            100% of your support will go to the small business toward their
+            operating costs. Your transaction is secure, encrypted and directly
+            goes to the owner for sustaining their business.{" "}
           </p>
         </div>
 
@@ -79,31 +95,53 @@ const DonatePageTemplate = ({
           </div>
 
           <div className="field is-grouped">
-            <button className="button is-primary is-outlined">$1</button>
-            <button className="button is-primary is-outlined">$5</button>
-            <button className="button is-primary is-outlined">$10</button>
-            <button className="button is-primary is-outlined">$25</button>
-            <button className="button is-primary is-outlined">$50</button>
+            <button
+              className="button is-primary is-outlined"
+              onClick={(e) => donationAmountClickHandler(e)}
+            >
+              $10
+            </button>
+            <button
+              className="button is-primary is-outlined"
+              onClick={(e) => donationAmountClickHandler(e)}
+            >
+              $25
+            </button>
+            <button
+              className="button is-primary is-outlined"
+              onClick={(e) => donationAmountClickHandler(e)}
+            >
+              $50
+            </button>
+            <button
+              className="button is-primary is-outlined"
+              onClick={(e) => donationAmountClickHandler(e)}
+            >
+              $100
+            </button>
+            <button
+              id="other-button"
+              className="button is-primary is-outlined other-button"
+              onClick={(e) => donationAmountClickHandler(e)}
+            >
+              Other
+            </button>
           </div>
-          <div className="field">
+          <div id="other-input-field" className="field is-hidden">
             <label className="label">Other:</label>
             <p className="control">
-              <input className="input" type="text" placeholder="10" />
+              <input className="input" type="text" placeholder="" />
             </p>
           </div>
         </div>
 
         <div className="column is-full donate-step-2">
           <h3>Step 2: Enter Payment Information</h3>
-          <p>
-            Your transaction is secure and 100% of the funds will go directly to
-            the owner to help sustain their business.
-          </p>
 
           <div className="columns is-full">
             <div className="column is-half">
               <div className="field">
-                <label className="label">Cardholder's Name</label>
+                <label className="label">Cardholder Name</label>
                 <div className="control">
                   <input
                     className="input"
@@ -119,20 +157,19 @@ const DonatePageTemplate = ({
                       className="input is-danger"
                       type="email"
                       placeholder="Email"
-                      value=""
                     />
                     <span className="icon is-small is-left">
-                      <i className="fas fa-envelope"></i>
+                      <FaRegEnvelope />
                     </span>
                     <span className="icon is-small is-right">
-                      <i className="fas fa-exclamation-triangle"></i>
+                      <FaExclamationTriangle />
                     </span>
                   </div>
                   <p className="help is-danger">This email is invalid</p>
                 </div>
               </div>
             </div>
-            <div className="column">
+            <div className="column donate-cc">
               <DonateForm
                 sandbox={true}
                 applicationId={process.env.SQUARE_APPLICATION_ID}
@@ -141,7 +178,21 @@ const DonatePageTemplate = ({
                   cardNonceResponseReceivedHandler // TODO
                 }
                 createVerificationDetails={createVerificationDetails}
+                submitButtonHandler={submitButtonHandler}
               ></DonateForm>
+              <p className="footnote">
+                * By proceeding with your transaction, you understand that you
+                are making a donation to {businessData.name}. No goods or
+                services were exchanged for this donation.
+              </p>
+            </div>
+            <div id="result-modal" className="modal is-hidden">
+              <div className="modal-background"></div>
+              <div className="modal-content">my conent</div>
+              <button
+                className="modal-close is-large"
+                aria-label="close"
+              ></button>
             </div>
           </div>
         </div>
@@ -159,10 +210,12 @@ DonatePageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string,
   contentComponent: PropTypes.func,
+  businessData: PropTypes.object,
 }
 
 class DonatePage extends React.Component {
   render() {
+    console.log(this.props)
     let dataMarkdown = []
     let data
     if (this.props.data !== null) {
@@ -175,8 +228,10 @@ class DonatePage extends React.Component {
     const langKey = frontmatter.lang
     const tags = frontmatter.tags
 
-    // TODO get business name whose Donate button user clicked.
-    let businessName = this.props.businessName || ""
+    const searchParams = new URLSearchParams(this.props.location.search)
+    let businessData = {
+      name: searchParams.get("b") || "",
+    }
 
     return (
       <Layout
@@ -195,7 +250,7 @@ class DonatePage extends React.Component {
             tags={tags}
             langKey={langKey}
             image={dataMarkdown.frontmatter.image}
-            businessName={businessName}
+            businessData={businessData}
           />
         </div>
       </Layout>
