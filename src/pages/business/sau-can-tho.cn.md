@@ -22,6 +22,14 @@ services_offered:
   - delivery
   - takeout
   - donations
+hours_of_operation:
+  - Sun
+  - Mon
+  - Tue
+  - Wed
+  - Thu
+  - Fri
+  - Sat
 address: 8450 Garvey Ave Unit 103, Rosemead, CA 91770
 phone: "(626) 307-8868"
 homepage_link: saucantho.com

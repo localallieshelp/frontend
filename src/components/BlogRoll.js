@@ -57,11 +57,13 @@ class BlogRoll extends React.Component {
                 }
               >
                 <div>
-                  <img
-                    src={
-                      post.frontmatter.primary_image.childImageSharp.fluid.src
-                    }
-                  />
+                  <Link to={post.fields.slug}>
+                    <img
+                      src={
+                        post.frontmatter.primary_image.childImageSharp.fluid.src
+                      }
+                    />
+                  </Link>
                 </div>
                 <div className="business-content">
                   <div className="grid-section title">

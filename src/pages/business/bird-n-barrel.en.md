@@ -21,6 +21,14 @@ tags:
   - restaurant
 services_offered:
   - takeout
+hours_of_operation:
+  - Sun
+  - Mon
+  - Tue
+  - Wed
+  - Thu
+  - Fri
+  - Sat
 address: 305 E 4th St 105, Santa Ana, CA 92701
 phone: (714) 584-3662
 homepage_link: https://www.birdnbarrel.com/
