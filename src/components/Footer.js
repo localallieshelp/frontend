@@ -54,6 +54,7 @@ const Footer = class extends React.Component {
             <div className="content grid-section">
               <Copyright />
               <div className="social">
+                {/*
                 <a title="facebook" href="https://facebook.com">
                   <FaFacebook
                     className="facebook-icon"
@@ -61,13 +62,15 @@ const Footer = class extends React.Component {
                     style={iconStyles}
                   />
                 </a>
-                <a title="twitter" href="https://twitter.com">
+                */}
+                <a title="twitter" href="https://twitter.com/localallies">
                   <FaTwitter
                     className="twitter-icon"
                     size="2em"
                     style={iconStyles}
                   />
                 </a>
+                {/*
                 <a title="instagram" href="https://instagram.com">
                   <FaInstagram
                     className="instagram-icon"
@@ -82,6 +85,7 @@ const Footer = class extends React.Component {
                     style={iconStyles}
                   />
                 </a>
+                */}
               </div>
             </div>
           </div>
