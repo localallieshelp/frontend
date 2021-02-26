@@ -16,12 +16,14 @@ story: "*Local Allies Note: We ask that if you’re able to order and pick up yo
   delivery apps. "
 business_type:
   - restaurant
+location_filters:
+  - orange-county
 services_offered:
   - delivery
   - takout
   - donations
 address: |-
-  17602 17th St. STE104, 
+  17602 17th St. STE104,
   Tustin, CA 92780, United States
 phone: " 657-232-1064"
 homepage_link: https://www.thaichaiyotogo.com/

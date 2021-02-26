@@ -43,13 +43,19 @@ class BlogRoll extends React.Component {
         {posts &&
           posts.map(({ node: post }, idx) => (
             <div
-              className={"is-parent row is-full animated fadeInUp"}
+              className={"post is-parent row is-full animated fadeInUp"}
               key={post.id}
               style={{
                 animationDelay: idx / 4 + "s",
               }}
             >
-              <article className="tile is-child box notification grid-section">
+              <article
+                className={
+                  "tile is-child box notification grid-section " +
+                  (post.frontmatter.location_filters &&
+                    post.frontmatter.location_filters.join(" "))
+                }
+              >
                 <div>
                   <img
                     src={
@@ -208,6 +214,7 @@ export default (langKey) => (
                 }
                 story
                 business_type
+                location_filters
                 services_offered
                 address
                 phone
@@ -250,6 +257,7 @@ export default (langKey) => (
                 }
                 story
                 business_type
+                location_filters
                 services_offered
                 address
                 phone

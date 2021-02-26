@@ -68,30 +68,18 @@ const StoryPageTemplate = ({
           <h3>{team.title}</h3>
           <div className="grid-section">
             <div className="team-items">
-              <img
-                src={team.member1.image1.image.childImageSharp.fluid.src}
-              ></img>
               <h3>{team.member1.name}</h3>
               <p>{team.member1.title}</p>
             </div>
             <div className="team-items">
-              <img
-                src={team.member2.image1.image.childImageSharp.fluid.src}
-              ></img>
               <h3>{team.member2.name}</h3>
               <p>{team.member2.title}</p>
             </div>
             <div className="team-items">
-              <img
-                src={team.member3.image1.image.childImageSharp.fluid.src}
-              ></img>
               <h3>{team.member3.name}</h3>
               <p>{team.member3.title}</p>
             </div>
             <div className="team-items">
-              <img
-                src={team.member4.image1.image.childImageSharp.fluid.src}
-              ></img>
               <h3>{team.member4.name}</h3>
               <p>{team.member4.title}</p>
             </div>

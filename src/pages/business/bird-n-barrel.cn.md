@@ -15,6 +15,8 @@ story: >
   Bird & Barrel opened its doors in 2019. Located in Downtown Santa Ana, Our purpose is to create a family run, community driven establishment  specializing in  poultry-centric  cuisine. Focused in Asian fusion delicacies. To introduce the local community to our unique flavors. Local Allies Note: We ask that if you’re able to order and pick up your food here please call directly to order your food, so the business may receive 100% of the funds versus the high commission rates they need to pay delivery apps.
 business_type:
   - restaurant
+location_filters:
+  - orange-county
 tags:
   - restaurant
 services_offered:
