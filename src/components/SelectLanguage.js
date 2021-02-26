@@ -57,7 +57,6 @@ const SelectLanguage = (props) => {
     >
       <header className="grid-section">
         <FaGlobe className="globe-icon" size="1em" style={iconStyles} />
-        <FormattedMessage id="selectLanguage" />
         <span>|</span>
       </header>
       <div className="dropdown is-active">
