@@ -215,7 +215,6 @@ DonatePageTemplate.propTypes = {
 
 class DonatePage extends React.Component {
   render() {
-    console.log(this.props)
     let dataMarkdown = []
     let data
     if (this.props.data !== null) {
