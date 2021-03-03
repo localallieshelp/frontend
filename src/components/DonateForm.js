@@ -42,14 +42,16 @@ export default class DonateForm extends React.Component {
     }
 
     this.setState({ errorMessages: [] })
-    alert(
-      "nonce created: " +
-        nonce +
-        ", buyerVerificationToken: " +
-        buyerVerificationToken
+    this.props.cardNonceResponseReceived.call(
+      this,
+      nonce,
+      cardData,
+      buyerVerificationToken
     )
+  }
 
-    this.props.cardNonceResponseReceived.call(this)
+  createVerificationDetails() {
+    return this.props.createVerificationDetails.bind(this)
   }
 
   render() {
@@ -59,8 +61,8 @@ export default class DonateForm extends React.Component {
           sandbox={this.props.sandbox || false}
           applicationId={this.props.applicationId}
           locationId={this.props.locationId}
-          cardNonceResponseReceived={this.cardNonceResponseReceived}
-          createVerificationDetails={this.props.createVerificationDetails}
+          cardNonceResponseReceived={this.cardNonceResponseReceived.bind(this)}
+          // TODO: more secure: createVerificationDetails={createVerificationDetails}
         >
           <fieldset className="sq-fieldset">
             <CreditCardNumberInput />
@@ -79,9 +81,7 @@ export default class DonateForm extends React.Component {
 
           <p>I agree with the terms and conditions.*</p>
 
-          <CreditCardSubmitButton onClick={this.props.submitButtonHandler}>
-            Send
-          </CreditCardSubmitButton>
+          <CreditCardSubmitButton>Send</CreditCardSubmitButton>
         </SquarePaymentForm>
         <div className="sq-error-message">
           {this.state.errorMessages.map((errorMessage) => (
@@ -98,5 +98,5 @@ DonateForm.propTypes = {
   applicationId: PropTypes.string.isRequired,
   locationId: PropTypes.string.isRequired,
   cardNonceResponseReceived: PropTypes.func.isRequired,
-  createVerificationDetails: PropTypes.func.isRequired,
+  // createVerificationDetails: PropTypes.func.isRequired,
 }

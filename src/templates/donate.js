@@ -2,14 +2,19 @@ import React from "react"
 import * as PropTypes from "prop-types"
 import TagList from "../components/TagList"
 import menuTree from "../data/menuTree"
-import select from "../components/utils"
+import { select, uuidv4 } from "../components/utils"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO/SEO"
 import Content, { HTMLContent } from "../components/Content"
 import { FormattedMessage } from "react-intl"
 import DonateForm from "../components/DonateForm"
-import { FaExclamationTriangle, FaRegEnvelope } from "react-icons/fa"
+import {
+  FaExclamationTriangle,
+  FaRegEnvelope,
+  FaCheck,
+  FaUser,
+} from "react-icons/fa"
 
 const DonatePageTemplate = ({
   title,
@@ -24,52 +29,111 @@ const DonatePageTemplate = ({
   const PageContent = contentComponent || Content
   const sel = select(langKey)
 
-  // TODO payment send handler logic
-  const cardNonceResponseReceivedHandler = () => (
-    errors,
+  let verificationDetails = {
+    amount: 0,
+    currencyCode: "USD",
+    intent: "CHARGE",
+    billingContact: {
+      familyName: "BLANK",
+      givenName: "BLANK",
+      email: "BLANK",
+      country: "BLANK",
+      city: "BLANK",
+      addressLines: ["BLANK"],
+      postalCode: "BLANK",
+      phone: "BLANK",
+    },
+  }
+
+  const cardNonceResponseReceived = (
     nonce,
     cardData,
-    buyerVerificationToken
+    buyerVerificationToken // TODO be more secure
   ) => {
-    alert(
+    console.log(
       "nonce created: " +
         nonce +
         ", buyerVerificationToken: " +
         buyerVerificationToken
     )
-  }
+    console.log("cardData")
+    console.log(cardData)
 
-  const createVerificationDetails = () => {
-    return {
-      amount: "100.00",
-      currencyCode: "USD",
-      intent: "CHARGE",
-      billingContact: {
-        familyName: "Smith",
-        givenName: "John",
-        email: "jsmith@example.com",
-        country: "GB",
-        city: "London",
-        addressLines: ["1235 Emperor's Gate"],
-        postalCode: "SW7 4JA",
-        phone: "020 7946 0532",
+    document.getElementById("result-modal").classList.remove("is-hidden")
+
+    fetch("/.netlify/functions/square", {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
       },
-    }
+      body: JSON.stringify(
+        Object.assign(
+          {
+            nonce: nonce,
+            idempotency_key: uuidv4(),
+            location_id: process.env.SQUARE_LOCATION_ID,
+          },
+          verificationDetails
+        )
+      ),
+    })
+      .catch((error) => {
+        console.error(error)
+        alert("Network error: " + error)
+      })
+      .then((res) => {
+        console.log(res)
+        if (!res.ok) {
+          return res.json().then((errorInfo) => Promise.reject(errorInfo))
+        }
+        return res.json()
+      })
+      .catch((err) => {
+        console.log("PAYMENT ERROR")
+        console.error(err)
+      })
   }
 
-  const donationAmountClickHandler = (e) => {
+  const handleDonationAmountButtonClick = (e, amount) => {
+    console.log("handleDonationAmountButtonClick", amount)
     e.preventDefault()
+
     const otherAmountField = document.getElementById("other-input-field")
     if (e.currentTarget.id === "other-button") {
       otherAmountField.classList.remove("is-hidden")
     } else {
       otherAmountField.classList.add("is-hidden")
     }
+    verificationDetails.amount = amount
   }
 
-  const submitButtonHandler = (e) => {
+  const handleDonationAmountButtonBlur = (e) => {
     e.preventDefault()
-    document.getElementById("result-modal").classList.remove("is-hidden")
+  }
+
+  const handleFormKeyUp = (e) => {
+    if (e.target.id === "first-name" || e.target.id == "last-name") {
+      e.target.value = e.target.value.trim()
+      if (e.target.value.length < 3) {
+        // UI error
+        return false
+      }
+
+      if (e.target.id === "first-name") {
+        verificationDetails.billingContact.givenName = e.target.value
+      } else {
+        verificationDetails.billingContact.familyName = e.target.value
+      }
+    } else if (e.target.id === "email") {
+      e.target.value = e.target.value.trim()
+      if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(e.target.value)) {
+        // UI error
+        return false
+      }
+
+      verificationDetails.billingContact.email = e.target.value
+    }
   }
 
   return (
@@ -97,40 +161,49 @@ const DonatePageTemplate = ({
           <div className="field is-grouped">
             <button
               className="button is-primary is-outlined"
-              onClick={(e) => donationAmountClickHandler(e)}
+              onClick={(e) => handleDonationAmountButtonClick(e, 10)}
+              onBlur={(e) => handleDonationAmountButtonBlur(e)}
             >
               $10
             </button>
             <button
               className="button is-primary is-outlined"
-              onClick={(e) => donationAmountClickHandler(e)}
+              onClick={(e) => handleDonationAmountButtonClick(e, 25)}
+              onBlur={(e) => handleDonationAmountButtonBlur(e)}
             >
               $25
             </button>
             <button
               className="button is-primary is-outlined"
-              onClick={(e) => donationAmountClickHandler(e)}
+              onClick={(e) => handleDonationAmountButtonClick(e, 50)}
+              onBlur={(e) => handleDonationAmountButtonBlur(e)}
             >
               $50
             </button>
             <button
               className="button is-primary is-outlined"
-              onClick={(e) => donationAmountClickHandler(e)}
+              onClick={(e) => handleDonationAmountButtonClick(e, 100)}
+              onBlur={(e) => handleDonationAmountButtonBlur(e)}
             >
               $100
             </button>
-            <button
+            <button // Todo Other
               id="other-button"
-              className="button is-primary is-outlined other-button"
-              onClick={(e) => donationAmountClickHandler(e)}
+              className="button is-primary is-outlined other-button is-hidden"
             >
               Other
             </button>
           </div>
+          {/* TODO: add "Other" amount field */}
           <div id="other-input-field" className="field is-hidden">
             <label className="label">Other:</label>
             <p className="control">
-              <input className="input" type="text" placeholder="" />
+              <input
+                id="other-input-amount"
+                className="input"
+                type="text"
+                placeholder=""
+              />
             </p>
           </div>
         </div>
@@ -142,30 +215,66 @@ const DonatePageTemplate = ({
             <div className="column is-half">
               <div className="field">
                 <label className="label">Cardholder Name</label>
-                <div className="control">
+                <div className="control has-icons-right">
                   <input
+                    id="first-name"
+                    name="first-name"
                     className="input"
                     type="text"
-                    placeholder="First Last"
+                    placeholder="First"
+                    onKeyUp={(e) => handleFormKeyUp(e)}
                   />
+                  <span className="icon is-small is-right is-hidden">
+                    <FaExclamationTriangle />
+                  </span>
+                  <span className="icon is-small is-right is-hidden">
+                    <FaCheck />
+                  </span>
                 </div>
+                <div className="control has-icons-right">
+                  <input
+                    id="last-name"
+                    name="last-name"
+                    className="input"
+                    type="text"
+                    placeholder="Last"
+                    onKeyUp={(e) => handleFormKeyUp(e)}
+                  />
+                  <span className="icon is-small is-right is-hidden">
+                    <FaExclamationTriangle />
+                  </span>
+                  <span className="icon is-small is-right is-hidden">
+                    <FaCheck />
+                  </span>
+                </div>
+                <p className="help is-danger is-hidden">
+                  Please enter a valid name
+                </p>
+              </div>
 
-                <div className="field">
-                  <label className="label">Email</label>
-                  <div className="control has-icons-left has-icons-right">
-                    <input
-                      className="input is-danger"
-                      type="email"
-                      placeholder="Email"
-                    />
-                    <span className="icon is-small is-left">
-                      <FaRegEnvelope />
-                    </span>
-                    <span className="icon is-small is-right">
-                      <FaExclamationTriangle />
-                    </span>
-                  </div>
-                  <p className="help is-danger">This email is invalid</p>
+              <div className="field">
+                <label className="label">Email</label>
+                <div className="control has-icons-left has-icons-right">
+                  <input
+                    id="email"
+                    name="email"
+                    className="input"
+                    type="email"
+                    placeholder="Email"
+                    onKeyUp={(e) => handleFormKeyUp(e)}
+                  />
+                  <p className="help is-danger is-hidden">
+                    Please enter a valid email address
+                  </p>
+                  <span className="icon is-small is-left">
+                    <FaRegEnvelope />
+                  </span>
+                  <span className="icon is-small is-right is-hidden">
+                    <FaExclamationTriangle />
+                  </span>
+                  <span className="icon is-small is-right is-hidden">
+                    <FaCheck />
+                  </span>
                 </div>
               </div>
             </div>
@@ -174,25 +283,14 @@ const DonatePageTemplate = ({
                 sandbox={true}
                 applicationId={process.env.SQUARE_APPLICATION_ID}
                 locationId={process.env.SQUARE_LOCATION_ID}
-                cardNonceResponseReceivedHandler={
-                  cardNonceResponseReceivedHandler // TODO
-                }
-                createVerificationDetails={createVerificationDetails}
-                submitButtonHandler={submitButtonHandler}
+                cardNonceResponseReceived={cardNonceResponseReceived}
+                // createVerificationDetails={createVerificationDetails}
               ></DonateForm>
               <p className="footnote">
                 * By proceeding with your transaction, you understand that you
                 are making a donation to {businessData.name}. No goods or
                 services were exchanged for this donation.
               </p>
-            </div>
-            <div id="result-modal" className="modal is-hidden">
-              <div className="modal-background"></div>
-              <div className="modal-content">my conent</div>
-              <button
-                className="modal-close is-large"
-                aria-label="close"
-              ></button>
             </div>
           </div>
         </div>
@@ -201,16 +299,25 @@ const DonatePageTemplate = ({
           <PageContent className="content" content={content} />
           <TagList tags={tags} langKey={langKey} />
         </section>
+
+        <div id="result-modal" className="modal is-hidden">
+          <div className="modal-background"></div>
+          <div className="modal-content is-error is-hidden">
+            We could not process your credit card information. Please check your
+            information before trying to submit again.’
+          </div>
+          <div className="modal-content is-success is-hidden">
+            Thank you for supporting {businessData.name}. You will be emailed a
+            receipt of your donation.
+          </div>
+          <div className="modal-content is-loading">Processing...</div>
+          <button className="modal-close is-large" aria-label="close">
+            Close
+          </button>
+        </div>
       </div>
     </div>
   )
-}
-
-DonatePageTemplate.propTypes = {
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string,
-  contentComponent: PropTypes.func,
-  businessData: PropTypes.object,
 }
 
 class DonatePage extends React.Component {

@@ -8,7 +8,7 @@ import Layout from "../components/Layout"
 import Content, { HTMLContent } from "../components/Content"
 import { FaUtensils } from "react-icons/fa"
 import menuTree from "../data/menuTree"
-import select from "../components/utils"
+import { select } from "../components/utils"
 import { FormattedMessage } from "react-intl"
 import { navigate } from "@reach/router"
 

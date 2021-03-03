@@ -6,7 +6,7 @@ import { FormattedMessage } from "react-intl"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO/SEO"
 import Content, { HTMLContent } from "../components/Content"
-import select from "../components/utils"
+import { select } from "../components/utils"
 import menuTree from "../data/menuTree"
 
 const HomePageTemplate = ({
