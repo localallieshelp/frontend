@@ -173,6 +173,7 @@ footer.footer
   grid-template-columns: 77% 22%
   flex-grow: 1
   flex-shrink: 0
+
   @media screen and (min-width: 789px)
     background-color: transparent
     box-shadow: none
@@ -183,6 +184,7 @@ footer.footer
 
   @media screen and (max-width: 789px)
     display: none
+    background-color: white
 
   &.is-active
     @media screen and (max-width: 789px)
@@ -199,6 +201,7 @@ footer.footer
 
     &:hover
       color: $green
+      background: transparent
 
   .language
     column-gap: 5px
@@ -533,6 +536,13 @@ footer.footer
 
   .sidebar
     margin-bottom: 2rem
+    display: flex
+    flex-direction: column
+
+    .button
+      max-width: 100%
+      font-size: 12px
+      margin-bottom: 5px
 
   .grid-section
     width: 80%
@@ -938,9 +948,22 @@ footer.footer
       @media screen and (max-width: 600px)
         text-align: center
 
-/* */
+/* Donate */
 
 .donate-form
+  .donate-header 
+    padding: 0px
+
+  .donate-amount
+    .button
+      margin-right: 1rem
+      border-color: $green
+      color: $green
+
+      &:hover
+        background: $green
+        border-color: $green
+
   .donate-step-1
     padding: 1rem 0rem
     padding-bottom: 3rem
@@ -966,3 +989,6 @@ footer.footer
       font-size: 0.8rem
       font-style: italic
       color: #999
+
+#sq-payment-form
+  width: 100%  

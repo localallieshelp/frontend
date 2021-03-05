@@ -73,9 +73,9 @@ const DonatePageTemplate = ({
   }
 
   return (
-    <div className="content">
+    <div className="content donate">
       <div className="columns is-multiline padded-width-container donate-form">
-        <div className="column is-full">
+        <div className="column is-full donate-header">
           {businessData.name ? (
             <h1>Donation for {businessData.name + " "}</h1>
           ) : (
@@ -94,7 +94,7 @@ const DonatePageTemplate = ({
             <h3>Step 1: Select Donation Amount</h3>
           </div>
 
-          <div className="field is-grouped">
+          <div className="field is-grouped donate-amount">
             <button
               className="button is-primary is-outlined"
               onClick={(e) => donationAmountClickHandler(e)}
