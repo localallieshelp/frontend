@@ -4,6 +4,8 @@ import PropTypes from "prop-types"
 import { Formik, Form, Field } from "formik"
 import * as Yup from "yup"
 import { FaExclamationTriangle, FaRegEnvelope, FaCheck } from "react-icons/fa"
+import { uuidv4 } from "../components/utils"
+import _ from "lodash"
 
 export const loadSquareSdk = () => {
   return new Promise((resolve, reject) => {
@@ -11,14 +13,15 @@ export const loadSquareSdk = () => {
     sqPaymentScript.src =
       process.env.SQUARE_API_ENDPOINT ||
       "https://js.squareup.com/v2/paymentform"
-    sqPaymentScript.crossorigin = "anonymous"
+    sqPaymentScript.id = "sq-payment-form-script"
+    // sqPaymentScript.crossorigin = "anonymous" // TODO is this needed?
     sqPaymentScript.onload = () => {
       resolve()
     }
     sqPaymentScript.onerror = () => {
       reject(`Failed to load ${sqPaymentScript.src}`)
     }
-    document.getElementsByTagName("head")[0].appendChild(sqPaymentScript)
+    document.body.appendChild(sqPaymentScript)
   })
 }
 
@@ -32,37 +35,30 @@ const DonateFormSchema = Yup.object().shape({
     .max(50, "Too Long!")
     .required("Required"),
   email: Yup.string().email("Invalid email").required("Required"),
-  donationAmount: Yup.string().required("Required"),
 })
-
-var paymentForm = null
-
-function onGetCardNonce(event) {
-  // Don't submit the form until SqPaymentForm returns with a nonce
-  event.preventDefault()
-  // Request a nonce from the SqPaymentForm object
-  this.paymentForm.requestCardNonce()
-}
 
 export default class DonateForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       errorMessages: [],
-      verificationDetails: {
-        amount: 0,
-        currencyCode: "USD",
-        intent: "CHARGE",
-        billingContact: {
-          familyName: "BLANK",
-          givenName: "BLANK",
-          email: "BLANK",
-          country: "BLANK",
-          city: "BLANK",
-          addressLines: ["BLANK"],
-          postalCode: "BLANK",
-          phone: "BLANK",
-        },
+      donationAmountTouched: false,
+      isProcessing: false,
+    }
+
+    this.verificationDetails = {
+      amount: 0,
+      currencyCode: "USD",
+      intent: "CHARGE",
+      billingContact: {
+        familyName: "BLANK",
+        givenName: "BLANK",
+        email: "BLANK",
+        country: "BLANK",
+        city: "BLANK",
+        addressLines: ["BLANK"],
+        postalCode: "BLANK",
+        phone: "BLANK",
       },
     }
   }
@@ -71,10 +67,12 @@ export default class DonateForm extends React.Component {
     loadSquareSdk().then(
       () => {
         console.log("loadSquareSdk succeeded")
+        // eslint-disable-next-line no-undef
         this.paymentForm = new SqPaymentForm({
           applicationId: this.props.applicationId,
           locationId: this.props.locationId,
-          autoBuild: true,
+          autoBuild: false,
+          autoFill: true,
           inputClass: "sq-input",
           inputStyles: [
             {
@@ -87,7 +85,7 @@ export default class DonateForm extends React.Component {
           ],
           cardNumber: {
             elementId: "sq-card-number",
-            placeholder: "Card Number",
+            placeholder: "• • • •  • • • •  • • • •  • • • •",
           },
           cvv: {
             elementId: "sq-cvv",
@@ -99,16 +97,29 @@ export default class DonateForm extends React.Component {
           },
           postalCode: {
             elementId: "sq-postal-code",
-            placeholder: "Postal",
+            placeholder: "12345",
           },
           // SqPaymentForm callback functions
           callbacks: {
-            cardNonceResponseReceived: this.cardNonceResponseReceived,
+            cardNonceResponseReceived: this.cardNonceResponseReceived.bind(
+              this
+            ),
+            /* Optional sq callbacks. See Square documentation.
+              createPaymentRequest: props.createPaymentRequest,
+              inputEventReceived: props.inputEventReceived,
+              methodsSupported,
+              paymentFormLoaded,
+              shippingContactChanged: props.shippingContactChanged,
+              shippingOptionChanged: props.shippingOptionChanged,
+              unsupportedBrowserDetected: props.unsupportedBrowserDetected,
+            */
           },
         })
+        this.paymentForm.build()
       },
       (error) => {
         console.error("loadSquareSdk failed: ", error)
+        alert("Failed to load Square SDK")
       }
     )
   }
@@ -119,14 +130,17 @@ export default class DonateForm extends React.Component {
     cardData,
     buyerVerificationToken // TODO be more secure
   ) {
-    console.log(
-      "nonce created: " +
-        nonce +
-        ", buyerVerificationToken: " +
-        buyerVerificationToken
-    )
-    console.log("cardData")
-    console.log(cardData)
+    if (errors) {
+      this.setState({ errorMessages: errors.map((error) => error.message) })
+      return
+    } else {
+      this.setState({ errorMessages: [] })
+    }
+
+    const reqPayload = _.cloneDeep(this.verificationDetails)
+
+    // Square API expects a BIGINT, i.e. multiple a decimal amount by 100 to eliminate the decimal point.
+    reqPayload.amount = parseInt(reqPayload.amount) * 100
 
     fetch("/.netlify/functions/square", {
       method: "POST",
@@ -135,18 +149,20 @@ export default class DonateForm extends React.Component {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(
-        Object.assign(
+        _.merge(
           {
             nonce: nonce,
             idempotency_key: uuidv4(),
             location_id: process.env.SQUARE_LOCATION_ID,
           },
-          this.state.verificationDetails
+          reqPayload
         )
       ),
     })
+      .catch((err) => {
+        alert("Network error: " + err)
+      })
       .then(async (res) => {
-        console.log(res)
         if (!res.ok) {
           const errorInfo = await res.json()
           return await Promise.reject(errorInfo)
@@ -154,7 +170,11 @@ export default class DonateForm extends React.Component {
         return res.json()
       })
       .then((data) => {
-        console.log("THEN with data", data)
+        console.log("PAYMENT Success")
+        console.log(data)
+        console.log(
+          "Payment complete successfully!\nCheck browser developer console for more details"
+        )
       })
       .catch((err) => {
         console.log("PAYMENT ERROR")
@@ -163,39 +183,54 @@ export default class DonateForm extends React.Component {
   }
 
   handleDonationAmountClick(e, amount) {
-    console.log("handleDonationAmountClick")
     e.preventDefault()
 
     document
       .querySelectorAll(".donation-amount-group .button")
       .forEach((el) => {
-        el.classList.remove("is-selected")
-        el.classList.remove("is-success")
+        if (el === e.target) {
+          e.target.classList.add("is-selected")
+          e.target.classList.add("is-success")
+        } else {
+          el.classList.remove("is-selected")
+          el.classList.remove("is-success")
+        }
       })
-    e.target.classList.add("is-selected")
-    e.target.classList.add("is-success")
 
     const otherAmountField = document.getElementById("other-input-field")
+    const otherAmountInput = document.getElementById("other-input-amount")
 
     if (amount === "other") {
       otherAmountField.classList.remove("is-hidden")
-      amount = 0
+      amount = otherAmountInput.value || 0
     } else {
       otherAmountField.classList.add("is-hidden")
     }
-    this.setState({ verificationDetails: { amount: amount } })
+
+    otherAmountInput.value = amount
+    this.setState({
+      donationAmountTouched: true,
+    })
+    this.verificationDetails.amount = amount
   }
 
-  handleDonationAmountOtherKeyUp(e) {
-    console.log("handleDonationAmountOtherKeyUp")
-    e.target.value = e.target.value.replaceAll("/[^0-9.]/ig", "")
-    this.setState({ verificationDetails: { amount: e.target.value } })
+  handleDonationAmountOtherBlur(e) {
+    e.target.value = e.target.value.replaceAll(/[^0-9.]/gi, "").trim()
+    e.target.value = e.target.value.replaceAll(/\..*$/gi, "")
+    this.verificationDetails.amount = e.target.value
   }
 
   handleSubmit(values, actions) {
-    console.log("handleSubmit:", values, actions)
+    console.log("handleSubmit:", values)
 
-    document.getElementById("result-modal").classList.remove("is-hidden")
+    this.verificationDetails = _.merge(this.verificationDetails, {
+      billingContact: {
+        familyName: values.lastName,
+        givenName: values.firstName,
+        email: values.email,
+      },
+    })
+    this.paymentForm.requestCardNonce()
   }
 
   render() {
@@ -203,13 +238,12 @@ export default class DonateForm extends React.Component {
       <div>
         <Formik
           initialValues={{
-            donationAmount: "",
             firstName: "",
             lastName: "",
             email: "",
           }}
           validationSchema={DonateFormSchema}
-          onSubmit={(values, actions) => this.handleSubmit(values, actions)}
+          onSubmit={this.handleSubmit.bind(this)}
         >
           {({ errors, touched }) => (
             <Form>
@@ -217,25 +251,25 @@ export default class DonateForm extends React.Component {
                 <label className="label">Donation Amount</label>
                 <button
                   className="button is-outlined"
-                  onClick={(e) => this.handleDonationAmountClick(e, 10)}
+                  onClick={(e) => this.handleDonationAmountClick(e, 10.0)}
                 >
                   $10
                 </button>
                 <button
                   className="button is-outlined"
-                  onClick={(e) => this.handleDonationAmountClick(e, 25)}
+                  onClick={(e) => this.handleDonationAmountClick(e, 25.0)}
                 >
                   $25
                 </button>
                 <button
-                  className="button is-outlined selected"
-                  onClick={(e) => this.handleDonationAmountClick(e, 50)}
+                  className="button is-outlined"
+                  onClick={(e) => this.handleDonationAmountClick(e, 50.0)}
                 >
                   $50
                 </button>
                 <button
                   className="button is-outlined"
-                  onClick={(e) => this.handleDonationAmountClick(e, 100)}
+                  onClick={(e) => this.handleDonationAmountClick(e, 100.0)}
                 >
                   $100
                 </button>
@@ -245,6 +279,10 @@ export default class DonateForm extends React.Component {
                 >
                   Other
                 </button>
+                {this.state.donationAmountTouched &&
+                  !this.verificationDetails.amount > 0 && (
+                    <p className="help is-danger">Enter a valid amount</p>
+                  )}
               </div>
               <div id="other-input-field" className="field is-hidden">
                 <label className="label">Other Amount:</label>
@@ -254,7 +292,12 @@ export default class DonateForm extends React.Component {
                     className="input"
                     type="text"
                     placeholder=""
-                    onKeyUp={(e) => this.handleDonationAmountOtherKeyUp(e)}
+                    onClick={(e) => {}}
+                    onBlur={(e) => {
+                      console.log("onBlur")
+                      this.handleDonationAmountOtherBlur.call(this, e)
+                    }}
+                    onKeyUp={(e) => {}}
                   />
                 </p>
               </div>
@@ -314,27 +357,37 @@ export default class DonateForm extends React.Component {
                 <div className="field">
                   <div id="sq-postal-code" className="third"></div>
                 </div>
+                <div className="sq-error-message field">
+                  {this.state.errorMessages.map((errorMessage) => (
+                    <li key={`sq-error-${errorMessage}`}>{errorMessage}</li>
+                  ))}
+                </div>
+                <div className="field">
+                  <p>I agree with the terms and conditions.*</p>
+                </div>
                 <div className="field">
                   <button
                     id="sq-creditcard"
                     type="submit"
                     className="button button-credit-card"
-                    onClick={this.handleSubmit}
                   >
                     {"Donate"}
-                    {this.state.verificationDetails.amount > 0 &&
-                      " $" + this.state.verificationDetails.amount}
+                    {this.verificationDetails.amount > 0 &&
+                      " $" + this.verificationDetails.amount}
                   </button>
                 </div>
-              </div>
-              <div className="sq-error-message">
-                {this.state.errorMessages.map((errorMessage) => (
-                  <li key={`sq-error-${errorMessage}`}>{errorMessage}</li>
-                ))}
+                <div className="field">
+                  <p className="footnote">
+                    * By proceeding with your transaction, you understand that
+                    you are making a donation to {this.props.businessData.name}.
+                    No goods or services were exchanged for this donation.
+                  </p>
+                </div>
               </div>
             </Form>
           )}
         </Formik>
+
         <div id="result-modal" className="modal is-hidden">
           <div className="modal-background"></div>
           <div className="modal-content is-error is-hidden">
@@ -356,9 +409,6 @@ export default class DonateForm extends React.Component {
 }
 
 DonateForm.propTypes = {
-  // sandbox: PropTypes.bool,
   applicationId: PropTypes.string.isRequired,
   locationId: PropTypes.string.isRequired,
-  // cardNonceResponseReceived: PropTypes.func.isRequired,
-  // createVerificationDetails: PropTypes.func.isRequired,
 }

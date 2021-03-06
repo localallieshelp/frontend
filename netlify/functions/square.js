@@ -1,8 +1,5 @@
 const { Client, Environment, ApiError } = require("square")
 
-// Set the Access Token which is used to authorize to a merchant
-const { SQUARE_ACCESS_TOKEN, SQUARE_API_ENDPOINT } = process.env
-
 /*
 
 @param event is an object that contains data on the request
@@ -20,25 +17,18 @@ an event:
 }
 */
 exports.handler = async function (event, context) {
-  console.log("EVENT:")
-  console.log(event)
-  console.log("CONTEXT:")
-  console.log(context)
+  console.log("EVENT:", event)
 
   const requestParams = JSON.parse(event.body)
 
-  // Initialized the Square api client:
-  //   Set sandbox environment for testing purpose
-  //   Set access token
   const client = new Client({
     environment:
-      process.env.NODE_ENV === "development"
+      process.env.NODE_ENV !== "production" || process.env.NETLIFY_DEV
         ? Environment.Sandbox
         : Environment.Production,
-    accessToken: SQUARE_ACCESS_TOKEN,
+    accessToken: process.env.SQUARE_ACCESS_TOKEN,
   })
 
-  // Charge the customer's card
   const paymentsApi = client.paymentsApi
   const requestBody = {
     sourceId: requestParams.nonce,
@@ -48,6 +38,7 @@ exports.handler = async function (event, context) {
     },
     locationId: requestParams.location_id,
     idempotencyKey: requestParams.idempotency_key,
+    buyerEmailAddress: requestParams.billingContact.email,
   }
 
   let myResponse = {
@@ -61,19 +52,13 @@ exports.handler = async function (event, context) {
   }
 
   try {
-    const apiRequest = paymentsApi.createPayment(requestBody)
-    apiRequest.then(
-      (response) => {
-        myResponse.statusCode = 200
-        myResponse.title = "Payment Successful"
-        myResponse.result = response.result
-      },
-      (error) => {
-        myResponse.body.error = error
-        myResponse.statusCode = 500
-      }
-    )
+    console.log("MY requestBody to SQ API:", requestBody)
+    const apiResponse = await paymentsApi.createPayment(requestBody)
+    console.log("SQ API RESPONSE: ", apiResponse)
+    myResponse.statusCode = apiResponse.statusCode
+    myResponse.body.apiResult = JSON.parse(apiResponse.body)
   } catch (error) {
+    console.log("SQ API ERROR:", error)
     let errorResult = null
 
     if (error instanceof ApiError) {
@@ -82,17 +67,11 @@ exports.handler = async function (event, context) {
       errorResult = error
     }
 
-    myResponse.body.error = errorResult
-    myResponse.statusCode = 500
-  }
-
-  if (myResponse.statusCode !== 200) {
-    myResponse.body.title = "Error"
+    myResponse.body.apiResult = errorResult
   }
 
   myResponse.body = JSON.stringify(myResponse.body)
 
-  console.log("MY RESPONSE")
-  console.log(myResponse)
+  console.log("MY RESPONSE", myResponse)
   return myResponse
 }
