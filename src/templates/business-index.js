@@ -8,7 +8,6 @@ import { graphql } from "gatsby"
 
 export default class BusinessIndexPage extends React.Component {
   filterHandler(filter) {
-    console.log(filter)
     let allPosts = document.querySelectorAll(".blogroll .post")
     if (filter == "all") {
       allPosts.forEach((postDiv) => {

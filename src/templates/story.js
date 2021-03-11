@@ -56,7 +56,7 @@ const StoryPageTemplate = ({
                 <br />
                 {cta}{" "}
                 <Link to={"/" + langKey + "/" + menuTree.contact[sel]}>
-                  <FormattedMessage id="click-here" />.
+                  <FormattedMessage id="click-here" />
                 </Link>
               </p>
             </div>
@@ -82,6 +82,10 @@ const StoryPageTemplate = ({
             <div className="team-items">
               <h3>{team.member4.name}</h3>
               <p>{team.member4.title}</p>
+            </div>
+            <div className="team-items">
+              <h3>{team.member5.name}</h3>
+              <p>{team.member5.title}</p>
             </div>
           </div>
         </section>
@@ -235,6 +239,20 @@ export const pageQuery = graphql`
             }
           }
           member4 {
+            name
+            title
+            image1 {
+              alt
+              image {
+                childImageSharp {
+                  fluid(maxWidth: 500, quality: 90) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+          }
+          member5 {
             name
             title
             image1 {
