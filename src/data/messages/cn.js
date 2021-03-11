@@ -24,6 +24,6 @@ module.exports = {
   not_found: "404 - Page Not Found",
   404: "You are arrived to an unvailable page or you have missed the path...",
   copyright: "2021 Local Allies. 保留所有权利。",
-  "click-here": "Click Here",
+  "click-here": "请点击这里。",
   donate: "捐",
 }
