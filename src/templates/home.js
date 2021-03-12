@@ -75,7 +75,13 @@ const HomePageTemplate = ({
             {heading}
             <br />
             <br />
-            <span>{heading2}</span>
+            <a
+              href="https://www.weforum.org/agenda/2020/10/mapped-uneven-recovery-us-america-small-businesses-closure"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span>{heading2}</span>
+            </a>
           </h3>
           <div className="animated fadeInLeft buttondiv">
             <Link

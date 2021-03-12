@@ -13,8 +13,7 @@ image: /img/home-header.png
 mainheading: "为本地小型商户提供可持续的帮助"
 heading: "全美各地的小型商户需要我们伸出援手。近四分之一的小型商户受新冠肺炎疫情影响而关闭，部分商户收入仍然受创。* 为社区出力，帮助本地小型商户！
 "
-heading2: "* 据《世界经济论坛》的报道：
-Mapping the uneven recovery of America’s small businesses https://www.weforum.org/agenda/2020/10/mapped-uneven-recovery-us-america-small-businesses-closure"
+heading2: "* 据《世界经济论坛》的报道：Mapping the uneven recovery of America’s small businesses"
 buttontext: "查看本地业务中心"
 main:
   title: 我们的倡议
