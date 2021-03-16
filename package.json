@@ -67,6 +67,7 @@
     "sass": "^1.32.7",
     "slash": "^3.0.0",
     "slug": "^2.1.1",
+    "square": "^9.0.0",
     "style-loader": "^1.1.3",
     "url-loader": "^4.0.0",
     "yup": "^0.32.9"
@@ -82,11 +83,13 @@
   "scripts": {
     "develop": "gatsby develop",
     "build": "gatsby build",
-    "start": "gatsby serve"
+    "start": "gatsby serve",
+    "backend": "nodemon server.js"
   },
   "devDependencies": {
     "@creativebulma/bulma-collapsible": "^1.0.3",
     "eslint": "~7.19.0",
-    "eslint-plugin-react": "~7.22.0"
+    "eslint-plugin-react": "~7.22.0",
+    "nodemon": "^2.0.7"
   }
 }
