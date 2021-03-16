@@ -2,7 +2,7 @@ import React from "react"
 import Icon from "react-icon-base"
 
 const Cn = (props) => {
-  // Todo draw the CN flag / use lang selector
+  // Todo draw the ZH-hans flag / use lang selector
   return (
     <Icon viewBox="0 0 640 480" {...props}>
       <g fillRule="evenodd" strokeWidth="1pt">

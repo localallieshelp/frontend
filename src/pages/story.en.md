@@ -36,6 +36,12 @@ team:
     image1:
       alt: "John Wie"
       image: /img/team-image.png
+  member5:
+    name: "Shengfei Wen"
+    title: "Chinese Translator"
+    image1:
+      alt: "Shengfei Wen"
+      image: /img/team-image.png
 date: "02-16-2021"
 path: /en/story/
 slug: /en/story/

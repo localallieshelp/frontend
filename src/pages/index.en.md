@@ -12,7 +12,7 @@ image: /img/home-header.png
 mainheading: "Providing Sustainable Help for Our Local Small Businesses"
 heading: "Small businesses across the United States need our help. Nearly a quarter of US small merchants are closed and overall revenue is still down for many due to the COVID-19 pandemic.
 * Become a Local Ally and help your local small business today! "
-heading2: "*World Economic Forum - Mapping the uneven recovery of America’s small businesses https://www.weforum.org/agenda/2020/10/mapped-uneven-recovery-us-america-small-businesses-closure"
+heading2: "* World Economic Forum - Mapping the uneven recovery of America’s small businesses"
 buttontext: "View Local Business Hub"
 main:
   title: Our Initiatives

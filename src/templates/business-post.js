@@ -6,11 +6,12 @@ import SEO from "../components/SEO/SEO"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/Layout"
 import Content, { HTMLContent } from "../components/Content"
-import { FaUtensils } from "react-icons/fa"
+import { FaUtensils, FaExternalLinkAlt } from "react-icons/fa"
 import menuTree from "../data/menuTree"
 import { select } from "../components/utils"
 import { FormattedMessage } from "react-intl"
 import { navigate } from "@reach/router"
+import Hours from "../components/Hours"
 
 export const BusinessPostTemplate = ({
   data,
@@ -24,9 +25,10 @@ export const BusinessPostTemplate = ({
   langKey,
   frontmatter,
 }) => {
+  console.log(data)
   const PostContent = contentComponent || Content
   const iconStyles = { fill: "black" }
-  const fe = frontmatter
+  const fm = frontmatter
   const sel = select(langKey)
   const onTabClick = (e, tabName) => {
     var i, tabs, tabcontent
@@ -99,8 +101,25 @@ export const BusinessPostTemplate = ({
                   <div className="grid-section">
                     <div>Location</div>
                     <div>
-                      {" "}
-                      {frontmatter.address ? frontmatter.address : "Not Listed"}
+                      {frontmatter.address ? (
+                        <p>
+                          {frontmatter.address}
+                          <a
+                            href={
+                              "https://www.google.com/maps/search/?api=1&query=" +
+                              encodeURIComponent(frontmatter.address)
+                            }
+                          >
+                            <FaExternalLinkAlt
+                              className="fa-external-link-alt"
+                              size="1em"
+                              style={iconStyles}
+                            />
+                          </a>
+                        </p>
+                      ) : (
+                        "Not Listed"
+                      )}
                     </div>
                   </div>
                   <div className="grid-section">
@@ -112,35 +131,17 @@ export const BusinessPostTemplate = ({
                   <div className="grid-section">
                     <div>Website</div>
                     <div>
-                      {frontmatter.homepage_link
-                        ? frontmatter.homepage_link
-                        : "Not Listed"}
+                      {frontmatter.homepage_link ? (
+                        <a href={frontmatter.homepage_link}>
+                          {frontmatter.homepage_link}
+                        </a>
+                      ) : (
+                        "Not Listed"
+                      )}
                     </div>
                   </div>
                   <div className="grid-section">
-                    <div>Hours</div>
-                    <div className="hours-list">
-                      <div className="grid-section">
-                        <div>Mon</div>
-                        <div>8:00 AM - 5:00 PM</div>
-                      </div>
-                      <div className="grid-section">
-                        <div>Tue</div>
-                        <div>8:00 AM - 5:00 PM</div>
-                      </div>
-                      <div className="grid-section">
-                        <div>Wed</div>
-                        <div>8:00 AM - 5:00 PM</div>
-                      </div>
-                      <div className="grid-section">
-                        <div>Thu</div>
-                        <div>8:00 AM - 5:00 PM</div>
-                      </div>
-                      <div className="grid-section">
-                        <div>Fri</div>
-                        <div>8:00 AM - 5:00 PM</div>
-                      </div>
-                    </div>
+                    <Hours hoursOfOperation={frontmatter.hours_of_operation} />
                   </div>
                 </div>
                 <div className="business-donate">
@@ -218,10 +219,7 @@ export const BusinessPostTemplate = ({
             </div>
             <div className="grid-section">
               <div>Location</div>
-              <div>
-                {" "}
-                {frontmatter.address ? frontmatter.address : "Not Listed"}
-              </div>
+              <div> {frontmatter.address || "Not Listed"}</div>
             </div>
             <div className="grid-section">
               <div>Phone</div>
@@ -242,29 +240,7 @@ export const BusinessPostTemplate = ({
               )}
             </div>
             <div className="grid-section">
-              <div>Hours</div>
-              <div className="hours-list">
-                <div className="grid-section">
-                  <div>Mon</div>
-                  <div>8:00 AM - 5:00 PM</div>
-                </div>
-                <div className="grid-section">
-                  <div>Tue</div>
-                  <div>8:00 AM - 5:00 PM</div>
-                </div>
-                <div className="grid-section">
-                  <div>Wed</div>
-                  <div>8:00 AM - 5:00 PM</div>
-                </div>
-                <div className="grid-section">
-                  <div>Thu</div>
-                  <div>8:00 AM - 5:00 PM</div>
-                </div>
-                <div className="grid-section">
-                  <div>Fri</div>
-                  <div>8:00 AM - 5:00 PM</div>
-                </div>
-              </div>
+              <Hours hoursOfOperation={frontmatter.hours_of_operation} />
             </div>
           </div>
         </div>
@@ -372,6 +348,7 @@ export const pageQuery = graphql`
         story
         business_type
         services_offered
+        hours_of_operation
         address
         phone
         tags

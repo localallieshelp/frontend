@@ -53,6 +53,14 @@ We accomplished a lot during the 10-day span of rapid development. We bootstrapp
 - Gained additional experience in full-cycle software development
 - Gained additional experience in build and deployment of a website onto a IaaS (Infrastructure as a Service) provider (Netlify)
 
+## How to Add Additional Businesses
+
+Each business is a "page" at `src/pages/business`. A `.md` file is required for each language. Follow the naming convention and name the file just like the URI slug.
+
+1. Duplicate a set of markdown files, one for each language, in `/src/pages/business` and rename to kebab-case, as you would like the URI slug to be.
+2. Open `src/data/articles/articles.json` and add a new object to the `articles` array, renaming the language values to the correct slug as you did in step 1.
+3. Increment the "id" value.
+
 ## Dev Tips
 
 - If you get an error on a line like this:
