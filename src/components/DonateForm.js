@@ -40,10 +40,13 @@ const DonateFormSchema = Yup.object().shape({
 export default class DonateForm extends React.Component {
   constructor(props) {
     super(props)
+    this.handleModalClose = this.handleModalClose.bind(this)
+
     this.state = {
       errorMessages: [],
       donationAmountTouched: false,
-      isProcessing: false,
+      // processState enum: start, processing, success, error
+      processState: "start",
     }
 
     this.verificationDetails = {
@@ -134,7 +137,7 @@ export default class DonateForm extends React.Component {
       this.setState({ errorMessages: errors.map((error) => error.message) })
       return
     } else {
-      this.setState({ errorMessages: [] })
+      this.setState({ errorMessages: [], processState: "processing" })
     }
 
     const reqPayload = _.cloneDeep(this.verificationDetails)
@@ -161,6 +164,7 @@ export default class DonateForm extends React.Component {
     })
       .catch((err) => {
         alert("Network error: " + err)
+        this.setState({ processState: "error" })
       })
       .then(async (res) => {
         if (!res.ok) {
@@ -172,13 +176,12 @@ export default class DonateForm extends React.Component {
       .then((data) => {
         console.log("PAYMENT Success")
         console.log(data)
-        console.log(
-          "Payment complete successfully!\nCheck browser developer console for more details"
-        )
+        this.setState({ processState: "success" })
       })
       .catch((err) => {
         console.log("PAYMENT ERROR")
         console.error(err)
+        this.setState({ processState: "error" })
       })
   }
 
@@ -233,9 +236,14 @@ export default class DonateForm extends React.Component {
     this.paymentForm.requestCardNonce()
   }
 
+  handleModalClose(e) {
+    e.preventDefault()
+    this.setState({ processState: "start" })
+  }
+
   render() {
     return (
-      <div>
+      <div className="content">
         <Formik
           initialValues={{
             firstName: "",
@@ -249,6 +257,7 @@ export default class DonateForm extends React.Component {
             <Form>
               <div className="field buttons has-addons donation-amount-group">
                 <label className="label">Donation Amount</label>
+                <p> </p>
                 <button
                   className="button is-outlined"
                   onClick={(e) => this.handleDonationAmountClick(e, 10.0)}
@@ -294,7 +303,6 @@ export default class DonateForm extends React.Component {
                     placeholder=""
                     onClick={(e) => {}}
                     onBlur={(e) => {
-                      console.log("onBlur")
                       this.handleDonationAmountOtherBlur.call(this, e)
                     }}
                     onKeyUp={(e) => {}}
@@ -388,21 +396,83 @@ export default class DonateForm extends React.Component {
           )}
         </Formik>
 
-        <div id="result-modal" className="modal is-hidden">
-          <div className="modal-background"></div>
-          <div className="modal-content is-error is-hidden">
-            We could not process your credit card information. Please check your
-            information before trying to submit again.’
-          </div>
-          <div className="modal-content is-success is-hidden">
-            Thank you for supporting {this.props.businessData.name}. You will be
-            emailed a receipt of your donation.
-          </div>
-          <div className="modal-content is-loading">Processing...</div>
-          <button className="modal-close is-large" aria-label="close">
-            Close
-          </button>
-        </div>
+        <article className="content">
+          {this.state.processState === "processing" && (
+            <div className="modal is-active">
+              <div className="modal-background"></div>
+              <div className="modal-content">
+                <div className="box">
+                  <div className="column is-full">
+                    <p>Processing...</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {this.state.processState === "error" && (
+            <div className="modal is-active">
+              <div
+                className="modal-background"
+                onClick={this.handleModalClose}
+              ></div>
+              <div className="modal-content">
+                <div className="box">
+                  <div className="column is-full">
+                    <p>
+                      We could not process your credit card information. Please
+                      check your information before trying to submit again.’
+                    </p>
+                  </div>
+                  <div className="column is-full">
+                    <p>
+                      <button
+                        className="button is-centered"
+                        aria-label="close"
+                        onClick={this.handleModalClose}
+                      >
+                        Close
+                      </button>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {this.state.processState === "success" && (
+            <div
+              className="modal is-active"
+              onClick={() => {
+                window.location = "/" + this.props.langKey
+              }}
+            >
+              <div className="modal-background"></div>
+              <div className="modal-content">
+                <div className="box">
+                  <div className="column is-full">
+                    <div className="is-centered is-center">
+                      <p>
+                        Thank you for supporting {this.props.businessData.name}.
+                      </p>
+                      <p>You will be emailed a receipt of your donation.</p>
+                    </div>
+                  </div>
+                  <div className="column is-full">
+                    <p>
+                      <button className="button" aria-label="close">
+                        Close
+                      </button>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <button className="modal-close is-large" aria-label="close">
+                Close
+              </button>
+            </div>
+          )}
+        </article>
       </div>
     )
   }
