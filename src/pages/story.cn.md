@@ -1,14 +1,15 @@
 ---
 id: "03"
-title: "Our Story"
-description: "About Local Allies"
-copy: "Local Allies was created to help independent small businesses be equipped with the tools to thrive in a quickly-changing digital and difficult landscape. Throughout the COVID-19 pandemic, we witnessed volunteers from across the nation create donation campaigns and provide assistance in any way they could from creating social media groups made to uplift small merchants to those regularly buying takeout meals from local mom-and-pop restaurants. "
-copy2: "Inspired by these acts of compassion, we set out to create the volunteer-led Local Allies program to set up a sustainable next step for small businesses in need. This includes a specialized website that provides a free hub to input their small business information; create donation programs where all funds go back to the business; and a helpful staff of experienced volunteers of marketers, translators, and web developers to provide complimentary consultation and suggestions on other ways to help.*"
-copy3: "Special thanks to Send Chinatown Love and the Little Tokyo Service Center for their inspiration and assistance!"
-copy4: "*Please note, in order to best help those business owners most in need, only small, non-franchised businesses of less than 50 employees with little to no digital/social media presence may participate. If you do not qualify, we will still be glad to help direct you to other services for additional assistance."
-cta: "Have Questions? Want to Get Involved?"
+title: "我们的故事"
+description: "我们的故事"
+copy: "Local Allies 旨在帮助私营小商家打造工具，从而适应当今飞速发展的数字时代，度过重重困难。COVID-19 疫情期间，全美各地发起不同的志愿者行动。他们有的建立社交媒体团队来帮助商家，有的定期在家庭式小餐厅外卖订餐。
+"
+copy2: "受各地志愿者的启发，我们组建了 Local Allies 志愿者团队，旨在帮助有需要的小商家*建立可持续的应对机制。我们的服务包括：专设网站，提供商家宣传的平台；组织募捐，把所得款项投入商家；出谋划策，提供免费的咨询建议。我们的志愿者团队包括经验丰富的市场营销员、翻译员以及网络开发人员。"
+copy3: "特别鸣谢 Send Chinatown Love 和 Little Tokyo Service Center 的灵感和帮助。"
+copy4: "*注：凡是缺乏数字社交平台，且少于50名员工的非连锁商户都可参加。您若不满足要求，我们仍十分乐意推荐能帮助您的服务。"
+cta: "有疑问？想要加入？"
 templateKey: story
-lang: en
+lang: cn
 image: /img/story-image.png
 team:
   title: "Our Team"
@@ -35,6 +36,12 @@ team:
     title: "Marketing"
     image1:
       alt: "John Wie"
+      image: /img/team-image.png
+  member5:
+    name: "Shengfei Wen"
+    title: "Chinese Translator"
+    image1:
+      alt: "Shengfei Wen"
       image: /img/team-image.png
 date: "02-16-2021"
 path: /cn/story/
