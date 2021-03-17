@@ -11,26 +11,26 @@ phone: ""
 email: "jwie@alumni.usc.edu"
 options:
   one:
-    title: "Interested in participating?"
-    description: "Please message us your small business name, contact information, and any other helpful information about yourself and your small business. We’ll get back to you as soon as we can. "
+    title: "想参与？"
+    description: "请透过以下表格，留下贵商户名称及联系信息，我们会尽快回复您。"
     image1:
-      alt: "Initiative Two"
+      alt: "想参与？"
       image: /img/contact-image-1.png
   two:
-    title: "Know of a small business that may need our help?"
-    description: "Please send us the small business’ name and contact information (if available) including a short 2-3 sentences on why they may need assistance. "
+    title: "知道有需要帮助的小商户？"
+    description: "请把商户名字发给我们（若有联系信息请附上），附上简单两三句话说明为什么他们需要帮助。"
     image1:
-      alt: "Initiative Two"
+      alt: "知道有需要帮助的小商户？"
       image: /img/contact-image-2.png
   three:
-    title: "Want to join our team of volunteers? "
-    description: "We’re actively looking for translators, digital/social media marketers, accountants, web developers, and web designers! Send us your name, email address, and a short resume, LinkedIn, or list of skill sets, and we’ll get back to you with further details."
+    title: "想加入我们的志愿者团队？"
+    description: "我们正寻找翻译员、数字/社交媒体营销员、会计、网络开发员及网页设计师。请附上您的名字、电子邮件和个人简历，或附上LinkedIn或技能列表，我们将回复告知具体事宜。"
     image1:
-      alt: "Initiative Two"
+      alt: "想加入我们的志愿者团队？"
       image: /img/contact-image-3.png
 form:
-  title: "Send Us A Message"
-  subtitle: "Fill in the contact form below or email John Wie at jwie@alumni.usc.edu to get started."
+  title: "给我们留言"
+  subtitle: "填写以下表格，或者直接给John Wie发邮件 jwie@alumni.usc.edu了解更多信息。"
 
 path: /cn/contact/
 slug: /cn/contact/
