@@ -1,6 +1,3 @@
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
 const languages = require("./src/data/languages")
 
 module.exports = {
