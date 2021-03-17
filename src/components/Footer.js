@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import select from "../components/utils"
+import { select } from "../components/utils"
 import { FormattedMessage } from "react-intl"
 import menuTree from "../data/menuTree"
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa"

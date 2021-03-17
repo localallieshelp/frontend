@@ -4,7 +4,7 @@ import logo from "../img/logo.svg"
 import { FormattedMessage } from "react-intl"
 import menuTree from "../data/menuTree"
 import { isMobile } from "react-device-detect"
-import select from "../components/utils"
+import { select } from "../components/utils"
 import SelectLanguage from "../components/SelectLanguage"
 import { FaLongArrowAltLeft } from "react-icons/fa"
 
