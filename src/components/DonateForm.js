@@ -154,11 +154,11 @@ export default class DonateForm extends React.Component {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(
-        _.merge(
+        _.cloneDeep(
           {
             nonce: nonce,
             idempotency_key: uuidv4(),
-            location_id: SQUARE_LOCATION_ID,
+            // location_id: SQUARE_LOCATION_ID,
           },
           reqPayload
         )
