@@ -25,7 +25,7 @@ exports.handler = async function (event, context) {
 
   const client = new Client({
     environment:
-      process.env.NODE_ENV !== "production" || process.env.NETLIFY_DEV
+      process.env.NODE_ENV === "development" || process.env.NETLIFY_DEV
         ? Environment.Sandbox
         : Environment.Production,
     accessToken: SQUARE_ACCESS_TOKEN,
