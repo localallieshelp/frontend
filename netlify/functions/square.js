@@ -1,5 +1,7 @@
 const { Client, Environment } = require("square")
 
+const SQUARE_ACCESS_TOKEN = process.env.GATSBY_SQUARE_ACCESS_TOKEN
+const SQUARE_LOCATION_ID = process.env.GATSBY_SQUARE_LOCATION_ID
 /*
 
 @param event is an object that contains data on the request
@@ -23,10 +25,10 @@ exports.handler = async function (event, context) {
 
   const client = new Client({
     environment:
-      process.env.NODE_ENV !== "production" || process.env.NETLIFY_DEV
+      process.env.NODE_ENV === "development" || process.env.NETLIFY_DEV
         ? Environment.Sandbox
         : Environment.Production,
-    accessToken: process.env.GATSBY_SQUARE_ACCESS_TOKEN,
+    accessToken: SQUARE_ACCESS_TOKEN,
   })
 
   const paymentsApi = client.paymentsApi
@@ -36,7 +38,7 @@ exports.handler = async function (event, context) {
       amount: requestParams.amount,
       currency: requestParams.currencyCode,
     },
-    locationId: requestParams.location_id,
+    locationId: SQUARE_LOCATION_ID,
     idempotencyKey: requestParams.idempotency_key,
     buyerEmailAddress: requestParams.billingContact.email,
   }
