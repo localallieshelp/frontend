@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import { FormattedMessage } from "react-intl"
-import select from "../components/utils"
+import { select } from "../components/utils"
 
 const DropDownMenu = (props) => {
   const switches = props.switches

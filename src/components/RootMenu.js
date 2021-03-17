@@ -9,7 +9,7 @@ import menu_S from "../data/sculptureMenu"
 import menu_Perf from "../data/performanceMenu"
 import menu_NM from "../data/newmediaMenu"
 import menuTree from "../data/menuTree"
-import select from "../components/utils"
+import { select } from "../components/utils"
 import { FaImage, FaAngleRight } from "react-icons/fa"
 
 const RootMenu = (props) => {
