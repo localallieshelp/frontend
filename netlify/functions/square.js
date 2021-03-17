@@ -42,32 +42,22 @@ exports.handler = async function (event, context) {
   }
 
   let myResponse = {
-    statusCode: 200,
-    body: {
-      title: "",
-      result: "unchanged",
-      error: "none",
-      requestBody: requestBody,
-    },
+    statusCode: 500,
+    body: {},
   }
 
   try {
     console.log("MY requestBody to SQ API:", requestBody)
+
     const apiResponse = await paymentsApi.createPayment(requestBody)
+
     console.log("SQ API RESPONSE: ", apiResponse)
     myResponse.statusCode = apiResponse.statusCode
-    myResponse.body.apiResult = JSON.parse(apiResponse.body)
-  } catch (error) {
-    console.log("SQ API ERROR:", error)
-    let errorResult = null
-
-    if (error instanceof ApiError) {
-      errorResult = error.errors
-    } else {
-      errorResult = error
-    }
-
-    myResponse.body.apiResult = errorResult
+    myResponse.body = JSON.parse(apiResponse.body)
+  } catch (apiError) {
+    console.log("SQ API ERROR:", apiError)
+    myResponse.body.errors = apiError.errors
+    myResponse.statusCode = apiError.statusCode
   }
 
   myResponse.body = JSON.stringify(myResponse.body)

@@ -7,12 +7,13 @@ import { FaExclamationTriangle, FaRegEnvelope, FaCheck } from "react-icons/fa"
 import { uuidv4 } from "../components/utils"
 import _ from "lodash"
 
+const SQUARE_API_ENDPOINT = process.env.SQUARE_API_ENDPOINT
+
 export const loadSquareSdk = () => {
   return new Promise((resolve, reject) => {
     const sqPaymentScript = document.createElement("script")
     sqPaymentScript.src =
-      process.env.SQUARE_API_ENDPOINT ||
-      "https://js.squareup.com/v2/paymentform"
+      SQUARE_API_ENDPOINT || "https://js.squareup.com/v2/paymentform"
     sqPaymentScript.id = "sq-payment-form-script"
     // sqPaymentScript.crossorigin = "anonymous" // TODO is this needed?
     sqPaymentScript.onload = () => {
@@ -162,9 +163,12 @@ export default class DonateForm extends React.Component {
         )
       ),
     })
-      .catch((err) => {
-        alert("Network error: " + err)
-        this.setState({ processState: "error" })
+      .catch((errResponse) => {
+        alert("Network error: " + errResponse)
+        this.setState({
+          processState: "error",
+          errorMessages: errResponse.errors.map((error) => error.message),
+        })
       })
       .then(async (res) => {
         if (!res.ok) {
@@ -178,10 +182,13 @@ export default class DonateForm extends React.Component {
         console.log(data)
         this.setState({ processState: "success" })
       })
-      .catch((err) => {
+      .catch((errResponse) => {
         console.log("PAYMENT ERROR")
-        console.error(err)
-        this.setState({ processState: "error" })
+        console.log(errResponse)
+        this.setState({
+          processState: "error",
+          errorMessages: errResponse.errors.map((error) => error.detail),
+        })
       })
   }
 
@@ -224,8 +231,6 @@ export default class DonateForm extends React.Component {
   }
 
   handleSubmit(values, actions) {
-    console.log("handleSubmit:", values)
-
     this.verificationDetails = _.merge(this.verificationDetails, {
       billingContact: {
         familyName: values.lastName,
@@ -423,6 +428,11 @@ export default class DonateForm extends React.Component {
                       We could not process your credit card information. Please
                       check your information before trying to submit again.’
                     </p>
+                    <div className="sq-error-message field">
+                      {this.state.errorMessages.map((errorMessage) => (
+                        <li key={`sq-error-${errorMessage}`}>{errorMessage}</li>
+                      ))}
+                    </div>
                   </div>
                   <div className="column is-full">
                     <p>

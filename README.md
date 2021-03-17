@@ -8,7 +8,13 @@ We've built a platform for small businesses with little-to-no online presence an
 
 ## Getting Started
 
-This starter is developed within the Gatsby ecosystem. It requires `node.js`, `npm`, `yarn` and `gatsby-cli` to be installed.
+This is a Gatsby project deploying to Netlify. It requires:
+
+- `node.js`
+- `npm`
+- `yarn`
+- `netlify-cli`
+- `gatsby-cli`
 
 Install project packages:
 
@@ -19,10 +25,10 @@ yarn install
 After yarn has finished, begin dev:
 
 ```
-gatsby develop
+netlify dev
 ```
 
-The site will be served at `localhost:8000`
+The site will be served at `localhost:8888`
 
 #### Admin CMS
 
@@ -42,7 +48,7 @@ npx netlify-cms-proxy-server
 
 ## Hackathon Launch Feb 18, 2021
 
-We accomplished a lot during the 10-day span of rapid development. We bootstrapped a new Gatsby project with many features and technologies.
+We accomplished a lot during the 10-day span of rapid development. We bootstrapped a new Gatsby project with several features and technologies.
 
 - Learned how to develop and deploy a Gatsby JAMstack complete website
 - Learned to set up, design, and use a Content Management System (CMS) with a WYSIWYG user interface (UI) in a JAMstack context (netlify-cms)

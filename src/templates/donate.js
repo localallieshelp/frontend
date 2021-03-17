@@ -10,6 +10,10 @@ import Content, { HTMLContent } from "../components/Content"
 import { FormattedMessage } from "react-intl"
 import DonateForm from "../components/DonateForm"
 
+// Todo: There has got to be a better place for this
+const SQUARE_APPLICATION_ID = process.env.SQUARE_APPLICATION_ID
+const SQUARE_LOCATION_ID = process.env.SQUARE_LOCATION_ID
+
 const DonatePageTemplate = ({
   title,
   content,
@@ -43,8 +47,8 @@ const DonatePageTemplate = ({
         <div className="column is-full">
           <DonateForm
             businessData={businessData}
-            applicationId={process.env.SQUARE_APPLICATION_ID}
-            locationId={process.env.SQUARE_LOCATION_ID}
+            applicationId={SQUARE_APPLICATION_ID}
+            locationId={SQUARE_LOCATION_ID}
             langKey={langKey}
           />
         </div>
