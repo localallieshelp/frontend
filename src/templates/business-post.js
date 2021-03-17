@@ -25,7 +25,6 @@ export const BusinessPostTemplate = ({
   langKey,
   frontmatter,
 }) => {
-  console.log(data)
   const PostContent = contentComponent || Content
   const iconStyles = { fill: "black" }
   const fm = frontmatter

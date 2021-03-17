@@ -1,4 +1,4 @@
-const { Client, Environment, ApiError } = require("square")
+const { Client, Environment } = require("square")
 
 /*
 
