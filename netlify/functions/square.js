@@ -1,4 +1,4 @@
-const { Client, Environment, ApiError } = require("square")
+const { Client, Environment } = require("square")
 
 /*
 
@@ -26,7 +26,7 @@ exports.handler = async function (event, context) {
       process.env.NODE_ENV !== "production" || process.env.NETLIFY_DEV
         ? Environment.Sandbox
         : Environment.Production,
-    accessToken: process.env.SQUARE_ACCESS_TOKEN,
+    accessToken: process.env.GATSBY_SQUARE_ACCESS_TOKEN,
   })
 
   const paymentsApi = client.paymentsApi

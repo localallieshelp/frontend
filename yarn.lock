@@ -4456,9 +4456,9 @@ content-type@^1.0.4, content-type@~1.0.4:
   integrity sha512-hIP3EEPs8tB9AT1L+NUqtwOAps4mk2Zob89MWXMHjHWg9milF/j4osnnQLXBCBFBk/tvIG/tUc9mOUJiPBhPXA==
 
 contentful-management@^7.5.1:
-  version "7.10.0"
-  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-7.10.0.tgz#942e26b5a82bed1798d527c5b2e8b3b6b88409b8"
-  integrity sha512-caVoNTzU/nHFn+NsBu+o7u1hpsnYMBEBmsZilT03BSGAO0rqnVquN/ftVd58+3JNgdw++NcpfA66JnhCi/MMIw==
+  version "7.11.0"
+  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-7.11.0.tgz#3202c68c603e781fbcdd9286bebc3bd0c847c9d7"
+  integrity sha512-ewRMdKe1BpJ3ySAVBaIjOPsaVi9tP9cWd6h04foS+1u4HrAG23IKZsD3ZPl4jrArKerLDetvXAX0S446/DVd1g==
   dependencies:
     axios "^0.21.0"
     contentful-sdk-core "^6.7.0"
@@ -7326,11 +7326,6 @@ gatsby-plugin-sitemap@^2.4.5:
     minimatch "^3.0.4"
     pify "^3.0.0"
     sitemap "^1.13.0"
-
-gatsby-plugin-square-payment-form@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-square-payment-form/-/gatsby-plugin-square-payment-form-1.0.3.tgz#9bb419f98e23e1e9eec5f87086f9e78363b5f480"
-  integrity sha512-4NQrUCAiB/6fkC2TvsWOq6CZDM+VhZPz/AmkeDmChz/AKir0SLvD/5LOlovchBbB7nKshWvALgLmheamxa6J5g==
 
 gatsby-plugin-typescript@^2.12.1:
   version "2.12.1"
@@ -14128,11 +14123,6 @@ react-split-pane@^0.1.85:
     prop-types "^15.7.2"
     react-lifecycles-compat "^3.0.4"
     react-style-proptype "^3.2.2"
-
-react-square-payment-form@^0.7.2:
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/react-square-payment-form/-/react-square-payment-form-0.7.2.tgz#b64e9165b67554fad258dcde3d8d64f9327a5533"
-  integrity sha512-y40LOnwi24vVy2ygMJMHP4OnfnynQOMMDOo0bKpLZRPi0z6UzB+HI4eqF+n1a/627ztS/ZapTvjGXy2fq8z4yA==
 
 react-style-proptype@^3.2.2:
   version "3.2.2"
