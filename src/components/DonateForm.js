@@ -7,7 +7,8 @@ import { FaExclamationTriangle, FaRegEnvelope, FaCheck } from "react-icons/fa"
 import { uuidv4 } from "../components/utils"
 import _ from "lodash"
 
-const SQUARE_API_ENDPOINT = process.env.SQUARE_API_ENDPOINT
+const SQUARE_API_ENDPOINT = process.env.GATSBY_SQUARE_API_ENDPOINT
+const SQUARE_LOCATION_ID = process.env.GATSBY_LOCATION_ID
 
 export const loadSquareSdk = () => {
   return new Promise((resolve, reject) => {
@@ -157,7 +158,7 @@ export default class DonateForm extends React.Component {
           {
             nonce: nonce,
             idempotency_key: uuidv4(),
-            location_id: process.env.SQUARE_LOCATION_ID,
+            location_id: SQUARE_LOCATION_ID,
           },
           reqPayload
         )

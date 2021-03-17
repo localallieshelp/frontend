@@ -11,8 +11,8 @@ import { FormattedMessage } from "react-intl"
 import DonateForm from "../components/DonateForm"
 
 // Todo: There has got to be a better place for this
-const SQUARE_APPLICATION_ID = process.env.SQUARE_APPLICATION_ID
-const SQUARE_LOCATION_ID = process.env.SQUARE_LOCATION_ID
+const SQUARE_APPLICATION_ID = process.env.GATSBY_SQUARE_APPLICATION_ID
+const SQUARE_LOCATION_ID = process.env.GATSBY_SQUARE_LOCATION_ID
 
 const DonatePageTemplate = ({
   title,
