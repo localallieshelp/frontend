@@ -24,7 +24,7 @@ options:
       image: /img/contact-image-2.png
   three:
     title: "想加入我们的志愿者团队？"
-    description: "我们正寻找翻译员、数字/社交媒体营销员、会计、网络开发员及网页设计师。请附上您的名字、电子邮件和个人简历，或附上LinkedIn或技能列表，我们将回复告知具体事宜。"
+    description: "我们正寻找翻译员、数字/社交媒体营销员、会计、网络开发员及网页设计师。请附上您的名字、电子邮件和个人简历（LinkedIn 或技能列表亦可），我们将回复告知具体事宜。"
     image1:
       alt: "想加入我们的志愿者团队？"
       image: /img/contact-image-3.png
