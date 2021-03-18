@@ -22,7 +22,7 @@ main:
   description: "我们为小型商户提供量身订做的一对一援助，包括建立其网页。点击“小型商户中心”获取适合您的相关咨询。"
   buttontext: "了解更多"
   image1:
-    alt: "Initiative One"
+    alt: "小商户集散地"
     image: /img/initiative-1.png
   link: /cn/business/
 main2:
@@ -30,7 +30,7 @@ main2:
   description: "每一个参与我们捐赠计划的小型商户都可以获得以下服务：礼品代用券，“疫情无情，送饭送暖”服务，等等。捐赠计划所获得的资金将100% 用于帮助商户。"
   buttontext: "捐赠"
   image1:
-    alt: "Initiative Two"
+    alt: "捐赠计划"
     image: /img/initiative-2.png
   link: /cn/business/
 main3:
@@ -38,7 +38,7 @@ main3:
   description: "我们的团队会为每一位合作伙伴制定计划，服务包括提供数字和社交媒体营销策略。如有需要，我们还可以为您提供专业翻译服务（目前支持简繁体中文翻译）。以上提及的服务都是完全免费的。"
   buttontext: "了解更多"
   image1:
-    alt: "Initiative Three"
+    alt: "专业咨询"
     image: /img/initiative-3.png
   link: /cn/contact/
 
