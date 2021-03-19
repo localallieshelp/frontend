@@ -237,9 +237,7 @@ export default class DonateForm extends React.Component {
 
   handleDonationAmountOtherBlur(e) {
     e.target.value = e.target.value.replaceAll(/[^0-9.]/gi, "").trim() + ""
-    console.log("1", e.target.value)
     e.target.value = parseFloat(e.target.value).toFixed(2)
-    console.log("2", e.target.value)
 
     this.verificationDetails.amount = parseFloat(e.target.value)
   }
