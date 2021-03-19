@@ -39,6 +39,11 @@ const DonateFormSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
 })
 
+const currencyOptions = {
+  style: "currency",
+  currency: "USD",
+}
+
 export default class DonateForm extends React.Component {
   constructor(props) {
     super(props)
@@ -49,6 +54,8 @@ export default class DonateForm extends React.Component {
       donationAmountTouched: false,
       // processState enum: start, processing, success, error
       processState: "start",
+      transactionFee: 0,
+      isAmountValid: false,
     }
 
     this.verificationDetails = {
@@ -219,16 +226,20 @@ export default class DonateForm extends React.Component {
     }
 
     otherAmountInput.value = amount
+
     this.setState({
       donationAmountTouched: true,
+      transactionFee: amount * 0.035 + 0.15,
     })
+
     this.verificationDetails.amount = amount
   }
 
   handleDonationAmountOtherBlur(e) {
-    e.target.value = e.target.value.replaceAll(/[^0-9.]/gi, "").trim()
-    e.target.value = e.target.value.replaceAll(/\..*$/gi, "")
-    this.verificationDetails.amount = e.target.value
+    e.target.value = e.target.value.replaceAll(/[^0-9.]/gi, "").trim() + ""
+    e.target.value = parseFloat(e.target.value).toFixed(2)
+
+    this.verificationDetails.amount = parseFloat(e.target.value)
   }
 
   handleSubmit(values, actions) {
@@ -295,7 +306,8 @@ export default class DonateForm extends React.Component {
                   Other
                 </button>
                 {this.state.donationAmountTouched &&
-                  !this.verificationDetails.amount > 0 && (
+                  !this.verificationDetails.amount > 0 &&
+                  this.state.isAmountValid && (
                     <p className="help is-danger">Enter a valid amount</p>
                   )}
               </div>
@@ -307,13 +319,21 @@ export default class DonateForm extends React.Component {
                     className="input"
                     type="text"
                     placeholder=""
-                    onClick={(e) => {}}
                     onBlur={(e) => {
                       this.handleDonationAmountOtherBlur.call(this, e)
                     }}
-                    onKeyUp={(e) => {}}
                   />
                 </p>
+              </div>
+              <div>
+                <div className="content">
+                  <p>
+                    Square transaction fee:{" "}
+                    {new Intl.NumberFormat("en-US", currencyOptions).format(
+                      this.state.transactionFee
+                    )}
+                  </p>
+                </div>
               </div>
 
               <div className="field">
@@ -385,9 +405,12 @@ export default class DonateForm extends React.Component {
                     type="submit"
                     className="button button-credit-card"
                   >
-                    {"Donate"}
+                    {"Donate "}
                     {this.verificationDetails.amount > 0 &&
-                      " $" + this.verificationDetails.amount}
+                      new Intl.NumberFormat("en-US", currencyOptions).format(
+                        this.state.transactionFee +
+                          this.verificationDetails.amount
+                      )}
                   </button>
                 </div>
                 <div className="field">
